@@ -1,0 +1,1006 @@
+{
+  "status": "complete",
+  "n_observations": 18000,
+  "n_markets": 25,
+  "feature_columns": [
+    "historical_probability",
+    "article_volume",
+    "mean_sentiment",
+    "sentiment_min",
+    "sentiment_max",
+    "market_volume",
+    "market_liquidity",
+    "history_point_index",
+    "hour_utc",
+    "day_of_week",
+    "is_weekend",
+    "hour_sin",
+    "hour_cos",
+    "dow_sin",
+    "dow_cos",
+    "probability_change_prev",
+    "article_count_24h",
+    "mean_sentiment_24h",
+    "sentiment_min_24h",
+    "sentiment_max_24h",
+    "source__the_new_york_times__count_24h",
+    "source__the_new_york_times__sentiment_24h",
+    "source__the_jerusalem_post__count_24h",
+    "source__the_jerusalem_post__sentiment_24h",
+    "source__bbc_news__count_24h",
+    "source__bbc_news__sentiment_24h",
+    "source__the_times_of_israel__count_24h",
+    "source__the_times_of_israel__sentiment_24h",
+    "source__ynet__count_24h",
+    "source__ynet__sentiment_24h",
+    "source__fox_news__count_24h",
+    "source__fox_news__sentiment_24h",
+    "source__maariv__count_24h",
+    "source__maariv__sentiment_24h",
+    "article_count_1h",
+    "mean_sentiment_1h",
+    "sentiment_min_1h",
+    "sentiment_max_1h",
+    "source__the_new_york_times__count_1h",
+    "source__the_new_york_times__sentiment_1h",
+    "source__the_jerusalem_post__count_1h",
+    "source__the_jerusalem_post__sentiment_1h",
+    "source__bbc_news__count_1h",
+    "source__bbc_news__sentiment_1h",
+    "source__the_times_of_israel__count_1h",
+    "source__the_times_of_israel__sentiment_1h",
+    "source__ynet__count_1h",
+    "source__ynet__sentiment_1h",
+    "source__fox_news__count_1h",
+    "source__fox_news__sentiment_1h",
+    "source__maariv__count_1h",
+    "source__maariv__sentiment_1h",
+    "article_count_3h",
+    "mean_sentiment_3h",
+    "sentiment_min_3h",
+    "sentiment_max_3h",
+    "source__the_new_york_times__count_3h",
+    "source__the_new_york_times__sentiment_3h",
+    "source__the_jerusalem_post__count_3h",
+    "source__the_jerusalem_post__sentiment_3h",
+    "source__bbc_news__count_3h",
+    "source__bbc_news__sentiment_3h",
+    "source__the_times_of_israel__count_3h",
+    "source__the_times_of_israel__sentiment_3h",
+    "source__ynet__count_3h",
+    "source__ynet__sentiment_3h",
+    "source__fox_news__count_3h",
+    "source__fox_news__sentiment_3h",
+    "source__maariv__count_3h",
+    "source__maariv__sentiment_3h",
+    "article_count_6h",
+    "mean_sentiment_6h",
+    "sentiment_min_6h",
+    "sentiment_max_6h",
+    "source__the_new_york_times__count_6h",
+    "source__the_new_york_times__sentiment_6h",
+    "source__the_jerusalem_post__count_6h",
+    "source__the_jerusalem_post__sentiment_6h",
+    "source__bbc_news__count_6h",
+    "source__bbc_news__sentiment_6h",
+    "source__the_times_of_israel__count_6h",
+    "source__the_times_of_israel__sentiment_6h",
+    "source__ynet__count_6h",
+    "source__ynet__sentiment_6h",
+    "source__fox_news__count_6h",
+    "source__fox_news__sentiment_6h",
+    "source__maariv__count_6h",
+    "source__maariv__sentiment_6h",
+    "article_count_12h",
+    "mean_sentiment_12h",
+    "sentiment_min_12h",
+    "sentiment_max_12h",
+    "source__the_new_york_times__count_12h",
+    "source__the_new_york_times__sentiment_12h",
+    "source__the_jerusalem_post__count_12h",
+    "source__the_jerusalem_post__sentiment_12h",
+    "source__bbc_news__count_12h",
+    "source__bbc_news__sentiment_12h",
+    "source__the_times_of_israel__count_12h",
+    "source__the_times_of_israel__sentiment_12h",
+    "source__ynet__count_12h",
+    "source__ynet__sentiment_12h",
+    "source__fox_news__count_12h",
+    "source__fox_news__sentiment_12h",
+    "source__maariv__count_12h",
+    "source__maariv__sentiment_12h",
+    "source__the_new_york_times__count",
+    "source__the_new_york_times__sentiment",
+    "source__the_jerusalem_post__count",
+    "source__the_jerusalem_post__sentiment",
+    "source__bbc_news__count",
+    "source__bbc_news__sentiment",
+    "source__the_times_of_israel__count",
+    "source__the_times_of_israel__sentiment",
+    "source__ynet__count",
+    "source__ynet__sentiment",
+    "source__fox_news__count",
+    "source__fox_news__sentiment",
+    "source__maariv__count",
+    "source__maariv__sentiment",
+    "topic__iran",
+    "topic__israel",
+    "topic__gaza",
+    "topic__hezbollah",
+    "topic__hamas",
+    "topic__nuclear_deal",
+    "topic__ceasefire",
+    "topic__sanctions",
+    "topic__regional_war"
+  ],
+  "topics": [
+    "ceasefire",
+    "gaza",
+    "hamas",
+    "hezbollah",
+    "iran",
+    "israel",
+    "nuclear_deal",
+    "regional_war",
+    "sanctions"
+  ],
+  "targets": {
+    "1h": {
+      "target": "target_delta_1h",
+      "horizon": "1h",
+      "status": "trained",
+      "n_observations": 17950,
+      "feature_importance": [
+        {
+          "feature": "probability_change_prev",
+          "importance": 0.26729
+        },
+        {
+          "feature": "historical_probability",
+          "importance": 0.154618
+        },
+        {
+          "feature": "history_point_index",
+          "importance": 0.115856
+        },
+        {
+          "feature": "hour_utc",
+          "importance": 0.057553
+        },
+        {
+          "feature": "hour_sin",
+          "importance": 0.050527
+        },
+        {
+          "feature": "hour_cos",
+          "importance": 0.048859
+        },
+        {
+          "feature": "market_volume",
+          "importance": 0.04289
+        },
+        {
+          "feature": "day_of_week",
+          "importance": 0.027324
+        },
+        {
+          "feature": "market_liquidity",
+          "importance": 0.021106
+        },
+        {
+          "feature": "dow_sin",
+          "importance": 0.018187
+        },
+        {
+          "feature": "dow_cos",
+          "importance": 0.014723
+        },
+        {
+          "feature": "source__bbc_news__sentiment",
+          "importance": 0.011569
+        },
+        {
+          "feature": "source__bbc_news__sentiment_24h",
+          "importance": 0.01126
+        },
+        {
+          "feature": "source__bbc_news__sentiment_12h",
+          "importance": 0.010603
+        },
+        {
+          "feature": "sentiment_min_12h",
+          "importance": 0.009184
+        },
+        {
+          "feature": "mean_sentiment_12h",
+          "importance": 0.009082
+        },
+        {
+          "feature": "topic__regional_war",
+          "importance": 0.008958
+        },
+        {
+          "feature": "mean_sentiment",
+          "importance": 0.007539
+        },
+        {
+          "feature": "topic__israel",
+          "importance": 0.007365
+        },
+        {
+          "feature": "topic__ceasefire",
+          "importance": 0.007188
+        },
+        {
+          "feature": "topic__nuclear_deal",
+          "importance": 0.006788
+        },
+        {
+          "feature": "topic__hezbollah",
+          "importance": 0.006518
+        },
+        {
+          "feature": "sentiment_max_12h",
+          "importance": 0.006369
+        },
+        {
+          "feature": "sentiment_min_24h",
+          "importance": 0.005819
+        },
+        {
+          "feature": "mean_sentiment_24h",
+          "importance": 0.00563
+        }
+      ],
+      "source_importance": [
+        {
+          "source": "bbc_news",
+          "importance": 0.05499
+        },
+        {
+          "source": "the_new_york_times",
+          "importance": 8.5e-05
+        }
+      ],
+      "predictions": [
+        {
+          "market_id": "0x0c38dd9305e3205557885183f0730270779e7e426b0ec3e7743f23963b6d6e4a",
+          "market_question": "Will France, UK, or Germany strike Iran by June 30?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.001,
+          "predicted_delta": -0.0,
+          "predicted_probability": 0.001,
+          "predicted_direction": "flat",
+          "article_volume": 12,
+          "mean_sentiment": -0.7948
+        },
+        {
+          "market_id": "0x6cb3ec9e0fb1c258898f648f8b33422f59ba3e8a71aee551449d7cb147bb8ead",
+          "market_question": "Iran agrees to surrender enriched uranium stockpile by June 30, 2026?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.0045,
+          "predicted_delta": 0.0003,
+          "predicted_probability": 0.0048,
+          "predicted_direction": "flat",
+          "article_volume": 30,
+          "mean_sentiment": -0.5776
+        },
+        {
+          "market_id": "0xbb4d51e6364066d92eb6f9b8413dd7193de70966736044463b205834805a1f3b",
+          "market_question": "Will the Iranian regime fall before 2027?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.095,
+          "predicted_delta": -0.0001,
+          "predicted_probability": 0.0949,
+          "predicted_direction": "flat",
+          "article_volume": 12,
+          "mean_sentiment": -0.7948
+        },
+        {
+          "market_id": "0xb196a122933da9aff6cb8b0f3764d0dc5db1859f46c0481c711521eee8524291",
+          "market_question": "Iran leadership change by June 30?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.0025,
+          "predicted_delta": -0.0,
+          "predicted_probability": 0.0025,
+          "predicted_direction": "flat",
+          "article_volume": 12,
+          "mean_sentiment": -0.7948
+        },
+        {
+          "market_id": "0xaa5cdb6830cbfa2ca711b7cf93bd42cf4f8e062d44ea188c0b8ec1fb2924c083",
+          "market_question": "Will Reza Pahlavi lead Iran in 2026?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.0435,
+          "predicted_delta": -0.0005,
+          "predicted_probability": 0.043,
+          "predicted_direction": "flat",
+          "article_volume": 12,
+          "mean_sentiment": -0.7948
+        },
+        {
+          "market_id": "0x9ed0ecc8b8589e67967d44c4420944a41b6a6806419019a1581d514174eee9b1",
+          "market_question": "Will Naftali Bennett be the next Prime Minister of Israel?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.125,
+          "predicted_delta": 0.0042,
+          "predicted_probability": 0.1292,
+          "predicted_direction": "flat",
+          "article_volume": 21,
+          "mean_sentiment": -0.4122
+        },
+        {
+          "market_id": "0x962e5b226a77266ab429029ee04665e8fcfeb10b91af593786ceab871d2e945f",
+          "market_question": "Will Donald Trump win the Nobel Peace Prize in 2026?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.075,
+          "predicted_delta": -0.0001,
+          "predicted_probability": 0.0749,
+          "predicted_direction": "flat",
+          "article_volume": 1,
+          "mean_sentiment": -0.7971
+        },
+        {
+          "market_id": "0x9352c559e9648ab4cab236087b64ca85c5b7123a4c7d9d7d4efde4a39c18056f",
+          "market_question": "Will the Iranian regime fall by June 30?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.0005,
+          "predicted_delta": 0.0003,
+          "predicted_probability": 0.0008,
+          "predicted_direction": "flat",
+          "article_volume": 12,
+          "mean_sentiment": -0.7948
+        },
+        {
+          "market_id": "0x86f43746cbd692719483aaeedc657eef89d9ffb91d6ffceacb1edf533e049516",
+          "market_question": "Israel x Hezbollah permanent peace deal by June 30, 2026?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.0085,
+          "predicted_delta": 0.0016,
+          "predicted_probability": 0.0101,
+          "predicted_direction": "flat",
+          "article_volume": 21,
+          "mean_sentiment": -0.4122
+        },
+        {
+          "market_id": "0x865303ccb9a48341d1bae33b3b4379ca86d5abbff3ce1e132716631cc0af3cce",
+          "market_question": "Netanyahu out by June 30?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.0015,
+          "predicted_delta": 0.0002,
+          "predicted_probability": 0.0017,
+          "predicted_direction": "flat",
+          "article_volume": 21,
+          "mean_sentiment": -0.4122
+        },
+        {
+          "market_id": "0x1be62d973dc8fb45de714eb2113118b6ac3e47694f8b0801c0c41d992d0b7c9f",
+          "market_question": "Will Trump agree to Iranian transit fees in the Strait of Hormuz by June 30?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.0085,
+          "predicted_delta": 0.0065,
+          "predicted_probability": 0.015,
+          "predicted_direction": "up",
+          "article_volume": 12,
+          "mean_sentiment": -0.7948
+        },
+        {
+          "market_id": "0x77eafa497fe8ff7a41f540e2920e8897540b01f06b82477d168c4a21a7f9e57a",
+          "market_question": "Will JD Vance enter Iran by June 30?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.001,
+          "predicted_delta": -0.0001,
+          "predicted_probability": 0.0009,
+          "predicted_direction": "flat",
+          "article_volume": 12,
+          "mean_sentiment": -0.7948
+        },
+        {
+          "market_id": "0x6897736d782ce70f47126dfcec6669073f563d6e757e60bc61c0367370d6f73e",
+          "market_question": "Kharg Island no longer under Iranian control by June 30?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.0015,
+          "predicted_delta": 0.0005,
+          "predicted_probability": 0.002,
+          "predicted_direction": "flat",
+          "article_volume": 12,
+          "mean_sentiment": -0.7948
+        },
+        {
+          "market_id": "0x676e7cda423f5826bcbb3c141e808ad7c66bc2d055e4d0aca79c26779712062c",
+          "market_question": "Israel closes its airspace by June 30?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.004,
+          "predicted_delta": 0.0,
+          "predicted_probability": 0.004,
+          "predicted_direction": "flat",
+          "article_volume": 21,
+          "mean_sentiment": -0.4122
+        },
+        {
+          "market_id": "0x43272c02b8407ed3f8d5b04fb4cb132d7a59c5df6ecc423afcf66f1c778d1887",
+          "market_question": "Will Reza Pahlavi enter Iran by June 30?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.0005,
+          "predicted_delta": 0.0002,
+          "predicted_probability": 0.0007,
+          "predicted_direction": "flat",
+          "article_volume": 12,
+          "mean_sentiment": -0.7948
+        },
+        {
+          "market_id": "0x41ba322441190c465ec75e5866c6a5a3d429cf4d1efe2682026e8dcd5dbc37db",
+          "market_question": "Will Trump agree to Iranian enrichment of uranium by June 30?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.007,
+          "predicted_delta": 0.0202,
+          "predicted_probability": 0.0272,
+          "predicted_direction": "up",
+          "article_volume": 12,
+          "mean_sentiment": -0.7948
+        },
+        {
+          "market_id": "0x377e7fe65cf198a7fc4fdae3f2136b74729279267858daaf96718b23bc2a5607",
+          "market_question": "Iran leadership change by December 31?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.155,
+          "predicted_delta": -0.0002,
+          "predicted_probability": 0.1548,
+          "predicted_direction": "flat",
+          "article_volume": 12,
+          "mean_sentiment": -0.7948
+        },
+        {
+          "market_id": "0x25fb28382075f418a944a781a9f8840e2f541152eea0d9798d1cabfa1466adbb",
+          "market_question": "Will Mojtaba Khamenei be head of state in Iran end of 2026?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.8415,
+          "predicted_delta": -0.0025,
+          "predicted_probability": 0.839,
+          "predicted_direction": "flat",
+          "article_volume": 12,
+          "mean_sentiment": -0.7948
+        },
+        {
+          "market_id": "0xc112ff35c760ee66738e288067c3de90a2b44a28a9e2f4488989d498be03b292",
+          "market_question": "US obtains Iranian enriched uranium by June 30?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.0015,
+          "predicted_delta": 0.0003,
+          "predicted_probability": 0.0018,
+          "predicted_direction": "flat",
+          "article_volume": 12,
+          "mean_sentiment": -0.7948
+        },
+        {
+          "market_id": "0x83f38b0110a93a4e68d2391dc70868ab1f8a9a074de58b0ef50d5312e3fcfcf7",
+          "market_question": "Will Benjamin Netanyahu enter Iran by June 30?",
+          "timestamp": "2026-06-29T08:24:04+00:00",
+          "current_probability": 0.0005,
+          "predicted_delta": -0.0,
+          "predicted_probability": 0.0005,
+          "predicted_direction": "flat",
+          "article_volume": 13,
+          "mean_sentiment": -0.7949
+        },
+        {
+          "market_id": "0x5efa976ebe94080bbda7e45605333ff8f30156cc91604d66c41eb52fd3e25f3e",
+          "market_question": "Israel x Iran permanent peace deal by June 30, 2026?",
+          "timestamp": "2026-06-29T08:24:04+00:00",
+          "current_probability": 0.005,
+          "predicted_delta": 0.001,
+          "predicted_probability": 0.006,
+          "predicted_direction": "flat",
+          "article_volume": 30,
+          "mean_sentiment": -0.5776
+        },
+        {
+          "market_id": "0x57165bc68af588cf16e499eecd6c040e458c939e0fb0dd4b193744a9d21aa5f2",
+          "market_question": "Israel withdraws from Lebanon by June 30, 2026?",
+          "timestamp": "2026-06-29T08:24:04+00:00",
+          "current_probability": 0.0015,
+          "predicted_delta": 0.0004,
+          "predicted_probability": 0.0019,
+          "predicted_direction": "flat",
+          "article_volume": 21,
+          "mean_sentiment": -0.4122
+        },
+        {
+          "market_id": "0x96cd1bfdc9f904198fd559b1a62c0e5c23412672d1c174ebb8d025273577a3fd",
+          "market_question": "Israel and Indonesia normalize relations by June 30, 2026?",
+          "timestamp": "2026-06-29T08:24:04+00:00",
+          "current_probability": 0.0015,
+          "predicted_delta": 0.0005,
+          "predicted_probability": 0.002,
+          "predicted_direction": "flat",
+          "article_volume": 21,
+          "mean_sentiment": -0.4122
+        },
+        {
+          "market_id": "0x9d3f02264a94bafc676afd7add8b11442e6ec72dabaa69cefef835f0672275c7",
+          "market_question": " Iran agrees to end enrichment of uranium by June 30?",
+          "timestamp": "2026-06-29T08:24:04+00:00",
+          "current_probability": 0.0045,
+          "predicted_delta": 0.0007,
+          "predicted_probability": 0.0052,
+          "predicted_direction": "flat",
+          "article_volume": 30,
+          "mean_sentiment": -0.5776
+        },
+        {
+          "market_id": "0x5db999fad322cea2914535aae5517060c3f80ad6d8c0231cde2124a434d16846",
+          "market_question": "Will the U.S. invade Iran before 2027?",
+          "timestamp": "2026-06-29T08:23:04+00:00",
+          "current_probability": 0.145,
+          "predicted_delta": 0.0003,
+          "predicted_probability": 0.1453,
+          "predicted_direction": "flat",
+          "article_volume": 12,
+          "mean_sentiment": -0.7948
+        }
+      ],
+      "evaluation_mode": "time_holdout",
+      "n_train": 14360,
+      "n_test": 3590,
+      "mae": 0.002682,
+      "r2": -4.070368,
+      "baselines": {
+        "no_change": {
+          "mae": 0.000716,
+          "directional_accuracy": 0.959331
+        },
+        "previous_change": {
+          "mae": 0.00113,
+          "directional_accuracy": 0.947354
+        },
+        "average_delta": {
+          "mae": 0.000827,
+          "directional_accuracy": 0.959331
+        }
+      },
+      "best_baseline": "no_change",
+      "baseline_mae": 0.000716,
+      "baseline_directional_accuracy": 0.959331,
+      "improvement_pct": -274.512,
+      "beats_baseline": false,
+      "directional_accuracy": 0.895543,
+      "reliability": "weak"
+    },
+    "1d": {
+      "target": "target_delta_1d",
+      "horizon": "1d",
+      "status": "trained",
+      "n_observations": 17375,
+      "feature_importance": [
+        {
+          "feature": "history_point_index",
+          "importance": 0.20992
+        },
+        {
+          "feature": "historical_probability",
+          "importance": 0.207605
+        },
+        {
+          "feature": "probability_change_prev",
+          "importance": 0.108192
+        },
+        {
+          "feature": "market_volume",
+          "importance": 0.071583
+        },
+        {
+          "feature": "market_liquidity",
+          "importance": 0.052388
+        },
+        {
+          "feature": "topic__nuclear_deal",
+          "importance": 0.033531
+        },
+        {
+          "feature": "topic__ceasefire",
+          "importance": 0.031372
+        },
+        {
+          "feature": "day_of_week",
+          "importance": 0.030027
+        },
+        {
+          "feature": "hour_sin",
+          "importance": 0.023513
+        },
+        {
+          "feature": "hour_utc",
+          "importance": 0.023463
+        },
+        {
+          "feature": "hour_cos",
+          "importance": 0.020236
+        },
+        {
+          "feature": "topic__israel",
+          "importance": 0.018344
+        },
+        {
+          "feature": "sentiment_max",
+          "importance": 0.017809
+        },
+        {
+          "feature": "topic__regional_war",
+          "importance": 0.016768
+        },
+        {
+          "feature": "dow_cos",
+          "importance": 0.015822
+        },
+        {
+          "feature": "topic__iran",
+          "importance": 0.015309
+        },
+        {
+          "feature": "sentiment_max_24h",
+          "importance": 0.014466
+        },
+        {
+          "feature": "dow_sin",
+          "importance": 0.013242
+        },
+        {
+          "feature": "topic__hezbollah",
+          "importance": 0.009187
+        },
+        {
+          "feature": "sentiment_min_6h",
+          "importance": 0.005398
+        },
+        {
+          "feature": "mean_sentiment_6h",
+          "importance": 0.005358
+        },
+        {
+          "feature": "source__bbc_news__sentiment_6h",
+          "importance": 0.005332
+        },
+        {
+          "feature": "sentiment_max_6h",
+          "importance": 0.00458
+        },
+        {
+          "feature": "sentiment_min",
+          "importance": 0.004072
+        },
+        {
+          "feature": "sentiment_min_12h",
+          "importance": 0.003814
+        }
+      ],
+      "source_importance": [
+        {
+          "source": "bbc_news",
+          "importance": 0.021369
+        }
+      ],
+      "predictions": [
+        {
+          "market_id": "0x0c38dd9305e3205557885183f0730270779e7e426b0ec3e7743f23963b6d6e4a",
+          "market_question": "Will France, UK, or Germany strike Iran by June 30?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.001,
+          "predicted_delta": -0.0004,
+          "predicted_probability": 0.0006,
+          "predicted_direction": "flat",
+          "article_volume": 12,
+          "mean_sentiment": -0.7948
+        },
+        {
+          "market_id": "0x6cb3ec9e0fb1c258898f648f8b33422f59ba3e8a71aee551449d7cb147bb8ead",
+          "market_question": "Iran agrees to surrender enriched uranium stockpile by June 30, 2026?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.0045,
+          "predicted_delta": 0.0047,
+          "predicted_probability": 0.0092,
+          "predicted_direction": "flat",
+          "article_volume": 30,
+          "mean_sentiment": -0.5776
+        },
+        {
+          "market_id": "0xbb4d51e6364066d92eb6f9b8413dd7193de70966736044463b205834805a1f3b",
+          "market_question": "Will the Iranian regime fall before 2027?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.095,
+          "predicted_delta": -0.0012,
+          "predicted_probability": 0.0938,
+          "predicted_direction": "flat",
+          "article_volume": 12,
+          "mean_sentiment": -0.7948
+        },
+        {
+          "market_id": "0xb196a122933da9aff6cb8b0f3764d0dc5db1859f46c0481c711521eee8524291",
+          "market_question": "Iran leadership change by June 30?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.0025,
+          "predicted_delta": -0.0002,
+          "predicted_probability": 0.0023,
+          "predicted_direction": "flat",
+          "article_volume": 12,
+          "mean_sentiment": -0.7948
+        },
+        {
+          "market_id": "0xaa5cdb6830cbfa2ca711b7cf93bd42cf4f8e062d44ea188c0b8ec1fb2924c083",
+          "market_question": "Will Reza Pahlavi lead Iran in 2026?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.0435,
+          "predicted_delta": -0.0027,
+          "predicted_probability": 0.0408,
+          "predicted_direction": "flat",
+          "article_volume": 12,
+          "mean_sentiment": -0.7948
+        },
+        {
+          "market_id": "0x9ed0ecc8b8589e67967d44c4420944a41b6a6806419019a1581d514174eee9b1",
+          "market_question": "Will Naftali Bennett be the next Prime Minister of Israel?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.125,
+          "predicted_delta": 0.0079,
+          "predicted_probability": 0.1329,
+          "predicted_direction": "up",
+          "article_volume": 21,
+          "mean_sentiment": -0.4122
+        },
+        {
+          "market_id": "0x962e5b226a77266ab429029ee04665e8fcfeb10b91af593786ceab871d2e945f",
+          "market_question": "Will Donald Trump win the Nobel Peace Prize in 2026?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.075,
+          "predicted_delta": -0.0019,
+          "predicted_probability": 0.0731,
+          "predicted_direction": "flat",
+          "article_volume": 1,
+          "mean_sentiment": -0.7971
+        },
+        {
+          "market_id": "0x9352c559e9648ab4cab236087b64ca85c5b7123a4c7d9d7d4efde4a39c18056f",
+          "market_question": "Will the Iranian regime fall by June 30?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.0005,
+          "predicted_delta": -0.0003,
+          "predicted_probability": 0.0002,
+          "predicted_direction": "flat",
+          "article_volume": 12,
+          "mean_sentiment": -0.7948
+        },
+        {
+          "market_id": "0x86f43746cbd692719483aaeedc657eef89d9ffb91d6ffceacb1edf533e049516",
+          "market_question": "Israel x Hezbollah permanent peace deal by June 30, 2026?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.0085,
+          "predicted_delta": 0.0107,
+          "predicted_probability": 0.0192,
+          "predicted_direction": "up",
+          "article_volume": 21,
+          "mean_sentiment": -0.4122
+        },
+        {
+          "market_id": "0x865303ccb9a48341d1bae33b3b4379ca86d5abbff3ce1e132716631cc0af3cce",
+          "market_question": "Netanyahu out by June 30?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.0015,
+          "predicted_delta": 0.0005,
+          "predicted_probability": 0.002,
+          "predicted_direction": "flat",
+          "article_volume": 21,
+          "mean_sentiment": -0.4122
+        },
+        {
+          "market_id": "0x1be62d973dc8fb45de714eb2113118b6ac3e47694f8b0801c0c41d992d0b7c9f",
+          "market_question": "Will Trump agree to Iranian transit fees in the Strait of Hormuz by June 30?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.0085,
+          "predicted_delta": 0.0081,
+          "predicted_probability": 0.0166,
+          "predicted_direction": "up",
+          "article_volume": 12,
+          "mean_sentiment": -0.7948
+        },
+        {
+          "market_id": "0x77eafa497fe8ff7a41f540e2920e8897540b01f06b82477d168c4a21a7f9e57a",
+          "market_question": "Will JD Vance enter Iran by June 30?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.001,
+          "predicted_delta": -0.0,
+          "predicted_probability": 0.001,
+          "predicted_direction": "flat",
+          "article_volume": 12,
+          "mean_sentiment": -0.7948
+        },
+        {
+          "market_id": "0x6897736d782ce70f47126dfcec6669073f563d6e757e60bc61c0367370d6f73e",
+          "market_question": "Kharg Island no longer under Iranian control by June 30?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.0015,
+          "predicted_delta": 0.0001,
+          "predicted_probability": 0.0016,
+          "predicted_direction": "flat",
+          "article_volume": 12,
+          "mean_sentiment": -0.7948
+        },
+        {
+          "market_id": "0x676e7cda423f5826bcbb3c141e808ad7c66bc2d055e4d0aca79c26779712062c",
+          "market_question": "Israel closes its airspace by June 30?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.004,
+          "predicted_delta": 0.0001,
+          "predicted_probability": 0.0041,
+          "predicted_direction": "flat",
+          "article_volume": 21,
+          "mean_sentiment": -0.4122
+        },
+        {
+          "market_id": "0x43272c02b8407ed3f8d5b04fb4cb132d7a59c5df6ecc423afcf66f1c778d1887",
+          "market_question": "Will Reza Pahlavi enter Iran by June 30?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.0005,
+          "predicted_delta": -0.0001,
+          "predicted_probability": 0.0004,
+          "predicted_direction": "flat",
+          "article_volume": 12,
+          "mean_sentiment": -0.7948
+        },
+        {
+          "market_id": "0x41ba322441190c465ec75e5866c6a5a3d429cf4d1efe2682026e8dcd5dbc37db",
+          "market_question": "Will Trump agree to Iranian enrichment of uranium by June 30?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.007,
+          "predicted_delta": 0.0043,
+          "predicted_probability": 0.0113,
+          "predicted_direction": "flat",
+          "article_volume": 12,
+          "mean_sentiment": -0.7948
+        },
+        {
+          "market_id": "0x377e7fe65cf198a7fc4fdae3f2136b74729279267858daaf96718b23bc2a5607",
+          "market_question": "Iran leadership change by December 31?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.155,
+          "predicted_delta": 0.0044,
+          "predicted_probability": 0.1594,
+          "predicted_direction": "flat",
+          "article_volume": 12,
+          "mean_sentiment": -0.7948
+        },
+        {
+          "market_id": "0x25fb28382075f418a944a781a9f8840e2f541152eea0d9798d1cabfa1466adbb",
+          "market_question": "Will Mojtaba Khamenei be head of state in Iran end of 2026?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.8415,
+          "predicted_delta": 0.0108,
+          "predicted_probability": 0.8523,
+          "predicted_direction": "up",
+          "article_volume": 12,
+          "mean_sentiment": -0.7948
+        },
+        {
+          "market_id": "0xc112ff35c760ee66738e288067c3de90a2b44a28a9e2f4488989d498be03b292",
+          "market_question": "US obtains Iranian enriched uranium by June 30?",
+          "timestamp": "2026-06-29T08:24:05+00:00",
+          "current_probability": 0.0015,
+          "predicted_delta": 0.0001,
+          "predicted_probability": 0.0016,
+          "predicted_direction": "flat",
+          "article_volume": 12,
+          "mean_sentiment": -0.7948
+        },
+        {
+          "market_id": "0x83f38b0110a93a4e68d2391dc70868ab1f8a9a074de58b0ef50d5312e3fcfcf7",
+          "market_question": "Will Benjamin Netanyahu enter Iran by June 30?",
+          "timestamp": "2026-06-29T08:24:04+00:00",
+          "current_probability": 0.0005,
+          "predicted_delta": -0.0001,
+          "predicted_probability": 0.0004,
+          "predicted_direction": "flat",
+          "article_volume": 13,
+          "mean_sentiment": -0.7949
+        },
+        {
+          "market_id": "0x5efa976ebe94080bbda7e45605333ff8f30156cc91604d66c41eb52fd3e25f3e",
+          "market_question": "Israel x Iran permanent peace deal by June 30, 2026?",
+          "timestamp": "2026-06-29T08:24:04+00:00",
+          "current_probability": 0.005,
+          "predicted_delta": 0.0034,
+          "predicted_probability": 0.0084,
+          "predicted_direction": "flat",
+          "article_volume": 30,
+          "mean_sentiment": -0.5776
+        },
+        {
+          "market_id": "0x57165bc68af588cf16e499eecd6c040e458c939e0fb0dd4b193744a9d21aa5f2",
+          "market_question": "Israel withdraws from Lebanon by June 30, 2026?",
+          "timestamp": "2026-06-29T08:24:04+00:00",
+          "current_probability": 0.0015,
+          "predicted_delta": 0.0017,
+          "predicted_probability": 0.0032,
+          "predicted_direction": "flat",
+          "article_volume": 21,
+          "mean_sentiment": -0.4122
+        },
+        {
+          "market_id": "0x96cd1bfdc9f904198fd559b1a62c0e5c23412672d1c174ebb8d025273577a3fd",
+          "market_question": "Israel and Indonesia normalize relations by June 30, 2026?",
+          "timestamp": "2026-06-29T08:24:04+00:00",
+          "current_probability": 0.0015,
+          "predicted_delta": 0.0001,
+          "predicted_probability": 0.0016,
+          "predicted_direction": "flat",
+          "article_volume": 21,
+          "mean_sentiment": -0.4122
+        },
+        {
+          "market_id": "0x9d3f02264a94bafc676afd7add8b11442e6ec72dabaa69cefef835f0672275c7",
+          "market_question": " Iran agrees to end enrichment of uranium by June 30?",
+          "timestamp": "2026-06-29T08:24:04+00:00",
+          "current_probability": 0.0045,
+          "predicted_delta": 0.0026,
+          "predicted_probability": 0.0071,
+          "predicted_direction": "flat",
+          "article_volume": 30,
+          "mean_sentiment": -0.5776
+        },
+        {
+          "market_id": "0x5db999fad322cea2914535aae5517060c3f80ad6d8c0231cde2124a434d16846",
+          "market_question": "Will the U.S. invade Iran before 2027?",
+          "timestamp": "2026-06-29T08:23:04+00:00",
+          "current_probability": 0.145,
+          "predicted_delta": 0.006,
+          "predicted_probability": 0.151,
+          "predicted_direction": "up",
+          "article_volume": 12,
+          "mean_sentiment": -0.7948
+        }
+      ],
+      "evaluation_mode": "time_holdout",
+      "n_train": 13900,
+      "n_test": 3475,
+      "mae": 0.004464,
+      "r2": -0.520321,
+      "baselines": {
+        "no_change": {
+          "mae": 0.003215,
+          "directional_accuracy": 0.805755
+        },
+        "previous_change": {
+          "mae": 0.003444,
+          "directional_accuracy": 0.810072
+        },
+        "average_delta": {
+          "mae": 0.003911,
+          "directional_accuracy": 0.805755
+        }
+      },
+      "best_baseline": "no_change",
+      "baseline_mae": 0.003215,
+      "baseline_directional_accuracy": 0.805755,
+      "improvement_pct": -38.862,
+      "beats_baseline": false,
+      "directional_accuracy": 0.76518,
+      "reliability": "weak"
+    }
+  },
+  "source_labels": {
+    "the_new_york_times": "The New York Times",
+    "the_jerusalem_post": "The Jerusalem Post",
+    "bbc_news": "BBC News",
+    "the_times_of_israel": "The Times of Israel",
+    "ynet": "Ynet",
+    "fox_news": "Fox News",
+    "maariv": "Maariv"
+  },
+  "article_window_hours": 24,
+  "article_windows_hours": [
+    1,
+    3,
+    6,
+    12,
+    24
+  ],
+  "movement_threshold": 0.005,
+  "matching_note": "Articles are matched to markets by overlapping geopolitical keywords and derived topic labels. RSS feeds are recent-only; no historical article backfill is fabricated."
+}
