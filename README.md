@@ -41,6 +41,8 @@ streamlit run frontend/app.py
 streamlit run frontend/app.py
 ```
 
+אין צורך להגדיר `PYTHONPATH=.`. קובץ הדשבורד מוסיף את תיקיית הפרויקט לנתיב הייבוא באופן אוטומטי, כך שהפקודה עובדת גם מקומית וגם ב-Streamlit Community Cloud.
+
 הדשבורד יטען את הקבצים:
 
 - `output/articles.json`
