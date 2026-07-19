@@ -430,6 +430,134 @@ def _baseline_summary(
     }
 
 
+def _error_distribution(y_true: Sequence[float], y_pred: Sequence[float]) -> Dict[str, Any]:
+    errors = np.asarray(y_pred, dtype=float) - np.asarray(y_true, dtype=float)
+    abs_errors = np.abs(errors)
+    if len(abs_errors) == 0:
+        return {}
+    counts, edges = np.histogram(abs_errors, bins=min(10, max(1, len(abs_errors))))
+    return {
+        "mean_error": round(float(np.mean(errors)), 6),
+        "median_absolute_error": round(float(np.median(abs_errors)), 6),
+        "p90_absolute_error": round(float(np.percentile(abs_errors, 90)), 6),
+        "max_absolute_error": round(float(np.max(abs_errors)), 6),
+        "histogram": [
+            {"bin_left": round(float(left), 6), "bin_right": round(float(right), 6), "count": int(count)}
+            for count, left, right in zip(counts, edges[:-1], edges[1:])
+        ],
+    }
+
+
+def _topic_reliability(n_rows: int, directional_accuracy: Optional[float]) -> str:
+    if n_rows < 20:
+        return "insufficient_data"
+    if directional_accuracy is not None and directional_accuracy >= 0.60:
+        return "medium"
+    return "weak"
+
+
+def _topic_performance(
+    test_df: pd.DataFrame,
+    y_test: pd.Series,
+    preds: Sequence[float],
+) -> List[Dict[str, Any]]:
+    pred_series = pd.Series(preds, index=test_df.index, dtype=float)
+    rows: List[Dict[str, Any]] = []
+    for topic in TOPIC_KEYWORDS:
+        col = f"topic__{topic}"
+        if col not in test_df.columns:
+            rows.append({"topic": topic, "status": "אין מספיק נתונים", "n_test": 0})
+            continue
+        mask = pd.to_numeric(test_df[col], errors="coerce").fillna(0) > 0
+        n_rows = int(mask.sum())
+        if n_rows < 20:
+            rows.append({"topic": topic, "status": "אין מספיק נתונים", "n_test": n_rows})
+            continue
+        actual = y_test.loc[mask]
+        topic_preds = pred_series.loc[mask]
+        mae = float(np.mean(np.abs(topic_preds.to_numpy() - actual.to_numpy())))
+        direction_acc = _direction_accuracy(actual, topic_preds)
+        rows.append(
+            {
+                "topic": topic,
+                "status": "ok",
+                "n_test": n_rows,
+                "mae": round(mae, 6),
+                "directional_accuracy": round(float(direction_acc), 6) if direction_acc is not None else None,
+                "reliability": _topic_reliability(n_rows, direction_acc),
+            }
+        )
+    return rows
+
+
+def _source_validation(
+    test_df: pd.DataFrame,
+    source_importance: Sequence[Dict[str, Any]],
+) -> List[Dict[str, Any]]:
+    importance_by_source = {
+        str(item.get("source")): float(item.get("importance") or 0.0)
+        for item in source_importance
+        if item.get("source")
+    }
+    rows: List[Dict[str, Any]] = []
+    source_slugs = sorted(
+        {
+            match.group(1)
+            for col in test_df.columns
+            if (match := re.match(r"^source__(.+)__count$", col))
+        }
+    )
+    for source in source_slugs:
+        count_col = f"source__{source}__count"
+        sentiment_col = f"source__{source}__sentiment"
+        counts = pd.to_numeric(test_df[count_col], errors="coerce").fillna(0)
+        related = test_df.loc[counts > 0]
+        n_rows = int(len(related))
+        avg_sentiment = (
+            float(pd.to_numeric(related[sentiment_col], errors="coerce").fillna(0).mean())
+            if sentiment_col in related.columns and n_rows
+            else 0.0
+        )
+        predictive_score = importance_by_source.get(source, 0.0)
+        if n_rows < 20:
+            note = "מדגם קטן; שימושיות חזויה אינה יציבה."
+        elif predictive_score > 0:
+            note = "למקור יש תרומה מסוימת למודל, אך זה אינו מדד אמת או אמינות עיתונאית."
+        else:
+            note = "לא זוהתה תרומה חזויה משמעותית במודל הנוכחי."
+        rows.append(
+            {
+                "source": source,
+                "n_related_observations": n_rows,
+                "average_sentiment": round(avg_sentiment, 6),
+                "predictive_score": round(predictive_score, 6),
+                "validation_note": note,
+            }
+        )
+    return sorted(rows, key=lambda row: row["predictive_score"], reverse=True)
+
+
+def _validation_conclusion_he(
+    horizon_label: str,
+    improvement_pct: Optional[float],
+    r2_value: Optional[float],
+    directional_accuracy: Optional[float],
+    reliability: str,
+) -> str:
+    horizon = "שעה" if horizon_label == "1h" else "יום"
+    parts: List[str] = [f"עבור יעד של {horizon} קדימה, התיקוף בוצע באמצעות חלוקת זמן."]
+    if improvement_pct is not None and improvement_pct > 0:
+        parts.append(f"המודל משפר את תחזית הבסיס בכ-{improvement_pct:.1f}%.")
+    else:
+        parts.append("המודל עדיין אינו משפר משמעותית את תחזית הבסיס.")
+    if r2_value is not None and r2_value <= 0.02:
+        parts.append("ערך R² קרוב לאפס או שלילי ולכן כוח ההסבר מוגבל.")
+    if directional_accuracy is not None:
+        parts.append(f"הדיוק הכיווני הוא {directional_accuracy:.1%}, ויש לפרש אותו בזהירות לצד ה-MAE וה-baseline.")
+    parts.append({"good": "תווית האמינות: גבוהה.", "medium": "תווית האמינות: בינונית.", "weak": "תווית האמינות: נמוכה."}.get(reliability, "תווית האמינות אינה זמינה."))
+    return " ".join(parts)
+
+
 def _train_one_target(
     dataset: pd.DataFrame,
     feature_cols: Sequence[str],
@@ -506,6 +634,32 @@ def _train_one_target(
         )
         if float(score) > 0
     ]
+    source_importance = _source_importance(importance)
+    validation_report = {
+        "horizon": horizon_label,
+        "train_rows": int(len(X_train)),
+        "test_rows": int(len(X_test)),
+        "random_forest_mae": round(model_mae, 6),
+        "best_baseline_name": baseline["best_baseline"],
+        "best_baseline_mae": baseline["baseline_mae"],
+        "improvement_pct": round(float(improvement_pct), 3) if improvement_pct is not None else None,
+        "r2": round(r2_value, 6) if r2_value is not None else None,
+        "directional_accuracy": (
+            round(float(directional_accuracy), 6) if directional_accuracy is not None else None
+        ),
+        "reliability": reliability,
+        "conclusion_he": _validation_conclusion_he(
+            horizon_label, improvement_pct, r2_value, directional_accuracy, reliability
+        ),
+        "leakage_note_he": "הפיצ'רים נבנים רק ממידע שקדם לנקודת החיזוי.",
+        "why_validation_matters_he": (
+            "MAE לבדו אינו מספיק כי גם תחזית בסיס פשוטה יכולה לקבל שגיאה נמוכה כאשר השוק כמעט לא זז. "
+            "לכן משווים מול baseline, בודקים R² כדי להעריך כוח הסבר, ובודקים דיוק כיווני בזהירות."
+        ),
+        "error_distribution": _error_distribution(y_test, preds),
+        "topic_performance": _topic_performance(test_df, y_test, preds),
+        "source_validation": _source_validation(test_df, source_importance),
+    }
 
     latest = _latest_observations(dataset)
     prediction_rows: List[Dict[str, Any]] = []
@@ -546,8 +700,14 @@ def _train_one_target(
                 round(float(directional_accuracy), 6) if directional_accuracy is not None else None
             ),
             "reliability": reliability,
+            "validation_report": validation_report,
+            "error_distribution": validation_report["error_distribution"],
+            "topic_performance": validation_report["topic_performance"],
+            "source_validation": validation_report["source_validation"],
+            "validation_conclusion_he": validation_report["conclusion_he"],
+            "leakage_note_he": validation_report["leakage_note_he"],
             "feature_importance": importance[:25],
-            "source_importance": _source_importance(importance),
+            "source_importance": source_importance,
             "predictions": prediction_rows[:25],
         }
     )

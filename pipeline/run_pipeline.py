@@ -34,6 +34,7 @@ from typing import Any, Dict, List, Optional
 import pandas as pd
 from scipy import stats
 
+from agent.market_agent import generate_agent_report
 from config.logging_config import configure_logging, get_logger
 from config.settings import get_settings
 from data.news_scraper import NewsScraper
@@ -127,6 +128,7 @@ def write_local_snapshot(
     run_metadata: Dict[str, Any],
     ml_dataset: Optional[List[Dict[str, Any]]] = None,
     ml_results: Optional[Dict[str, Any]] = None,
+    agent_report: Optional[Dict[str, Any]] = None,
 ) -> None:
     """Persist a local JSON snapshot (used as a Firestore-free data source)."""
     _write_json(os.path.join(output_dir, "articles.json"), articles)
@@ -136,6 +138,8 @@ def write_local_snapshot(
         _write_json(os.path.join(output_dir, "ml_dataset.json"), ml_dataset)
     if ml_results is not None:
         _write_json(os.path.join(output_dir, "ml_results.json"), ml_results)
+    if agent_report is not None:
+        _write_json(os.path.join(output_dir, "agent_report.json"), agent_report)
     logger.info("Wrote local snapshot to '%s'.", os.path.abspath(output_dir))
 
 
@@ -214,9 +218,13 @@ def run(
         "correlation": correlation,
         "ml_forecast": ml_results,
     }
+    agent_report: Optional[Dict[str, Any]] = None
+    if ml_results:
+        agent_report = generate_agent_report(articles, markets, run_metadata, ml_results)
+        run_metadata["agent_report"] = agent_report
 
     # --- Always write a local snapshot -------------------------------------
-    write_local_snapshot(output_dir, articles, markets, run_metadata, ml_dataset, ml_results)
+    write_local_snapshot(output_dir, articles, markets, run_metadata, ml_dataset, ml_results, agent_report)
 
     # --- Stage 5: Firestore persistence ------------------------------------
     if dry_run:

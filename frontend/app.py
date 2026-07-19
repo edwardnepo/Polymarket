@@ -38,6 +38,7 @@ import plotly.graph_objects as go
 import streamlit as st
 from scipy import stats
 
+from agent.market_agent import generate_agent_report
 from config.settings import get_settings
 
 # --------------------------------------------------------------------------- #
@@ -106,6 +107,9 @@ def inject_css() -> None:
           .kpi-label {font-size:.86rem; color:#6b7280; margin-bottom:8px;}
           .kpi-value {font-size:1.35rem; font-weight:700; color:#111827; line-height:1.25;
               white-space:normal; overflow-wrap:anywhere;}
+          .status-line {direction:rtl; text-align:right; margin:14px 0 4px 0;
+              padding:12px 14px; border-radius:10px; border:1px solid #d7dee8;
+              background:#f8fafc; color:#1f2937; font-size:1.02rem; font-weight:600;}
           /* Theme-neutral footer (no solid fill) so it reads in dark mode too. */
           .methodology {direction: rtl; text-align: right; margin-top: 8px;
               padding-top: 12px; border-top: 1px solid rgba(128,128,128,.30);
@@ -143,13 +147,14 @@ def load_local_ml_artifacts(snapshot_dir: str) -> Tuple[Dict, List[Dict]]:
 
 
 @st.cache_data(show_spinner=False)
-def load_local_snapshot(snapshot_dir: str) -> Tuple[List[Dict], List[Dict], Dict, List[Dict]]:
+def load_local_snapshot(snapshot_dir: str) -> Tuple[List[Dict], List[Dict], Dict, List[Dict], Dict]:
     """טעינת כתבות/שווקים/הרצה מתוך תמונת המצב המקומית בפורמט JSON."""
 
     articles = _read_snapshot_json(snapshot_dir, "articles.json", [])
     markets = _read_snapshot_json(snapshot_dir, "markets.json", [])
     run, ml_dataset = load_local_ml_artifacts(snapshot_dir)
-    return articles, markets, run, ml_dataset
+    agent_report = _read_snapshot_json(snapshot_dir, "agent_report.json", {})
+    return articles, markets, run, ml_dataset, agent_report
 
 
 @st.cache_data(show_spinner=True, ttl=300)
@@ -161,7 +166,7 @@ def load_firestore() -> Tuple[List[Dict], List[Dict], Dict]:
     return client.get_articles(), client.get_markets(), {}
 
 
-def load_data(source: str, snapshot_dir: str) -> Tuple[List[Dict], List[Dict], Dict, List[Dict], str]:
+def load_data(source: str, snapshot_dir: str) -> Tuple[List[Dict], List[Dict], Dict, List[Dict], Dict, str]:
     """איתור מקור הנתונים; מחזיר (articles, markets, run, source_used)."""
     if source in ("Auto", "Firestore"):
         if SETTINGS.has_firebase_credentials:
@@ -169,24 +174,25 @@ def load_data(source: str, snapshot_dir: str) -> Tuple[List[Dict], List[Dict], D
                 articles, markets, run = load_firestore()
                 if articles or markets or source == "Firestore":
                     local_run, ml_dataset = load_local_ml_artifacts(snapshot_dir)
+                    agent_report = _read_snapshot_json(snapshot_dir, "agent_report.json", {})
                     if not run.get("ml_forecast") and local_run.get("ml_forecast"):
                         run = dict(run)
                         run["ml_forecast"] = local_run["ml_forecast"]
                         run["_ml_loaded_from"] = local_run.get("_ml_loaded_from")
                         run["finished_at"] = run.get("finished_at") or local_run.get("finished_at")
-                        return articles, markets, run, ml_dataset, "Firestore + local ML"
-                    return articles, markets, run, ml_dataset, "Firestore"
+                        return articles, markets, run, ml_dataset, agent_report, "Firestore + local ML"
+                    return articles, markets, run, ml_dataset, agent_report, "Firestore"
             except Exception as exc:  # noqa: BLE001
                 if source == "Firestore":
                     st.error(f"טעינה מ-Firestore נכשלה: {exc}")
-                    return [], [], {}, [], "Firestore (error)"
+                    return [], [], {}, [], {}, "Firestore (error)"
                 st.warning(f"Firestore אינו זמין, נעשה שימוש בתמונת המצב המקומית ({exc}).")
         elif source == "Firestore":
             st.error("לא הוגדרו הרשאות Firebase (ראו .env.template).")
-            return [], [], {}, [], "Firestore (no creds)"
+            return [], [], {}, [], {}, "Firestore (no creds)"
 
-    articles, markets, run, ml_dataset = load_local_snapshot(snapshot_dir)
-    return articles, markets, run, ml_dataset, "Local snapshot"
+    articles, markets, run, ml_dataset, agent_report = load_local_snapshot(snapshot_dir)
+    return articles, markets, run, ml_dataset, agent_report, "Local snapshot"
 
 
 def _coerce_dt(value: Any) -> Optional[datetime]:
@@ -853,6 +859,32 @@ def direction_accuracy_text(value: Optional[float]) -> str:
     return f"{value:.1%}" if value is not None else "לא זמין"
 
 
+def _direction_distribution(future_df: pd.DataFrame) -> str:
+    if future_df.empty or "כיוון בעוד יום" not in future_df.columns:
+        return "אין מספיק תחזיות"
+    counts = future_df["כיוון בעוד יום"].fillna("לא זמין").value_counts()
+    if counts.empty:
+        return "אין מספיק תחזיות"
+    direction = str(counts.index[0])
+    share = counts.iloc[0] / max(int(counts.sum()), 1)
+    if direction == "יציב":
+        return "רוב השווקים יציבים"
+    return f"רוב השווקים בכיוון {direction} ({share:.0%})"
+
+
+def forecast_status_line(model_result: Dict[str, Any], future_df: pd.DataFrame) -> str:
+    reliability = reliability_he(model_result.get("reliability"))
+    if not model_result:
+        signal = "אין עדיין מודל מאומן"
+    elif not model_result.get("beats_baseline"):
+        signal = "אות חיזוי חלש"
+    elif model_result.get("reliability") == "good":
+        signal = "אות חיזוי חזק יחסית"
+    else:
+        signal = "אות חיזוי בינוני"
+    return f"{signal}, {_direction_distribution(future_df)}, {reliability}."
+
+
 def render_kpi_card(label: str, value: str) -> None:
     st.markdown(
         f"""
@@ -931,6 +963,26 @@ def top_forecast_table(future_df: pd.DataFrame, limit: int = 8) -> pd.DataFrame:
             "כיוון בעוד יום": "Direction",
         }
     )[["Market", "Current Probability", "Predicted Probability (24h)", "Direction"]]
+
+
+def top_forecast_table_he(
+    future_df: pd.DataFrame,
+    model_result: Dict[str, Any],
+    limit: int = 5,
+) -> pd.DataFrame:
+    table = top_forecast_table(future_df, limit=limit)
+    if table.empty:
+        return table
+    table = table.rename(
+        columns={
+            "Market": "שוק",
+            "Current Probability": "הסתברות נוכחית",
+            "Predicted Probability (24h)": "הסתברות חזויה 24 שעות",
+            "Direction": "כיוון",
+        }
+    )
+    table["אות / אמינות"] = reliability_he(model_result.get("reliability"))
+    return table[["שוק", "הסתברות נוכחית", "הסתברות חזויה 24 שעות", "כיוון", "אות / אמינות"]]
 
 
 def main_conclusion_text(
@@ -1027,6 +1079,93 @@ def automatic_summary_frame(
     )
 
 
+def validation_summary_frame(ml_forecast: Dict[str, Any]) -> pd.DataFrame:
+    rows: List[Dict[str, Any]] = []
+    for horizon, label in (("1h", "שעה קדימה"), ("1d", "יום קדימה")):
+        result = ((ml_forecast.get("targets") or {}).get(horizon) or {})
+        report = result.get("validation_report") or {}
+        rows.append(
+            {
+                "טווח חיזוי": label,
+                "Train rows": report.get("train_rows", result.get("n_train")),
+                "Test rows": report.get("test_rows", result.get("n_test")),
+                "RF MAE": report.get("random_forest_mae", result.get("mae")),
+                "Best baseline": report.get("best_baseline_name", result.get("best_baseline")),
+                "Baseline MAE": report.get("best_baseline_mae", result.get("baseline_mae")),
+                "Improvement": report.get("improvement_pct", result.get("improvement_pct")),
+                "R²": report.get("r2", result.get("r2")),
+                "Directional accuracy": report.get("directional_accuracy", result.get("directional_accuracy")),
+                "אמינות": reliability_he(report.get("reliability", result.get("reliability"))),
+                "מסקנת תיקוף": report.get("conclusion_he", result.get("validation_conclusion_he", "")),
+            }
+        )
+    return pd.DataFrame(rows)
+
+
+def compact_validation_frame(model_result: Dict[str, Any]) -> pd.DataFrame:
+    if not model_result:
+        return pd.DataFrame()
+    return pd.DataFrame(
+        [
+            {
+                "Baseline MAE": model_result.get("baseline_mae"),
+                "Random Forest MAE": model_result.get("mae"),
+                "Improvement": model_result.get("improvement_pct"),
+                "R²": model_result.get("r2"),
+                "Directional accuracy": model_result.get("directional_accuracy"),
+                "Reliability": reliability_he(model_result.get("reliability")),
+            }
+        ]
+    )
+
+
+def validation_interpretation(model_result: Dict[str, Any], p: Optional[float]) -> str:
+    parts: List[str] = []
+    if not model_result:
+        parts.append("אין עדיין מודל מאומן להצגת תיקוף.")
+    elif not model_result.get("beats_baseline"):
+        parts.append("המודל אינו משפר את תחזית הבסיס במדד MAE, ולכן האינדיקציה החיזויית מוגבלת.")
+    else:
+        parts.append("המודל משפר את תחזית הבסיס במדד MAE, אך עדיין נדרשת בדיקה לאורך זמן.")
+
+    r2 = model_result.get("r2")
+    if r2 is not None and r2 <= 0.02:
+        parts.append("כוח ההסבר לפי R² נמוך.")
+    if p is not None and p >= 0.05:
+        parts.append("מתאם Pearson אינו מובהק סטטיסטית במדגם הנוכחי.")
+    return " ".join(parts)
+
+
+def agent_markets_frame(agent_report: Dict[str, Any]) -> pd.DataFrame:
+    rows = []
+    for item in (agent_report.get("top_markets") or [])[:5]:
+        rows.append(
+            {
+                "שוק": item.get("market"),
+                "סטטוס": item.get("status"),
+                "כיוון": item.get("direction"),
+                "שינוי חזוי": item.get("predicted_delta"),
+                "למה נבחר": item.get("why_selected"),
+            }
+        )
+    return pd.DataFrame(rows)
+
+
+def agent_sources_frame(agent_report: Dict[str, Any]) -> pd.DataFrame:
+    rows = []
+    for item in (agent_report.get("top_sources") or [])[:5]:
+        rows.append(
+            {
+                "מקור": item.get("source"),
+                "מספר כתבות": item.get("article_count"),
+                "סנטימנט ממוצע": item.get("average_sentiment"),
+                "ציון חזוי": item.get("predictive_score"),
+                "הערה": item.get("note"),
+            }
+        )
+    return pd.DataFrame(rows)
+
+
 # --------------------------------------------------------------------------- #
 # UI building blocks
 # --------------------------------------------------------------------------- #
@@ -1084,7 +1223,7 @@ def main() -> None:
     )
 
     controls = sidebar()
-    articles, markets, run, ml_dataset, source_used = load_data(controls["source"], controls["snapshot_dir"])
+    articles, markets, run, ml_dataset, agent_report, source_used = load_data(controls["source"], controls["snapshot_dir"])
     articles, markets = apply_keyword_filter(articles, markets, controls["keywords"])
     # Hard guards (independent of the data source): never display past-deadline
     # markets, and never display sports/entertainment markets (e.g. FIFA).
@@ -1114,11 +1253,12 @@ def main() -> None:
     avg_prob = average_probability(markets)
     n_markets_used = int(cross.dropna(subset=["sentiment", "probability"]).shape[0])
     ml_forecast = run.get("ml_forecast") or {}
+    if not agent_report and ml_forecast:
+        agent_report = generate_agent_report(articles, markets, run, ml_forecast)
     source_df = source_sentiment_frame(articles)
     reliability_df = source_reliability_frame(articles, ml_forecast) if ml_forecast else pd.DataFrame()
     future_df = future_predictions_frame(ml_forecast) if ml_forecast else pd.DataFrame()
     compact_sources = compact_source_table(reliability_df)
-    top_forecasts = top_forecast_table(future_df)
     model_result = primary_model_result(ml_forecast)
     mae = best_model_mae(ml_forecast)
 
@@ -1132,30 +1272,89 @@ def main() -> None:
         render_kpi_card("המקור המשפיע ביותר", top_source_name(reliability_df))
     with k4:
         render_kpi_card("דיוק המודל (MAE)", f"{mae:.4f}" if mae is not None else "לא זמין")
+    st.markdown(
+        f"<div class='status-line'>{forecast_status_line(model_result, future_df)}</div>",
+        unsafe_allow_html=True,
+    )
 
-    # --- Section 2: Main conclusion --------------------------------------- #
+    # --- Section 2: Automatic analytical summary ---------------------------- #
     st.divider()
-    st.subheader("מסקנה מרכזית")
-    callout(
-        "מה הסיפור שהנתונים מספרים?",
-        main_conclusion_text(reliability_df, future_df, r, p, model_result),
-        "neutral",
-    )
-    if model_result and not model_result.get("beats_baseline"):
+    st.subheader("סיכום אנליטי אוטומטי")
+    if agent_report:
         callout(
-            "הערכת אמינות",
-            "המודל עדיין אינו משפר משמעותית את תחזית הבסיס, ולכן יש להתייחס לתחזיות כאל אינדיקציה מחקרית מוגבלת.",
-            "bad",
+            "סיכום מצב החיזוי",
+            (
+                f"{agent_report.get('status', 'אין סטטוס זמין')} "
+                f"מסקנה מעשית: {agent_report.get('suggested_next_action', 'מומלץ להמשיך לאסוף נתונים ולהריץ תיקוף נוסף.')}"
+            ),
+            "neutral" if agent_report.get("beats_baseline") else "bad",
         )
+        st.caption(
+            "שכבת הסיכום מנתחת את תוצאות המודל, מדדי התיקוף והתחזיות. היא אינה קובעת "
+            "סיבתיות ואינה מנבאת את המציאות עצמה, אלא מפרשת תנועת הסתברות צפויה בפולימרקט."
+        )
+        summary_col1, summary_col2 = st.columns([1, 1.2])
+        with summary_col1:
+            src_agent_df = agent_sources_frame(agent_report)
+            if not src_agent_df.empty:
+                st.markdown("**מקורות בעלי תרומה גבוהה לחיזוי**")
+                st.dataframe(
+                    src_agent_df.drop(columns=["הערה"], errors="ignore").head(3),
+                    use_container_width=True,
+                    hide_index=True,
+                    column_config={
+                        "סנטימנט ממוצע": st.column_config.NumberColumn("סנטימנט ממוצע", format="%+.3f"),
+                        "ציון חזוי": st.column_config.NumberColumn("ציון חזוי", format="%.4f"),
+                    },
+                )
+            else:
+                st.info("לא נמצאו מספיק נתונים להצגת רשימת מקורות מהימנה בהרצה הנוכחית.")
+        with summary_col2:
+            agent_market_df = agent_markets_frame(agent_report)
+            if not agent_market_df.empty:
+                st.markdown("**שווקים בולטים למעקב**")
+                st.dataframe(
+                    agent_market_df.head(5),
+                    use_container_width=True,
+                    hide_index=True,
+                    column_config={
+                        "שינוי חזוי": st.column_config.NumberColumn("שינוי חזוי", format="%+.3f"),
+                    },
+                )
+            else:
+                st.info("לא נמצאו מספיק נתונים להצגת רשימת שווקים מהימנה בהרצה הנוכחית.")
+        risks = agent_report.get("risks_and_limitations") or []
+        if risks:
+            st.caption("מגבלות מרכזיות: " + " ".join(risks[:2]))
+    else:
+        st.info("אין עדיין סיכום אנליטי אוטומטי. הריצו `python -m pipeline.run_pipeline --dry-run` כדי ליצור אותו.")
 
-    st.subheader("סיכום תוצאות אוטומטי")
-    st.dataframe(
-        automatic_summary_frame(len(articles), len(markets), r, p, reliability_df, model_result),
-        use_container_width=True,
-        hide_index=True,
+    # --- Section 3: Validation summary -------------------------------------- #
+    st.divider()
+    st.subheader("סיכום תיקוף המודלים")
+    st.caption(
+        "התיקוף נעשה בחלוקת זמן: המודל מתאמן על תצפיות מוקדמות ונבדק על תצפיות מאוחרות, "
+        "כדי לדמות חיזוי עתידי ולא ערבוב של עבר ועתיד."
     )
+    compact_validation = compact_validation_frame(model_result)
+    if not compact_validation.empty:
+        st.dataframe(
+            compact_validation,
+            use_container_width=True,
+            hide_index=True,
+            column_config={
+                "Baseline MAE": st.column_config.NumberColumn("Baseline MAE", format="%.4f"),
+                "Random Forest MAE": st.column_config.NumberColumn("Random Forest MAE", format="%.4f"),
+                "Improvement": st.column_config.NumberColumn("Improvement", format="%+.1f%%"),
+                "R²": st.column_config.NumberColumn("R²", format="%.3f"),
+                "Directional accuracy": st.column_config.NumberColumn("Directional accuracy", format="%.1%"),
+            },
+        )
+        st.caption(validation_interpretation(model_result, p))
+    else:
+        st.info("אין עדיין תוצאות תיקוף ML זמינות.")
 
-    # --- Section 3: Compact media source analysis ------------------------- #
+    # --- Section 4: Compact media source analysis ------------------------- #
     st.divider()
     st.subheader("ניתוח לפי כלי תקשורת")
     st.caption(
@@ -1181,29 +1380,73 @@ def main() -> None:
         if fig is not None:
             st.plotly_chart(fig, use_container_width=True)
 
-    # --- Section 4: Future forecast --------------------------------------- #
+    # --- Section 5: Future forecast --------------------------------------- #
     st.divider()
-    st.subheader("תחזית עתידית לפי המודל")
+    st.subheader("שווקים בולטים למעקב")
     st.caption(
-        "המודל אינו מנבא את המציאות עצמה, אלא את כיוון תנועת ההסתברות בפולימרקט לפי "
-        "הכתבות, המקור שלהן, הסנטימנט שלהן ונתוני השוק ההיסטוריים."
+        "התחזית מתייחסת לתנועת הסתברות בפולימרקט, ולא לתוצאה בעולם האמיתי. "
+        "מוצגים חמשת השווקים עם השינוי החזוי הבולט ביותר."
     )
-    if not top_forecasts.empty:
+    top_forecasts_he = top_forecast_table_he(future_df, model_result, limit=5)
+    if not top_forecasts_he.empty:
         st.dataframe(
-            top_forecasts,
+            top_forecasts_he,
             use_container_width=True,
             hide_index=True,
             column_config={
-                "Current Probability": st.column_config.NumberColumn("Current Probability", format="%.1f%%"),
-                "Predicted Probability (24h)": st.column_config.NumberColumn("Predicted Probability (24h)", format="%.1f%%"),
+                "הסתברות נוכחית": st.column_config.NumberColumn("הסתברות נוכחית", format="%.1f%%"),
+                "הסתברות חזויה 24 שעות": st.column_config.NumberColumn("הסתברות חזויה 24 שעות", format="%.1f%%"),
             },
         )
+        with st.expander("כל התחזיות"):
+            st.dataframe(
+                future_df,
+                use_container_width=True,
+                hide_index=True,
+                column_config={
+                    "הסתברות נוכחית (%)": st.column_config.NumberColumn("הסתברות נוכחית (%)", format="%.1f%%"),
+                    "שינוי חזוי בעוד שעה": st.column_config.NumberColumn("שינוי חזוי בעוד שעה", format="%+.3f"),
+                    "שינוי חזוי בעוד יום": st.column_config.NumberColumn("שינוי חזוי בעוד יום", format="%+.3f"),
+                    "הסתברות חזויה בעוד שעה (%)": st.column_config.NumberColumn("הסתברות חזויה בעוד שעה (%)", format="%.1f%%"),
+                    "הסתברות חזויה בעוד יום (%)": st.column_config.NumberColumn("הסתברות חזויה בעוד יום (%)", format="%.1f%%"),
+                },
+            )
     else:
         st.info("אין עדיין תחזיות זמינות להצגה. הריצו מחדש את ה-pipeline עם נתוני ML מלאים.")
 
-    # --- Section 5: Advanced analysis ------------------------------------- #
+    # --- Section 6: Advanced analysis ------------------------------------- #
     st.divider()
     with st.expander("ניתוח מתקדם"):
+        st.subheader("סיכום תוצאות מלא")
+        st.dataframe(
+            automatic_summary_frame(len(articles), len(markets), r, p, reliability_df, model_result),
+            use_container_width=True,
+            hide_index=True,
+        )
+
+        validation_df = validation_summary_frame(ml_forecast) if ml_forecast else pd.DataFrame()
+        if not validation_df.empty:
+            st.subheader("טבלת תיקוף מלאה")
+            st.dataframe(
+                validation_df,
+                use_container_width=True,
+                hide_index=True,
+                column_config={
+                    "RF MAE": st.column_config.NumberColumn("RF MAE", format="%.4f"),
+                    "Baseline MAE": st.column_config.NumberColumn("Baseline MAE", format="%.4f"),
+                    "Improvement": st.column_config.NumberColumn("Improvement", format="%+.1f%%"),
+                    "R²": st.column_config.NumberColumn("R²", format="%.3f"),
+                    "Directional accuracy": st.column_config.NumberColumn("Directional accuracy", format="%.1%"),
+                },
+            )
+
+        st.subheader("מסקנה מרכזית")
+        callout(
+            "פרשנות כוללת",
+            main_conclusion_text(reliability_df, future_df, r, p, model_result),
+            "neutral",
+        )
+
         st.subheader("מדד המתיחות והמתאם")
         left, right = st.columns([1, 1.05])
         with left:
@@ -1281,8 +1524,66 @@ def main() -> None:
             m2.metric("שווקים בדאטהסט", ml_forecast.get("n_markets", 0))
             m3.metric("חלון כתבות", f"{ml_forecast.get('article_window_hours', 24)} שעות")
 
-            source_labels = ml_forecast.get("source_labels") or {}
+            st.subheader("תיקוף מודלים מורחב")
             targets = ml_forecast.get("targets") or {}
+            validation_tabs = st.tabs(["תיקוף שעה", "תיקוף יום"])
+            for tab, horizon in zip(validation_tabs, ("1h", "1d")):
+                with tab:
+                    result = targets.get(horizon) or {}
+                    report = result.get("validation_report") or {}
+                    if not report:
+                        st.info("אין דוח תיקוף מפורט עבור יעד זה.")
+                        continue
+                    callout(
+                        "מסקנת תיקוף",
+                        report.get("conclusion_he", "אין מסקנה זמינה."),
+                        "neutral" if result.get("beats_baseline") else "bad",
+                    )
+                    st.caption(report.get("leakage_note_he", "הפיצ'רים נבנים רק ממידע שקדם לנקודת החיזוי."))
+
+                    err = report.get("error_distribution") or {}
+                    if err:
+                        st.markdown("**התפלגות שגיאות**")
+                        st.dataframe(
+                            pd.DataFrame(
+                                [
+                                    {"מדד": "Mean Error", "ערך": err.get("mean_error")},
+                                    {"מדד": "Median Absolute Error", "ערך": err.get("median_absolute_error")},
+                                    {"מדד": "P90 Absolute Error", "ערך": err.get("p90_absolute_error")},
+                                    {"מדד": "Max Absolute Error", "ערך": err.get("max_absolute_error")},
+                                ]
+                            ),
+                            use_container_width=True,
+                            hide_index=True,
+                            column_config={"ערך": st.column_config.NumberColumn("ערך", format="%.4f")},
+                        )
+
+                    topic_perf = report.get("topic_performance") or []
+                    if topic_perf:
+                        st.markdown("**ביצועים לפי נושא**")
+                        st.dataframe(
+                            pd.DataFrame(topic_perf),
+                            use_container_width=True,
+                            hide_index=True,
+                            column_config={
+                                "mae": st.column_config.NumberColumn("MAE", format="%.4f"),
+                                "directional_accuracy": st.column_config.NumberColumn("Directional Accuracy", format="%.1%"),
+                            },
+                        )
+
+                    source_validation = report.get("source_validation") or []
+                    if source_validation:
+                        st.markdown("**תיקוף לפי מקור תקשורת**")
+                        st.dataframe(
+                            pd.DataFrame(source_validation),
+                            use_container_width=True,
+                            hide_index=True,
+                            column_config={
+                                "predictive_importance": st.column_config.NumberColumn("Predictive Importance", format="%.4f"),
+                            },
+                        )
+
+            source_labels = ml_forecast.get("source_labels") or {}
             tab_1h, tab_1d = st.tabs(["חיזוי לשעה הקרובה", "חיזוי ליום הקרוב"])
             for tab, horizon, title in (
                 (tab_1h, "1h", "שינוי הסתברות בשעה הקרובה"),
