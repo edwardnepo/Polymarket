@@ -10,7 +10,6 @@
     "sentiment_max",
     "market_volume",
     "market_liquidity",
-    "history_point_index",
     "hour_utc",
     "day_of_week",
     "is_weekend",
@@ -152,110 +151,110 @@
       "n_observations": 17813,
       "feature_importance": [
         {
-          "feature": "history_point_index",
-          "importance": 0.21656
+          "feature": "historical_probability",
+          "importance": 0.226313
         },
         {
           "feature": "probability_change_prev",
-          "importance": 0.173817
-        },
-        {
-          "feature": "historical_probability",
-          "importance": 0.148579
-        },
-        {
-          "feature": "hour_cos",
-          "importance": 0.077384
+          "importance": 0.186665
         },
         {
           "feature": "hour_utc",
-          "importance": 0.071074
+          "importance": 0.095965
+        },
+        {
+          "feature": "hour_cos",
+          "importance": 0.083566
         },
         {
           "feature": "hour_sin",
-          "importance": 0.057898
+          "importance": 0.07926
         },
         {
           "feature": "dow_sin",
-          "importance": 0.044823
+          "importance": 0.061579
         },
         {
           "feature": "market_liquidity",
-          "importance": 0.039273
+          "importance": 0.057073
         },
         {
           "feature": "market_volume",
-          "importance": 0.037689
-        },
-        {
-          "feature": "dow_cos",
-          "importance": 0.020781
+          "importance": 0.04553
         },
         {
           "feature": "day_of_week",
-          "importance": 0.020144
+          "importance": 0.034736
+        },
+        {
+          "feature": "dow_cos",
+          "importance": 0.02937
         },
         {
           "feature": "topic__regional_war",
-          "importance": 0.012063
-        },
-        {
-          "feature": "topic__nuclear_deal",
-          "importance": 0.008994
-        },
-        {
-          "feature": "topic__ceasefire",
-          "importance": 0.008015
+          "importance": 0.020151
         },
         {
           "feature": "topic__israel",
-          "importance": 0.005372
+          "importance": 0.006929
         },
         {
           "feature": "topic__iran",
-          "importance": 0.00466
+          "importance": 0.006138
+        },
+        {
+          "feature": "topic__nuclear_deal",
+          "importance": 0.00532
         },
         {
           "feature": "mean_sentiment_12h",
-          "importance": 0.003891
+          "importance": 0.004473
         },
         {
-          "feature": "sentiment_min_12h",
-          "importance": 0.003841
+          "feature": "topic__ceasefire",
+          "importance": 0.004261
         },
         {
           "feature": "sentiment_max_12h",
-          "importance": 0.003353
+          "importance": 0.004098
         },
         {
           "feature": "is_weekend",
-          "importance": 0.003223
+          "importance": 0.00374
         },
         {
           "feature": "source__bbc_news__sentiment_12h",
-          "importance": 0.003066
+          "importance": 0.003617
         },
         {
           "feature": "sentiment_max",
-          "importance": 0.002593
+          "importance": 0.002955
         },
         {
-          "feature": "article_count_24h",
-          "importance": 0.002509
+          "feature": "sentiment_min_12h",
+          "importance": 0.002935
         },
         {
-          "feature": "sentiment_min",
-          "importance": 0.002078
+          "feature": "source__bbc_news__sentiment",
+          "importance": 0.002541
+        },
+        {
+          "feature": "sentiment_max_24h",
+          "importance": 0.002248
         },
         {
           "feature": "mean_sentiment",
-          "importance": 0.00202
+          "importance": 0.002241
+        },
+        {
+          "feature": "source__bbc_news__sentiment_24h",
+          "importance": 0.002179
         }
       ],
       "source_importance": [
         {
           "source": "bbc_news",
-          "importance": 0.013294
+          "importance": 0.016336
         }
       ],
       "predictions": [
@@ -264,8 +263,8 @@
           "market_question": "Will Benjamin Netanyahu be the next Prime Minister of Israel?",
           "timestamp": "2026-07-19T12:00:15+00:00",
           "current_probability": 0.345,
-          "predicted_delta": 0.003,
-          "predicted_probability": 0.348,
+          "predicted_delta": -0.0001,
+          "predicted_probability": 0.3449,
           "predicted_direction": "flat",
           "article_volume": 13,
           "mean_sentiment": -0.5317
@@ -275,8 +274,8 @@
           "market_question": "Will Donald Trump win the Nobel Peace Prize in 2026?",
           "timestamp": "2026-07-19T12:00:15+00:00",
           "current_probability": 0.0435,
-          "predicted_delta": -0.0003,
-          "predicted_probability": 0.0432,
+          "predicted_delta": -0.0001,
+          "predicted_probability": 0.0434,
           "predicted_direction": "flat",
           "article_volume": 0,
           "mean_sentiment": 0.0
@@ -286,8 +285,8 @@
           "market_question": "Will Avigdor Lieberman be the next Prime Minister of Israel?",
           "timestamp": "2026-07-19T12:00:14+00:00",
           "current_probability": 0.0145,
-          "predicted_delta": 0.0001,
-          "predicted_probability": 0.0146,
+          "predicted_delta": 0.0,
+          "predicted_probability": 0.0145,
           "predicted_direction": "flat",
           "article_volume": 13,
           "mean_sentiment": -0.5317
@@ -297,8 +296,8 @@
           "market_question": "Iran leadership change by December 31?",
           "timestamp": "2026-07-19T12:00:13+00:00",
           "current_probability": 0.255,
-          "predicted_delta": -0.0026,
-          "predicted_probability": 0.2524,
+          "predicted_delta": -0.0046,
+          "predicted_probability": 0.2504,
           "predicted_direction": "flat",
           "article_volume": 17,
           "mean_sentiment": -0.8852
@@ -319,8 +318,8 @@
           "market_question": "Will the Iranian regime fall before 2027?",
           "timestamp": "2026-07-19T12:00:13+00:00",
           "current_probability": 0.105,
-          "predicted_delta": -0.0008,
-          "predicted_probability": 0.1042,
+          "predicted_delta": -0.0007,
+          "predicted_probability": 0.1043,
           "predicted_direction": "flat",
           "article_volume": 17,
           "mean_sentiment": -0.8852
@@ -330,8 +329,8 @@
           "market_question": "Will Reza Pahlavi lead Iran in 2026?",
           "timestamp": "2026-07-19T12:00:13+00:00",
           "current_probability": 0.0445,
-          "predicted_delta": -0.0003,
-          "predicted_probability": 0.0442,
+          "predicted_delta": -0.0001,
+          "predicted_probability": 0.0444,
           "predicted_direction": "flat",
           "article_volume": 17,
           "mean_sentiment": -0.8852
@@ -341,8 +340,8 @@
           "market_question": "Will Naftali Bennett be the next Prime Minister of Israel?",
           "timestamp": "2026-07-19T12:00:12+00:00",
           "current_probability": 0.07,
-          "predicted_delta": -0.0018,
-          "predicted_probability": 0.0682,
+          "predicted_delta": -0.0021,
+          "predicted_probability": 0.0679,
           "predicted_direction": "flat",
           "article_volume": 13,
           "mean_sentiment": -0.5317
@@ -352,8 +351,8 @@
           "market_question": "US-Iran Final Nuclear Deal by August 31, 2026?",
           "timestamp": "2026-07-19T12:00:12+00:00",
           "current_probability": 0.055,
-          "predicted_delta": -0.0008,
-          "predicted_probability": 0.0542,
+          "predicted_delta": -0.001,
+          "predicted_probability": 0.054,
           "predicted_direction": "flat",
           "article_volume": 17,
           "mean_sentiment": -0.8852
@@ -363,8 +362,8 @@
           "market_question": "Will Gideon Sa’ar be the next Prime Minister of Israel?",
           "timestamp": "2026-07-19T12:00:12+00:00",
           "current_probability": 0.0035,
-          "predicted_delta": -0.0002,
-          "predicted_probability": 0.0033,
+          "predicted_delta": -0.0001,
+          "predicted_probability": 0.0034,
           "predicted_direction": "flat",
           "article_volume": 13,
           "mean_sentiment": -0.5317
@@ -374,8 +373,8 @@
           "market_question": "Will Benny Gantz be the next Prime Minister of Israel?",
           "timestamp": "2026-07-19T12:00:10+00:00",
           "current_probability": 0.0035,
-          "predicted_delta": -0.0,
-          "predicted_probability": 0.0035,
+          "predicted_delta": -0.0001,
+          "predicted_probability": 0.0034,
           "predicted_direction": "flat",
           "article_volume": 13,
           "mean_sentiment": -0.5317
@@ -385,8 +384,8 @@
           "market_question": "Netanyahu out by end of 2026?",
           "timestamp": "2026-07-19T12:00:08+00:00",
           "current_probability": 0.36,
-          "predicted_delta": 0.0028,
-          "predicted_probability": 0.3628,
+          "predicted_delta": 0.0004,
+          "predicted_probability": 0.3604,
           "predicted_direction": "flat",
           "article_volume": 13,
           "mean_sentiment": -0.5317
@@ -396,8 +395,8 @@
           "market_question": "Will Benjamin Netanyahu be the next leader out before 2027?",
           "timestamp": "2026-07-19T12:00:08+00:00",
           "current_probability": 0.0015,
-          "predicted_delta": 0.0006,
-          "predicted_probability": 0.0021,
+          "predicted_delta": 0.0001,
+          "predicted_probability": 0.0016,
           "predicted_direction": "flat",
           "article_volume": 13,
           "mean_sentiment": -0.5317
@@ -407,8 +406,8 @@
           "market_question": "Will Mojtaba Khamenei be head of state in Iran end of 2026?",
           "timestamp": "2026-07-19T12:00:08+00:00",
           "current_probability": 0.7325,
-          "predicted_delta": -0.0041,
-          "predicted_probability": 0.7284,
+          "predicted_delta": -0.0032,
+          "predicted_probability": 0.7293,
           "predicted_direction": "flat",
           "article_volume": 17,
           "mean_sentiment": -0.8852
@@ -429,8 +428,8 @@
           "market_question": "Will Reza Pahlavi enter Iran by December 31?",
           "timestamp": "2026-07-19T12:00:08+00:00",
           "current_probability": 0.065,
-          "predicted_delta": -0.0008,
-          "predicted_probability": 0.0642,
+          "predicted_delta": -0.0002,
+          "predicted_probability": 0.0648,
           "predicted_direction": "flat",
           "article_volume": 17,
           "mean_sentiment": -0.8852
@@ -451,8 +450,8 @@
           "market_question": "Will Mohammad Khatami be head of state in Iran end of 2026?",
           "timestamp": "2026-07-19T12:00:07+00:00",
           "current_probability": 0.0015,
-          "predicted_delta": -0.0,
-          "predicted_probability": 0.0015,
+          "predicted_delta": -0.0001,
+          "predicted_probability": 0.0014,
           "predicted_direction": "flat",
           "article_volume": 17,
           "mean_sentiment": -0.8852
@@ -462,8 +461,8 @@
           "market_question": "Will Yair Golan be the next Prime Minister of Israel?",
           "timestamp": "2026-07-19T12:00:07+00:00",
           "current_probability": 0.0015,
-          "predicted_delta": 0.0001,
-          "predicted_probability": 0.0016,
+          "predicted_delta": -0.0001,
+          "predicted_probability": 0.0014,
           "predicted_direction": "flat",
           "article_volume": 13,
           "mean_sentiment": -0.5317
@@ -473,8 +472,8 @@
           "market_question": "Will Alireza Arafi be head of state in Iran end of 2026?",
           "timestamp": "2026-07-19T12:00:04+00:00",
           "current_probability": 0.013,
-          "predicted_delta": -0.0,
-          "predicted_probability": 0.013,
+          "predicted_delta": 0.0001,
+          "predicted_probability": 0.0131,
           "predicted_direction": "flat",
           "article_volume": 17,
           "mean_sentiment": -0.8852
@@ -484,8 +483,8 @@
           "market_question": "Will UNRWA win the Nobel Peace Prize in 2026?",
           "timestamp": "2026-07-19T12:00:04+00:00",
           "current_probability": 0.061,
-          "predicted_delta": 0.0008,
-          "predicted_probability": 0.0618,
+          "predicted_delta": 0.0006,
+          "predicted_probability": 0.0616,
           "predicted_direction": "flat",
           "article_volume": 0,
           "mean_sentiment": 0.0
@@ -495,8 +494,8 @@
           "market_question": "Will Iran announce withdrawal from MOU negotiations by July 31?",
           "timestamp": "2026-07-19T12:00:04+00:00",
           "current_probability": 0.165,
-          "predicted_delta": 0.0038,
-          "predicted_probability": 0.1688,
+          "predicted_delta": 0.0005,
+          "predicted_probability": 0.1655,
           "predicted_direction": "flat",
           "article_volume": 17,
           "mean_sentiment": -0.8852
@@ -506,9 +505,9 @@
           "market_question": "Will the U.S. invade Iran before 2027?",
           "timestamp": "2026-07-19T12:00:04+00:00",
           "current_probability": 0.295,
-          "predicted_delta": 0.0052,
-          "predicted_probability": 0.3002,
-          "predicted_direction": "up",
+          "predicted_delta": -0.0004,
+          "predicted_probability": 0.2946,
+          "predicted_direction": "flat",
           "article_volume": 17,
           "mean_sentiment": -0.8852
         },
@@ -517,8 +516,8 @@
           "market_question": "US obtains Iranian enriched uranium by December 31?",
           "timestamp": "2026-07-19T12:00:04+00:00",
           "current_probability": 0.125,
-          "predicted_delta": -0.0007,
-          "predicted_probability": 0.1243,
+          "predicted_delta": -0.0,
+          "predicted_probability": 0.125,
           "predicted_direction": "flat",
           "article_volume": 17,
           "mean_sentiment": -0.8852
@@ -528,7 +527,7 @@
           "market_question": "Will Mostafa Pourmohammadi be head of state in Iran end of 2026?",
           "timestamp": "2026-07-19T11:59:05+00:00",
           "current_probability": 0.0015,
-          "predicted_delta": 0.0,
+          "predicted_delta": -0.0,
           "predicted_probability": 0.0015,
           "predicted_direction": "flat",
           "article_volume": 17,
@@ -538,8 +537,8 @@
       "evaluation_mode": "time_holdout",
       "n_train": 14250,
       "n_test": 3563,
-      "mae": 0.002355,
-      "r2": -0.089363,
+      "mae": 0.002091,
+      "r2": -0.07446,
       "baselines": {
         "no_change": {
           "mae": 0.001532,
@@ -557,78 +556,78 @@
       "best_baseline": "no_change",
       "baseline_mae": 0.001532,
       "baseline_directional_accuracy": 0.900084,
-      "improvement_pct": -53.724,
+      "improvement_pct": -36.509,
       "beats_baseline": false,
-      "directional_accuracy": 0.878754,
+      "directional_accuracy": 0.890822,
       "reliability": "weak",
       "validation_report": {
         "horizon": "1h",
         "train_rows": 14250,
         "test_rows": 3563,
-        "random_forest_mae": 0.002355,
+        "random_forest_mae": 0.002091,
         "best_baseline_name": "no_change",
         "best_baseline_mae": 0.001532,
-        "improvement_pct": -53.724,
-        "r2": -0.089363,
-        "directional_accuracy": 0.878754,
+        "improvement_pct": -36.509,
+        "r2": -0.07446,
+        "directional_accuracy": 0.890822,
         "reliability": "weak",
-        "conclusion_he": "עבור יעד של שעה קדימה, התיקוף בוצע באמצעות חלוקת זמן. המודל עדיין אינו משפר משמעותית את תחזית הבסיס. ערך R² קרוב לאפס או שלילי ולכן כוח ההסבר מוגבל. הדיוק הכיווני הוא 87.9%, ויש לפרש אותו בזהירות לצד ה-MAE וה-baseline. תווית האמינות: נמוכה.",
+        "conclusion_he": "עבור יעד של שעה קדימה, התיקוף בוצע באמצעות חלוקת זמן. המודל עדיין אינו משפר משמעותית את תחזית הבסיס. ערך R² קרוב לאפס או שלילי ולכן כוח ההסבר מוגבל. הדיוק הכיווני הוא 89.1%, ויש לפרש אותו בזהירות לצד ה-MAE וה-baseline. תווית האמינות: נמוכה.",
         "leakage_note_he": "הפיצ'רים נבנים רק ממידע שקדם לנקודת החיזוי.",
         "why_validation_matters_he": "MAE לבדו אינו מספיק כי גם תחזית בסיס פשוטה יכולה לקבל שגיאה נמוכה כאשר השוק כמעט לא זז. לכן משווים מול baseline, בודקים R² כדי להעריך כוח הסבר, ובודקים דיוק כיווני בזהירות.",
         "error_distribution": {
-          "mean_error": -6.4e-05,
-          "median_absolute_error": 0.000596,
-          "p90_absolute_error": 0.006166,
-          "max_absolute_error": 0.130124,
+          "mean_error": -0.000263,
+          "median_absolute_error": 0.00031,
+          "p90_absolute_error": 0.005303,
+          "max_absolute_error": 0.130439,
           "histogram": [
             {
               "bin_left": 0.0,
-              "bin_right": 0.013012,
-              "count": 3437
+              "bin_right": 0.013044,
+              "count": 3440
             },
             {
-              "bin_left": 0.013012,
-              "bin_right": 0.026025,
-              "count": 86
+              "bin_left": 0.013044,
+              "bin_right": 0.026088,
+              "count": 84
             },
             {
-              "bin_left": 0.026025,
-              "bin_right": 0.039037,
-              "count": 23
+              "bin_left": 0.026088,
+              "bin_right": 0.039132,
+              "count": 22
             },
             {
-              "bin_left": 0.039037,
-              "bin_right": 0.052049,
-              "count": 9
+              "bin_left": 0.039132,
+              "bin_right": 0.052176,
+              "count": 10
             },
             {
-              "bin_left": 0.052049,
-              "bin_right": 0.065062,
-              "count": 6
+              "bin_left": 0.052176,
+              "bin_right": 0.06522,
+              "count": 4
             },
             {
-              "bin_left": 0.065062,
-              "bin_right": 0.078074,
+              "bin_left": 0.06522,
+              "bin_right": 0.078264,
               "count": 1
             },
             {
-              "bin_left": 0.078074,
-              "bin_right": 0.091087,
+              "bin_left": 0.078264,
+              "bin_right": 0.091307,
+              "count": 1
+            },
+            {
+              "bin_left": 0.091307,
+              "bin_right": 0.104351,
               "count": 0
             },
             {
-              "bin_left": 0.091087,
-              "bin_right": 0.104099,
+              "bin_left": 0.104351,
+              "bin_right": 0.117395,
               "count": 0
             },
             {
-              "bin_left": 0.104099,
-              "bin_right": 0.117111,
-              "count": 0
-            },
-            {
-              "bin_left": 0.117111,
-              "bin_right": 0.130124,
+              "bin_left": 0.117395,
+              "bin_right": 0.130439,
               "count": 1
             }
           ]
@@ -638,16 +637,16 @@
             "topic": "iran",
             "status": "ok",
             "n_test": 1994,
-            "mae": 0.002765,
-            "directional_accuracy": 0.858074,
+            "mae": 0.002615,
+            "directional_accuracy": 0.867603,
             "reliability": "medium"
           },
           {
             "topic": "israel",
             "status": "ok",
             "n_test": 1712,
-            "mae": 0.001837,
-            "directional_accuracy": 0.901869,
+            "mae": 0.001477,
+            "directional_accuracy": 0.918224,
             "reliability": "medium"
           },
           {
@@ -659,8 +658,8 @@
             "topic": "hezbollah",
             "status": "ok",
             "n_test": 143,
-            "mae": 0.001864,
-            "directional_accuracy": 0.867133,
+            "mae": 0.00204,
+            "directional_accuracy": 0.895105,
             "reliability": "medium"
           },
           {
@@ -672,16 +671,16 @@
             "topic": "nuclear_deal",
             "status": "ok",
             "n_test": 428,
-            "mae": 0.001269,
-            "directional_accuracy": 0.939252,
+            "mae": 0.001305,
+            "directional_accuracy": 0.948598,
             "reliability": "medium"
           },
           {
             "topic": "ceasefire",
             "status": "ok",
             "n_test": 428,
-            "mae": 0.001269,
-            "directional_accuracy": 0.939252,
+            "mae": 0.001305,
+            "directional_accuracy": 0.948598,
             "reliability": "medium"
           },
           {
@@ -693,8 +692,8 @@
             "topic": "regional_war",
             "status": "ok",
             "n_test": 1712,
-            "mae": 0.002778,
-            "directional_accuracy": 0.869743,
+            "mae": 0.002591,
+            "directional_accuracy": 0.879089,
             "reliability": "medium"
           }
         ],
@@ -703,7 +702,7 @@
             "source": "bbc_news",
             "n_related_observations": 1804,
             "average_sentiment": -0.872772,
-            "predictive_score": 0.013294,
+            "predictive_score": 0.016336,
             "validation_note": "למקור יש תרומה מסוימת למודל, אך זה אינו מדד אמת או אמינות עיתונאית."
           },
           {
@@ -748,62 +747,72 @@
             "predictive_score": 0.0,
             "validation_note": "מדגם קטן; שימושיות חזויה אינה יציבה."
           }
-        ]
+        ],
+        "moving_subset": {
+          "status": "ok",
+          "n_test": 356,
+          "share_of_test": 0.0999,
+          "random_forest_mae": 0.013348,
+          "baseline_mae": 0.013746,
+          "improvement_pct": 2.891,
+          "r2": 0.001485,
+          "directional_accuracy": 0.11236
+        }
       },
       "error_distribution": {
-        "mean_error": -6.4e-05,
-        "median_absolute_error": 0.000596,
-        "p90_absolute_error": 0.006166,
-        "max_absolute_error": 0.130124,
+        "mean_error": -0.000263,
+        "median_absolute_error": 0.00031,
+        "p90_absolute_error": 0.005303,
+        "max_absolute_error": 0.130439,
         "histogram": [
           {
             "bin_left": 0.0,
-            "bin_right": 0.013012,
-            "count": 3437
+            "bin_right": 0.013044,
+            "count": 3440
           },
           {
-            "bin_left": 0.013012,
-            "bin_right": 0.026025,
-            "count": 86
+            "bin_left": 0.013044,
+            "bin_right": 0.026088,
+            "count": 84
           },
           {
-            "bin_left": 0.026025,
-            "bin_right": 0.039037,
-            "count": 23
+            "bin_left": 0.026088,
+            "bin_right": 0.039132,
+            "count": 22
           },
           {
-            "bin_left": 0.039037,
-            "bin_right": 0.052049,
-            "count": 9
+            "bin_left": 0.039132,
+            "bin_right": 0.052176,
+            "count": 10
           },
           {
-            "bin_left": 0.052049,
-            "bin_right": 0.065062,
-            "count": 6
+            "bin_left": 0.052176,
+            "bin_right": 0.06522,
+            "count": 4
           },
           {
-            "bin_left": 0.065062,
-            "bin_right": 0.078074,
+            "bin_left": 0.06522,
+            "bin_right": 0.078264,
             "count": 1
           },
           {
-            "bin_left": 0.078074,
-            "bin_right": 0.091087,
+            "bin_left": 0.078264,
+            "bin_right": 0.091307,
+            "count": 1
+          },
+          {
+            "bin_left": 0.091307,
+            "bin_right": 0.104351,
             "count": 0
           },
           {
-            "bin_left": 0.091087,
-            "bin_right": 0.104099,
+            "bin_left": 0.104351,
+            "bin_right": 0.117395,
             "count": 0
           },
           {
-            "bin_left": 0.104099,
-            "bin_right": 0.117111,
-            "count": 0
-          },
-          {
-            "bin_left": 0.117111,
-            "bin_right": 0.130124,
+            "bin_left": 0.117395,
+            "bin_right": 0.130439,
             "count": 1
           }
         ]
@@ -813,16 +822,16 @@
           "topic": "iran",
           "status": "ok",
           "n_test": 1994,
-          "mae": 0.002765,
-          "directional_accuracy": 0.858074,
+          "mae": 0.002615,
+          "directional_accuracy": 0.867603,
           "reliability": "medium"
         },
         {
           "topic": "israel",
           "status": "ok",
           "n_test": 1712,
-          "mae": 0.001837,
-          "directional_accuracy": 0.901869,
+          "mae": 0.001477,
+          "directional_accuracy": 0.918224,
           "reliability": "medium"
         },
         {
@@ -834,8 +843,8 @@
           "topic": "hezbollah",
           "status": "ok",
           "n_test": 143,
-          "mae": 0.001864,
-          "directional_accuracy": 0.867133,
+          "mae": 0.00204,
+          "directional_accuracy": 0.895105,
           "reliability": "medium"
         },
         {
@@ -847,16 +856,16 @@
           "topic": "nuclear_deal",
           "status": "ok",
           "n_test": 428,
-          "mae": 0.001269,
-          "directional_accuracy": 0.939252,
+          "mae": 0.001305,
+          "directional_accuracy": 0.948598,
           "reliability": "medium"
         },
         {
           "topic": "ceasefire",
           "status": "ok",
           "n_test": 428,
-          "mae": 0.001269,
-          "directional_accuracy": 0.939252,
+          "mae": 0.001305,
+          "directional_accuracy": 0.948598,
           "reliability": "medium"
         },
         {
@@ -868,8 +877,8 @@
           "topic": "regional_war",
           "status": "ok",
           "n_test": 1712,
-          "mae": 0.002778,
-          "directional_accuracy": 0.869743,
+          "mae": 0.002591,
+          "directional_accuracy": 0.879089,
           "reliability": "medium"
         }
       ],
@@ -878,7 +887,7 @@
           "source": "bbc_news",
           "n_related_observations": 1804,
           "average_sentiment": -0.872772,
-          "predictive_score": 0.013294,
+          "predictive_score": 0.016336,
           "validation_note": "למקור יש תרומה מסוימת למודל, אך זה אינו מדד אמת או אמינות עיתונאית."
         },
         {
@@ -924,7 +933,17 @@
           "validation_note": "מדגם קטן; שימושיות חזויה אינה יציבה."
         }
       ],
-      "validation_conclusion_he": "עבור יעד של שעה קדימה, התיקוף בוצע באמצעות חלוקת זמן. המודל עדיין אינו משפר משמעותית את תחזית הבסיס. ערך R² קרוב לאפס או שלילי ולכן כוח ההסבר מוגבל. הדיוק הכיווני הוא 87.9%, ויש לפרש אותו בזהירות לצד ה-MAE וה-baseline. תווית האמינות: נמוכה.",
+      "moving_subset": {
+        "status": "ok",
+        "n_test": 356,
+        "share_of_test": 0.0999,
+        "random_forest_mae": 0.013348,
+        "baseline_mae": 0.013746,
+        "improvement_pct": 2.891,
+        "r2": 0.001485,
+        "directional_accuracy": 0.11236
+      },
+      "validation_conclusion_he": "עבור יעד של שעה קדימה, התיקוף בוצע באמצעות חלוקת זמן. המודל עדיין אינו משפר משמעותית את תחזית הבסיס. ערך R² קרוב לאפס או שלילי ולכן כוח ההסבר מוגבל. הדיוק הכיווני הוא 89.1%, ויש לפרש אותו בזהירות לצד ה-MAE וה-baseline. תווית האמינות: נמוכה.",
       "leakage_note_he": "הפיצ'רים נבנים רק ממידע שקדם לנקודת החיזוי."
     },
     "1d": {
@@ -934,110 +953,110 @@
       "n_observations": 17214,
       "feature_importance": [
         {
-          "feature": "history_point_index",
-          "importance": 0.313463
-        },
-        {
           "feature": "historical_probability",
-          "importance": 0.251115
+          "importance": 0.339113
         },
         {
           "feature": "probability_change_prev",
-          "importance": 0.070467
+          "importance": 0.103648
         },
         {
           "feature": "market_liquidity",
-          "importance": 0.057402
-        },
-        {
-          "feature": "market_volume",
-          "importance": 0.0401
-        },
-        {
-          "feature": "dow_sin",
-          "importance": 0.0379
+          "importance": 0.079261
         },
         {
           "feature": "hour_utc",
-          "importance": 0.037458
+          "importance": 0.067378
+        },
+        {
+          "feature": "market_volume",
+          "importance": 0.054888
         },
         {
           "feature": "day_of_week",
-          "importance": 0.034897
+          "importance": 0.051492
+        },
+        {
+          "feature": "dow_sin",
+          "importance": 0.050368
         },
         {
           "feature": "dow_cos",
-          "importance": 0.032904
+          "importance": 0.0494
         },
         {
           "feature": "hour_cos",
-          "importance": 0.019416
+          "importance": 0.044894
         },
         {
           "feature": "hour_sin",
-          "importance": 0.016904
-        },
-        {
-          "feature": "topic__iran",
-          "importance": 0.012864
-        },
-        {
-          "feature": "topic__israel",
-          "importance": 0.011353
+          "importance": 0.03098
         },
         {
           "feature": "topic__regional_war",
-          "importance": 0.009463
+          "importance": 0.028111
         },
         {
-          "feature": "topic__nuclear_deal",
-          "importance": 0.006189
+          "feature": "topic__israel",
+          "importance": 0.011826
+        },
+        {
+          "feature": "topic__iran",
+          "importance": 0.011477
         },
         {
           "feature": "sentiment_min",
-          "importance": 0.005589
-        },
-        {
-          "feature": "topic__ceasefire",
-          "importance": 0.005507
+          "importance": 0.006962
         },
         {
           "feature": "sentiment_min_24h",
-          "importance": 0.005044
-        },
-        {
-          "feature": "mean_sentiment_24h",
-          "importance": 0.005036
-        },
-        {
-          "feature": "mean_sentiment",
-          "importance": 0.00489
+          "importance": 0.006534
         },
         {
           "feature": "source__bbc_news__sentiment_24h",
-          "importance": 0.004781
+          "importance": 0.006426
         },
         {
           "feature": "source__bbc_news__sentiment",
-          "importance": 0.004608
+          "importance": 0.006172
+        },
+        {
+          "feature": "topic__nuclear_deal",
+          "importance": 0.006159
+        },
+        {
+          "feature": "mean_sentiment_24h",
+          "importance": 0.006019
+        },
+        {
+          "feature": "mean_sentiment",
+          "importance": 0.005577
+        },
+        {
+          "feature": "topic__ceasefire",
+          "importance": 0.004825
         },
         {
           "feature": "is_weekend",
-          "importance": 0.002618
-        },
-        {
-          "feature": "sentiment_max",
-          "importance": 0.001021
+          "importance": 0.00442
         },
         {
           "feature": "sentiment_max_24h",
-          "importance": 0.000963
+          "importance": 0.002765
+        },
+        {
+          "feature": "sentiment_max",
+          "importance": 0.00248
+        },
+        {
+          "feature": "source__bbc_news__count_24h",
+          "importance": 0.001719
         }
       ],
       "source_importance": [
         {
           "source": "bbc_news",
-          "importance": 0.012554
+          "importance": 0.019419
         }
       ],
       "predictions": [
@@ -1046,8 +1065,8 @@
           "market_question": "Will Benjamin Netanyahu be the next Prime Minister of Israel?",
           "timestamp": "2026-07-19T12:00:15+00:00",
           "current_probability": 0.345,
-          "predicted_delta": 0.0104,
-          "predicted_probability": 0.3554,
+          "predicted_delta": 0.0103,
+          "predicted_probability": 0.3553,
           "predicted_direction": "up",
           "article_volume": 13,
           "mean_sentiment": -0.5317
@@ -1057,8 +1076,8 @@
           "market_question": "Will Donald Trump win the Nobel Peace Prize in 2026?",
           "timestamp": "2026-07-19T12:00:15+00:00",
           "current_probability": 0.0435,
-          "predicted_delta": 0.0007,
-          "predicted_probability": 0.0442,
+          "predicted_delta": 0.0012,
+          "predicted_probability": 0.0447,
           "predicted_direction": "flat",
           "article_volume": 0,
           "mean_sentiment": 0.0
@@ -1068,8 +1087,8 @@
           "market_question": "Will Avigdor Lieberman be the next Prime Minister of Israel?",
           "timestamp": "2026-07-19T12:00:14+00:00",
           "current_probability": 0.0145,
-          "predicted_delta": -0.0006,
-          "predicted_probability": 0.0139,
+          "predicted_delta": -0.0019,
+          "predicted_probability": 0.0126,
           "predicted_direction": "flat",
           "article_volume": 13,
           "mean_sentiment": -0.5317
@@ -1079,8 +1098,8 @@
           "market_question": "Iran leadership change by December 31?",
           "timestamp": "2026-07-19T12:00:13+00:00",
           "current_probability": 0.255,
-          "predicted_delta": -0.0178,
-          "predicted_probability": 0.2372,
+          "predicted_delta": -0.0358,
+          "predicted_probability": 0.2192,
           "predicted_direction": "down",
           "article_volume": 17,
           "mean_sentiment": -0.8852
@@ -1090,8 +1109,8 @@
           "market_question": "Iran agrees to surrender enriched uranium stockpile by December 31, 2026?",
           "timestamp": "2026-07-19T12:00:13+00:00",
           "current_probability": 0.135,
-          "predicted_delta": 0.0002,
-          "predicted_probability": 0.1352,
+          "predicted_delta": -0.0002,
+          "predicted_probability": 0.1348,
           "predicted_direction": "flat",
           "article_volume": 29,
           "mean_sentiment": -0.6546
@@ -1101,8 +1120,8 @@
           "market_question": "Will the Iranian regime fall before 2027?",
           "timestamp": "2026-07-19T12:00:13+00:00",
           "current_probability": 0.105,
-          "predicted_delta": 0.0007,
-          "predicted_probability": 0.1057,
+          "predicted_delta": -0.0044,
+          "predicted_probability": 0.1006,
           "predicted_direction": "flat",
           "article_volume": 17,
           "mean_sentiment": -0.8852
@@ -1112,8 +1131,8 @@
           "market_question": "Will Reza Pahlavi lead Iran in 2026?",
           "timestamp": "2026-07-19T12:00:13+00:00",
           "current_probability": 0.0445,
-          "predicted_delta": -0.0017,
-          "predicted_probability": 0.0428,
+          "predicted_delta": 0.0005,
+          "predicted_probability": 0.045,
           "predicted_direction": "flat",
           "article_volume": 17,
           "mean_sentiment": -0.8852
@@ -1123,8 +1142,8 @@
           "market_question": "Will Naftali Bennett be the next Prime Minister of Israel?",
           "timestamp": "2026-07-19T12:00:12+00:00",
           "current_probability": 0.07,
-          "predicted_delta": 0.0218,
-          "predicted_probability": 0.0918,
+          "predicted_delta": 0.007,
+          "predicted_probability": 0.077,
           "predicted_direction": "up",
           "article_volume": 13,
           "mean_sentiment": -0.5317
@@ -1134,9 +1153,9 @@
           "market_question": "US-Iran Final Nuclear Deal by August 31, 2026?",
           "timestamp": "2026-07-19T12:00:12+00:00",
           "current_probability": 0.055,
-          "predicted_delta": -0.0022,
-          "predicted_probability": 0.0528,
-          "predicted_direction": "flat",
+          "predicted_delta": -0.0069,
+          "predicted_probability": 0.0481,
+          "predicted_direction": "down",
           "article_volume": 17,
           "mean_sentiment": -0.8852
         },
@@ -1145,8 +1164,8 @@
           "market_question": "Will Gideon Sa’ar be the next Prime Minister of Israel?",
           "timestamp": "2026-07-19T12:00:12+00:00",
           "current_probability": 0.0035,
-          "predicted_delta": 0.0001,
-          "predicted_probability": 0.0036,
+          "predicted_delta": 0.0,
+          "predicted_probability": 0.0035,
           "predicted_direction": "flat",
           "article_volume": 13,
           "mean_sentiment": -0.5317
@@ -1156,8 +1175,8 @@
           "market_question": "Will Benny Gantz be the next Prime Minister of Israel?",
           "timestamp": "2026-07-19T12:00:10+00:00",
           "current_probability": 0.0035,
-          "predicted_delta": 0.0,
-          "predicted_probability": 0.0035,
+          "predicted_delta": 0.0001,
+          "predicted_probability": 0.0036,
           "predicted_direction": "flat",
           "article_volume": 13,
           "mean_sentiment": -0.5317
@@ -1167,8 +1186,8 @@
           "market_question": "Netanyahu out by end of 2026?",
           "timestamp": "2026-07-19T12:00:08+00:00",
           "current_probability": 0.36,
-          "predicted_delta": 0.0053,
-          "predicted_probability": 0.3653,
+          "predicted_delta": 0.0051,
+          "predicted_probability": 0.3651,
           "predicted_direction": "up",
           "article_volume": 13,
           "mean_sentiment": -0.5317
@@ -1178,8 +1197,8 @@
           "market_question": "Will Benjamin Netanyahu be the next leader out before 2027?",
           "timestamp": "2026-07-19T12:00:08+00:00",
           "current_probability": 0.0015,
-          "predicted_delta": 0.0007,
-          "predicted_probability": 0.0022,
+          "predicted_delta": 0.0009,
+          "predicted_probability": 0.0024,
           "predicted_direction": "flat",
           "article_volume": 13,
           "mean_sentiment": -0.5317
@@ -1189,9 +1208,9 @@
           "market_question": "Will Mojtaba Khamenei be head of state in Iran end of 2026?",
           "timestamp": "2026-07-19T12:00:08+00:00",
           "current_probability": 0.7325,
-          "predicted_delta": 0.0021,
-          "predicted_probability": 0.7346,
-          "predicted_direction": "flat",
+          "predicted_delta": 0.0051,
+          "predicted_probability": 0.7376,
+          "predicted_direction": "up",
           "article_volume": 17,
           "mean_sentiment": -0.8852
         },
@@ -1211,9 +1230,9 @@
           "market_question": "Will Reza Pahlavi enter Iran by December 31?",
           "timestamp": "2026-07-19T12:00:08+00:00",
           "current_probability": 0.065,
-          "predicted_delta": -0.0061,
-          "predicted_probability": 0.0589,
-          "predicted_direction": "down",
+          "predicted_delta": -0.0014,
+          "predicted_probability": 0.0636,
+          "predicted_direction": "flat",
           "article_volume": 17,
           "mean_sentiment": -0.8852
         },
@@ -1222,8 +1241,8 @@
           "market_question": "Will Amir Ohana be the next Prime Minister of Israel?",
           "timestamp": "2026-07-19T12:00:07+00:00",
           "current_probability": 0.0025,
-          "predicted_delta": 0.0004,
-          "predicted_probability": 0.0029,
+          "predicted_delta": 0.0003,
+          "predicted_probability": 0.0028,
           "predicted_direction": "flat",
           "article_volume": 13,
           "mean_sentiment": -0.5317
@@ -1233,8 +1252,8 @@
           "market_question": "Will Mohammad Khatami be head of state in Iran end of 2026?",
           "timestamp": "2026-07-19T12:00:07+00:00",
           "current_probability": 0.0015,
-          "predicted_delta": 0.0001,
-          "predicted_probability": 0.0016,
+          "predicted_delta": 0.0002,
+          "predicted_probability": 0.0017,
           "predicted_direction": "flat",
           "article_volume": 17,
           "mean_sentiment": -0.8852
@@ -1244,8 +1263,8 @@
           "market_question": "Will Yair Golan be the next Prime Minister of Israel?",
           "timestamp": "2026-07-19T12:00:07+00:00",
           "current_probability": 0.0015,
-          "predicted_delta": 0.0002,
-          "predicted_probability": 0.0017,
+          "predicted_delta": 0.0008,
+          "predicted_probability": 0.0023,
           "predicted_direction": "flat",
           "article_volume": 13,
           "mean_sentiment": -0.5317
@@ -1255,8 +1274,8 @@
           "market_question": "Will Alireza Arafi be head of state in Iran end of 2026?",
           "timestamp": "2026-07-19T12:00:04+00:00",
           "current_probability": 0.013,
-          "predicted_delta": 0.0004,
-          "predicted_probability": 0.0134,
+          "predicted_delta": -0.0005,
+          "predicted_probability": 0.0125,
           "predicted_direction": "flat",
           "article_volume": 17,
           "mean_sentiment": -0.8852
@@ -1266,8 +1285,8 @@
           "market_question": "Will UNRWA win the Nobel Peace Prize in 2026?",
           "timestamp": "2026-07-19T12:00:04+00:00",
           "current_probability": 0.061,
-          "predicted_delta": 0.0329,
-          "predicted_probability": 0.0939,
+          "predicted_delta": 0.0224,
+          "predicted_probability": 0.0834,
           "predicted_direction": "up",
           "article_volume": 0,
           "mean_sentiment": 0.0
@@ -1277,9 +1296,9 @@
           "market_question": "Will Iran announce withdrawal from MOU negotiations by July 31?",
           "timestamp": "2026-07-19T12:00:04+00:00",
           "current_probability": 0.165,
-          "predicted_delta": 0.0398,
-          "predicted_probability": 0.2048,
-          "predicted_direction": "up",
+          "predicted_delta": -0.0011,
+          "predicted_probability": 0.1639,
+          "predicted_direction": "flat",
           "article_volume": 17,
           "mean_sentiment": -0.8852
         },
@@ -1288,8 +1307,8 @@
           "market_question": "Will the U.S. invade Iran before 2027?",
           "timestamp": "2026-07-19T12:00:04+00:00",
           "current_probability": 0.295,
-          "predicted_delta": -0.0655,
-          "predicted_probability": 0.2295,
+          "predicted_delta": -0.0799,
+          "predicted_probability": 0.2151,
           "predicted_direction": "down",
           "article_volume": 17,
           "mean_sentiment": -0.8852
@@ -1299,8 +1318,8 @@
           "market_question": "US obtains Iranian enriched uranium by December 31?",
           "timestamp": "2026-07-19T12:00:04+00:00",
           "current_probability": 0.125,
-          "predicted_delta": -0.0009,
-          "predicted_probability": 0.1241,
+          "predicted_delta": -0.0003,
+          "predicted_probability": 0.1247,
           "predicted_direction": "flat",
           "article_volume": 17,
           "mean_sentiment": -0.8852
@@ -1320,8 +1339,8 @@
       "evaluation_mode": "time_holdout",
       "n_train": 13771,
       "n_test": 3443,
-      "mae": 0.008812,
-      "r2": 0.211617,
+      "mae": 0.009887,
+      "r2": 0.08531,
       "baselines": {
         "no_change": {
           "mae": 0.008413,
@@ -1339,79 +1358,79 @@
       "best_baseline": "no_change",
       "baseline_mae": 0.008413,
       "baseline_directional_accuracy": 0.657857,
-      "improvement_pct": -4.743,
+      "improvement_pct": -17.517,
       "beats_baseline": false,
-      "directional_accuracy": 0.687482,
+      "directional_accuracy": 0.664246,
       "reliability": "weak",
       "validation_report": {
         "horizon": "1d",
         "train_rows": 13771,
         "test_rows": 3443,
-        "random_forest_mae": 0.008812,
+        "random_forest_mae": 0.009887,
         "best_baseline_name": "no_change",
         "best_baseline_mae": 0.008413,
-        "improvement_pct": -4.743,
-        "r2": 0.211617,
-        "directional_accuracy": 0.687482,
+        "improvement_pct": -17.517,
+        "r2": 0.08531,
+        "directional_accuracy": 0.664246,
         "reliability": "weak",
-        "conclusion_he": "עבור יעד של יום קדימה, התיקוף בוצע באמצעות חלוקת זמן. המודל עדיין אינו משפר משמעותית את תחזית הבסיס. הדיוק הכיווני הוא 68.7%, ויש לפרש אותו בזהירות לצד ה-MAE וה-baseline. תווית האמינות: נמוכה.",
+        "conclusion_he": "עבור יעד של יום קדימה, התיקוף בוצע באמצעות חלוקת זמן. המודל עדיין אינו משפר משמעותית את תחזית הבסיס. הדיוק הכיווני הוא 66.4%, ויש לפרש אותו בזהירות לצד ה-MAE וה-baseline. תווית האמינות: נמוכה.",
         "leakage_note_he": "הפיצ'רים נבנים רק ממידע שקדם לנקודת החיזוי.",
         "why_validation_matters_he": "MAE לבדו אינו מספיק כי גם תחזית בסיס פשוטה יכולה לקבל שגיאה נמוכה כאשר השוק כמעט לא זז. לכן משווים מול baseline, בודקים R² כדי להעריך כוח הסבר, ובודקים דיוק כיווני בזהירות.",
         "error_distribution": {
-          "mean_error": -0.001043,
-          "median_absolute_error": 0.002075,
-          "p90_absolute_error": 0.023535,
-          "max_absolute_error": 0.157017,
+          "mean_error": -0.002447,
+          "median_absolute_error": 0.002706,
+          "p90_absolute_error": 0.027862,
+          "max_absolute_error": 0.160233,
           "histogram": [
             {
               "bin_left": 0.0,
-              "bin_right": 0.015702,
-              "count": 2910
+              "bin_right": 0.016023,
+              "count": 2814
             },
             {
-              "bin_left": 0.015702,
-              "bin_right": 0.031403,
-              "count": 280
+              "bin_left": 0.016023,
+              "bin_right": 0.032047,
+              "count": 333
             },
             {
-              "bin_left": 0.031403,
-              "bin_right": 0.047105,
-              "count": 96
+              "bin_left": 0.032047,
+              "bin_right": 0.04807,
+              "count": 136
             },
             {
-              "bin_left": 0.047105,
-              "bin_right": 0.062807,
-              "count": 85
+              "bin_left": 0.04807,
+              "bin_right": 0.064093,
+              "count": 84
             },
             {
-              "bin_left": 0.062807,
-              "bin_right": 0.078509,
-              "count": 31
+              "bin_left": 0.064093,
+              "bin_right": 0.080117,
+              "count": 35
             },
             {
-              "bin_left": 0.078509,
-              "bin_right": 0.09421,
-              "count": 17
-            },
-            {
-              "bin_left": 0.09421,
-              "bin_right": 0.109912,
-              "count": 8
-            },
-            {
-              "bin_left": 0.109912,
-              "bin_right": 0.125614,
+              "bin_left": 0.080117,
+              "bin_right": 0.09614,
               "count": 11
             },
             {
-              "bin_left": 0.125614,
-              "bin_right": 0.141315,
-              "count": 4
+              "bin_left": 0.09614,
+              "bin_right": 0.112163,
+              "count": 16
             },
             {
-              "bin_left": 0.141315,
-              "bin_right": 0.157017,
-              "count": 1
+              "bin_left": 0.112163,
+              "bin_right": 0.128187,
+              "count": 2
+            },
+            {
+              "bin_left": 0.128187,
+              "bin_right": 0.14421,
+              "count": 10
+            },
+            {
+              "bin_left": 0.14421,
+              "bin_right": 0.160233,
+              "count": 2
             }
           ]
         },
@@ -1420,16 +1439,16 @@
             "topic": "iran",
             "status": "ok",
             "n_test": 1927,
-            "mae": 0.010911,
-            "directional_accuracy": 0.646601,
+            "mae": 0.012061,
+            "directional_accuracy": 0.642968,
             "reliability": "medium"
           },
           {
             "topic": "israel",
             "status": "ok",
             "n_test": 1654,
-            "mae": 0.006133,
-            "directional_accuracy": 0.705562,
+            "mae": 0.007228,
+            "directional_accuracy": 0.659008,
             "reliability": "medium"
           },
           {
@@ -1441,8 +1460,8 @@
             "topic": "hezbollah",
             "status": "ok",
             "n_test": 138,
-            "mae": 0.00601,
-            "directional_accuracy": 0.333333,
+            "mae": 0.00837,
+            "directional_accuracy": 0.304348,
             "reliability": "weak"
           },
           {
@@ -1454,16 +1473,16 @@
             "topic": "nuclear_deal",
             "status": "ok",
             "n_test": 413,
-            "mae": 0.005553,
-            "directional_accuracy": 0.539952,
+            "mae": 0.006378,
+            "directional_accuracy": 0.544794,
             "reliability": "weak"
           },
           {
             "topic": "ceasefire",
             "status": "ok",
             "n_test": 413,
-            "mae": 0.005553,
-            "directional_accuracy": 0.539952,
+            "mae": 0.006378,
+            "directional_accuracy": 0.544794,
             "reliability": "weak"
           },
           {
@@ -1475,8 +1494,8 @@
             "topic": "regional_war",
             "status": "ok",
             "n_test": 1653,
-            "mae": 0.010847,
-            "directional_accuracy": 0.701754,
+            "mae": 0.011851,
+            "directional_accuracy": 0.656382,
             "reliability": "medium"
           }
         ],
@@ -1485,7 +1504,7 @@
             "source": "bbc_news",
             "n_related_observations": 1765,
             "average_sentiment": -0.689691,
-            "predictive_score": 0.012554,
+            "predictive_score": 0.019419,
             "validation_note": "למקור יש תרומה מסוימת למודל, אך זה אינו מדד אמת או אמינות עיתונאית."
           },
           {
@@ -1530,63 +1549,73 @@
             "predictive_score": 0.0,
             "validation_note": "מדגם קטן; שימושיות חזויה אינה יציבה."
           }
-        ]
+        ],
+        "moving_subset": {
+          "status": "ok",
+          "n_test": 1178,
+          "share_of_test": 0.3421,
+          "random_forest_mae": 0.023851,
+          "baseline_mae": 0.023626,
+          "improvement_pct": -0.952,
+          "r2": 0.128332,
+          "directional_accuracy": 0.280985
+        }
       },
       "error_distribution": {
-        "mean_error": -0.001043,
-        "median_absolute_error": 0.002075,
-        "p90_absolute_error": 0.023535,
-        "max_absolute_error": 0.157017,
+        "mean_error": -0.002447,
+        "median_absolute_error": 0.002706,
+        "p90_absolute_error": 0.027862,
+        "max_absolute_error": 0.160233,
         "histogram": [
           {
             "bin_left": 0.0,
-            "bin_right": 0.015702,
-            "count": 2910
+            "bin_right": 0.016023,
+            "count": 2814
           },
           {
-            "bin_left": 0.015702,
-            "bin_right": 0.031403,
-            "count": 280
+            "bin_left": 0.016023,
+            "bin_right": 0.032047,
+            "count": 333
           },
           {
-            "bin_left": 0.031403,
-            "bin_right": 0.047105,
-            "count": 96
+            "bin_left": 0.032047,
+            "bin_right": 0.04807,
+            "count": 136
           },
           {
-            "bin_left": 0.047105,
-            "bin_right": 0.062807,
-            "count": 85
+            "bin_left": 0.04807,
+            "bin_right": 0.064093,
+            "count": 84
           },
           {
-            "bin_left": 0.062807,
-            "bin_right": 0.078509,
-            "count": 31
+            "bin_left": 0.064093,
+            "bin_right": 0.080117,
+            "count": 35
           },
           {
-            "bin_left": 0.078509,
-            "bin_right": 0.09421,
-            "count": 17
-          },
-          {
-            "bin_left": 0.09421,
-            "bin_right": 0.109912,
-            "count": 8
-          },
-          {
-            "bin_left": 0.109912,
-            "bin_right": 0.125614,
+            "bin_left": 0.080117,
+            "bin_right": 0.09614,
             "count": 11
           },
           {
-            "bin_left": 0.125614,
-            "bin_right": 0.141315,
-            "count": 4
+            "bin_left": 0.09614,
+            "bin_right": 0.112163,
+            "count": 16
           },
           {
-            "bin_left": 0.141315,
-            "bin_right": 0.157017,
-            "count": 1
+            "bin_left": 0.112163,
+            "bin_right": 0.128187,
+            "count": 2
+          },
+          {
+            "bin_left": 0.128187,
+            "bin_right": 0.14421,
+            "count": 10
+          },
+          {
+            "bin_left": 0.14421,
+            "bin_right": 0.160233,
+            "count": 2
           }
         ]
       },
@@ -1595,16 +1624,16 @@
           "topic": "iran",
           "status": "ok",
           "n_test": 1927,
-          "mae": 0.010911,
-          "directional_accuracy": 0.646601,
+          "mae": 0.012061,
+          "directional_accuracy": 0.642968,
           "reliability": "medium"
         },
         {
           "topic": "israel",
           "status": "ok",
           "n_test": 1654,
-          "mae": 0.006133,
-          "directional_accuracy": 0.705562,
+          "mae": 0.007228,
+          "directional_accuracy": 0.659008,
           "reliability": "medium"
         },
         {
@@ -1616,8 +1645,8 @@
           "topic": "hezbollah",
           "status": "ok",
           "n_test": 138,
-          "mae": 0.00601,
-          "directional_accuracy": 0.333333,
+          "mae": 0.00837,
+          "directional_accuracy": 0.304348,
           "reliability": "weak"
         },
         {
@@ -1629,16 +1658,16 @@
           "topic": "nuclear_deal",
           "status": "ok",
           "n_test": 413,
-          "mae": 0.005553,
-          "directional_accuracy": 0.539952,
+          "mae": 0.006378,
+          "directional_accuracy": 0.544794,
           "reliability": "weak"
         },
         {
           "topic": "ceasefire",
           "status": "ok",
           "n_test": 413,
-          "mae": 0.005553,
-          "directional_accuracy": 0.539952,
+          "mae": 0.006378,
+          "directional_accuracy": 0.544794,
           "reliability": "weak"
         },
         {
@@ -1650,8 +1679,8 @@
           "topic": "regional_war",
           "status": "ok",
           "n_test": 1653,
-          "mae": 0.010847,
-          "directional_accuracy": 0.701754,
+          "mae": 0.011851,
+          "directional_accuracy": 0.656382,
           "reliability": "medium"
         }
       ],
@@ -1660,7 +1689,7 @@
           "source": "bbc_news",
           "n_related_observations": 1765,
           "average_sentiment": -0.689691,
-          "predictive_score": 0.012554,
+          "predictive_score": 0.019419,
           "validation_note": "למקור יש תרומה מסוימת למודל, אך זה אינו מדד אמת או אמינות עיתונאית."
         },
         {
@@ -1706,7 +1735,17 @@
           "validation_note": "מדגם קטן; שימושיות חזויה אינה יציבה."
         }
       ],
-      "validation_conclusion_he": "עבור יעד של יום קדימה, התיקוף בוצע באמצעות חלוקת זמן. המודל עדיין אינו משפר משמעותית את תחזית הבסיס. הדיוק הכיווני הוא 68.7%, ויש לפרש אותו בזהירות לצד ה-MAE וה-baseline. תווית האמינות: נמוכה.",
+      "moving_subset": {
+        "status": "ok",
+        "n_test": 1178,
+        "share_of_test": 0.3421,
+        "random_forest_mae": 0.023851,
+        "baseline_mae": 0.023626,
+        "improvement_pct": -0.952,
+        "r2": 0.128332,
+        "directional_accuracy": 0.280985
+      },
+      "validation_conclusion_he": "עבור יעד של יום קדימה, התיקוף בוצע באמצעות חלוקת זמן. המודל עדיין אינו משפר משמעותית את תחזית הבסיס. הדיוק הכיווני הוא 66.4%, ויש לפרש אותו בזהירות לצד ה-MAE וה-baseline. תווית האמינות: נמוכה.",
       "leakage_note_he": "הפיצ'רים נבנים רק ממידע שקדם לנקודת החיזוי."
     }
   },

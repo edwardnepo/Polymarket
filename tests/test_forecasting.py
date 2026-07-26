@@ -82,5 +82,6 @@ def test_build_ml_artifacts_trains_when_sklearn_available():
     assert results["targets"]["1h"]["evaluation_mode"] == "time_holdout"
     assert results["targets"]["1h"]["baseline_mae"] is not None
     assert results["targets"]["1h"]["directional_accuracy"] is not None
+    assert "moving_subset" in results["targets"]["1h"]["validation_report"]
     assert results["targets"]["1h"]["reliability"] in {"good", "medium", "weak"}
     assert results["source_labels"]["ynet"] == "Ynet"

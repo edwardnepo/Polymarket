@@ -46,6 +46,7 @@ _NON_FEATURE_COLUMNS = {
     "market_question",
     "timestamp",
     "unix",
+    "history_point_index",
     "matched_keywords",
     "topic_labels",
     "future_probability_1h",
@@ -427,6 +428,40 @@ def _baseline_summary(
         "best_baseline": best_name,
         "baseline_mae": best["mae"],
         "baseline_directional_accuracy": best["directional_accuracy"],
+        "baseline_predictions": baseline_preds[best_name],
+    }
+
+
+def _moving_subset_metrics(
+    y_test: Sequence[float],
+    preds: Sequence[float],
+    baseline_preds: Sequence[float],
+) -> Dict[str, Any]:
+    """Evaluate only observations where the market actually moved."""
+    from sklearn.metrics import mean_absolute_error, r2_score
+
+    y = np.asarray(y_test, dtype=float)
+    p = np.asarray(preds, dtype=float)
+    b = np.asarray(baseline_preds, dtype=float)
+    mask = np.abs(y) > MOVEMENT_THRESHOLD
+    n_rows = int(mask.sum())
+    if n_rows < 20:
+        return {"status": "insufficient_data", "n_test": n_rows}
+    model_mae = float(mean_absolute_error(y[mask], p[mask]))
+    baseline_mae = float(mean_absolute_error(y[mask], b[mask]))
+    return {
+        "status": "ok",
+        "n_test": n_rows,
+        "share_of_test": round(n_rows / len(y), 4) if len(y) else None,
+        "random_forest_mae": round(model_mae, 6),
+        "baseline_mae": round(baseline_mae, 6),
+        "improvement_pct": (
+            round(((baseline_mae - model_mae) / baseline_mae) * 100, 3)
+            if baseline_mae > 0
+            else None
+        ),
+        "r2": round(float(r2_score(y[mask], p[mask])), 6),
+        "directional_accuracy": round(float(_direction_accuracy(y[mask], p[mask])), 6),
     }
 
 
@@ -659,6 +694,9 @@ def _train_one_target(
         "error_distribution": _error_distribution(y_test, preds),
         "topic_performance": _topic_performance(test_df, y_test, preds),
         "source_validation": _source_validation(test_df, source_importance),
+        "moving_subset": _moving_subset_metrics(
+            y_test, preds, baseline["baseline_predictions"]
+        ),
     }
 
     latest = _latest_observations(dataset)
@@ -704,6 +742,7 @@ def _train_one_target(
             "error_distribution": validation_report["error_distribution"],
             "topic_performance": validation_report["topic_performance"],
             "source_validation": validation_report["source_validation"],
+            "moving_subset": validation_report["moving_subset"],
             "validation_conclusion_he": validation_report["conclusion_he"],
             "leakage_note_he": validation_report["leakage_note_he"],
             "feature_importance": importance[:25],

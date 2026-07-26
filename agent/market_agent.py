@@ -62,7 +62,7 @@ def _top_sources(articles: Sequence[Dict[str, Any]], ml_results: Dict[str, Any],
         source = labels.get(slug, slug.replace("_", " ").title())
         scores[source] = scores.get(source, 0.0) + _safe_float(item.get("importance"))
 
-    all_sources = set(counts) | set(scores)
+    all_sources = {source for source, score in scores.items() if score > 0}
     rows = []
     for source in all_sources:
         values = sentiments.get(source, [])

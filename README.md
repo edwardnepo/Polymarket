@@ -83,6 +83,7 @@ python -m pipeline.run_pipeline --dry-run
 - MAE של Random Forest מול baseline.
 - שיפור או ירידה ביחס ל-baseline.
 - R² ודיוק כיווני.
+- תיקוף נוסף על תצפיות שבהן השוק באמת זז.
 - מסקנת תיקוף בעברית לכל יעד חיזוי.
 - שכבת סיכום אנליטית מבוססת AI שמתרגמת את תוצרי המודל לתובנות זהירות.
 
@@ -93,6 +94,17 @@ python -m pipeline.run_pipeline --dry-run
 Firebase הוא אופציונלי. לצורך בדיקת מורה, הדשבורד יכול לעבוד ישירות מקבצי `output/*.json` ולהציג:
 
 **מצב דמו — נתונים מקומיים**
+
+## חיבור Firebase ב-Streamlit Cloud
+
+אם רוצים שהאתר בענן יטען נתונים מ-Firestore ולא רק מקבצי `output/*.json`, צריך להגדיר Secrets באפליקציה ב-Streamlit Cloud:
+
+```toml
+FIREBASE_PROJECT_ID = "your-project-id"
+FIREBASE_CREDENTIALS_JSON = '''{"type":"service_account", "...":"..."}'''
+```
+
+לאחר שמירת ה-Secrets יש לבצע reboot לאפליקציה. במצב `אוטומטי`, הדשבורד יעדיף Firestore כאשר קיימות הרשאות, ויחזור לתמונת מצב מקומית כאשר אין הרשאות.
 
 ## אזהרת סודות
 

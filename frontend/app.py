@@ -39,6 +39,40 @@ import streamlit as st
 from scipy import stats
 
 from agent.market_agent import generate_agent_report
+
+
+def _load_streamlit_secrets_into_env() -> None:
+    """Expose Streamlit Cloud secrets as env vars before Settings is created."""
+    secret_keys = (
+        "FIREBASE_CREDENTIALS_JSON",
+        "GOOGLE_APPLICATION_CREDENTIALS",
+        "FIREBASE_PROJECT_ID",
+    )
+    try:
+        secrets = st.secrets
+        for key in secret_keys:
+            if os.environ.get(key):
+                continue
+            if key in secrets:
+                os.environ[key] = str(secrets[key])
+                continue
+            lower_key = key.lower()
+            if lower_key in secrets:
+                os.environ[key] = str(secrets[lower_key])
+        if "firebase" in secrets:
+            firebase = secrets["firebase"]
+            mapping = {
+                "credentials_json": "FIREBASE_CREDENTIALS_JSON",
+                "project_id": "FIREBASE_PROJECT_ID",
+            }
+            for source_key, env_key in mapping.items():
+                if not os.environ.get(env_key) and source_key in firebase:
+                    os.environ[env_key] = str(firebase[source_key])
+    except Exception:
+        return
+
+
+_load_streamlit_secrets_into_env()
 from config.settings import get_settings
 
 # --------------------------------------------------------------------------- #
@@ -279,6 +313,16 @@ def apply_keyword_filter(
 # --------------------------------------------------------------------------- #
 # Cross-sectional analysis (one observation per market)
 # --------------------------------------------------------------------------- #
+CROSS_SECTION_COLUMNS = [
+    "question",
+    "keywords",
+    "sentiment",
+    "probability",
+    "article_count",
+    "volume",
+]
+
+
 def average_sentiment(articles: List[Dict]) -> float:
     vals = [a.get("sentiment") for a in articles if a.get("sentiment") is not None]
     return float(np.mean(vals)) if vals else 0.0
@@ -330,10 +374,12 @@ def cross_sectional_frame(articles: List[Dict], markets: List[Dict]) -> pd.DataF
                 "volume": float(m.get("volume") or 0.0),
             }
         )
-    return pd.DataFrame(rows)
+    return pd.DataFrame(rows, columns=CROSS_SECTION_COLUMNS)
 
 
 def cross_sectional_pearson(cs: pd.DataFrame) -> Tuple[Optional[float], Optional[float]]:
+    if cs.empty or not {"sentiment", "probability"}.issubset(cs.columns):
+        return None, None
     sub = cs.dropna(subset=["sentiment", "probability"])
     if len(sub) >= 3 and sub["sentiment"].nunique() > 1 and sub["probability"].nunique() > 1:
         r, p = stats.pearsonr(sub["sentiment"], sub["probability"])
@@ -859,6 +905,15 @@ def direction_accuracy_text(value: Optional[float]) -> str:
     return f"{value:.1%}" if value is not None else "לא זמין"
 
 
+def _pct_value(value: Optional[float]) -> Optional[float]:
+    if value is None:
+        return None
+    try:
+        return float(value) * 100
+    except (TypeError, ValueError):
+        return None
+
+
 def _direction_distribution(future_df: pd.DataFrame) -> str:
     if future_df.empty or "כיוון בעוד יום" not in future_df.columns:
         return "אין מספיק תחזיות"
@@ -897,17 +952,40 @@ def render_kpi_card(label: str, value: str) -> None:
     )
 
 
+def render_static_table(df: pd.DataFrame, formats: Dict[str, str]) -> None:
+    """Render a small HTML table instead of the canvas-based dataframe grid."""
+    if df.empty:
+        return
+    shown = df.copy()
+    for col, fmt in formats.items():
+        if col in shown.columns:
+            shown[col] = pd.to_numeric(shown[col], errors="coerce").map(
+                lambda value: fmt.format(value) if pd.notna(value) else "—"
+            )
+    st.table(shown.reset_index(drop=True))
+
+
 def top_source_name(reliability_df: pd.DataFrame) -> str:
     if reliability_df.empty:
         return "לא זמין"
-    top = reliability_df.sort_values("ציון שימושיות חזויה", ascending=False).iloc[0]
+    contributing = reliability_df.loc[
+        pd.to_numeric(reliability_df["ציון שימושיות חזויה"], errors="coerce").fillna(0) > 0
+    ]
+    if contributing.empty:
+        return "לא נמצאה תרומה מדידה"
+    top = contributing.sort_values("ציון שימושיות חזויה", ascending=False).iloc[0]
     return str(top["כלי תקשורת"])
 
 
 def compact_source_table(reliability_df: pd.DataFrame, limit: int = 5) -> pd.DataFrame:
     if reliability_df.empty:
         return pd.DataFrame()
-    df = reliability_df.sort_values("ציון שימושיות חזויה", ascending=False).head(limit)
+    df = reliability_df.loc[
+        pd.to_numeric(reliability_df["ציון שימושיות חזויה"], errors="coerce").fillna(0) > 0
+    ]
+    if df.empty:
+        return pd.DataFrame()
+    df = df.sort_values("ציון שימושיות חזויה", ascending=False).head(limit)
     return df.rename(
         columns={
             "כלי תקשורת": "Source",
@@ -992,15 +1070,25 @@ def main_conclusion_text(
     p: Optional[float],
     model_result: Dict[str, Any],
 ) -> str:
-    if not reliability_df.empty:
+    contributing = (
+        reliability_df.loc[
+            pd.to_numeric(reliability_df["ציון שימושיות חזויה"], errors="coerce").fillna(0) > 0
+        ]
+        if not reliability_df.empty and "ציון שימושיות חזויה" in reliability_df.columns
+        else pd.DataFrame()
+    )
+    if not contributing.empty:
         top_sources = (
-            reliability_df.sort_values("ציון שימושיות חזויה", ascending=False)["כלי תקשורת"]
+            contributing.sort_values("ציון שימושיות חזויה", ascending=False)["כלי תקשורת"]
             .head(3)
             .tolist()
         )
-        sources_sentence = f"המודל מצא כי {', '.join(top_sources)} הם המקורות בעלי התרומה הגבוהה ביותר לחיזוי תנועות בפולימרקט."
+        sources_sentence = (
+            f"המקורות שתרמו לחיזוי בהרצה זו: {', '.join(top_sources)}. "
+            "לשאר המקורות לא נמצאה תרומה חזויה מדידה."
+        )
     else:
-        sources_sentence = "המודל עדיין לא זיהה דירוג יציב של מקורות תקשורת."
+        sources_sentence = "בהרצה הנוכחית לא נמצאה תרומה חזויה מדידה לאף מקור תקשורת."
 
     trend_sentence = "אין עדיין מספיק תחזיות כדי לסכם את כיוון השווקים."
     if not future_df.empty and "כיוון בעוד יום" in future_df.columns:
@@ -1052,13 +1140,20 @@ def automatic_summary_frame(
     model_result: Dict[str, Any],
 ) -> pd.DataFrame:
     significant = "כן" if p is not None and p < 0.05 else ("לא" if p is not None else "לא זמין")
+    contributing = (
+        reliability_df.loc[
+            pd.to_numeric(reliability_df["ציון שימושיות חזויה"], errors="coerce").fillna(0) > 0
+        ]
+        if not reliability_df.empty and "ציון שימושיות חזויה" in reliability_df.columns
+        else pd.DataFrame()
+    )
     best_sources = (
         ", ".join(
-            reliability_df.sort_values("ציון שימושיות חזויה", ascending=False)["כלי תקשורת"]
+            contributing.sort_values("ציון שימושיות חזויה", ascending=False)["כלי תקשורת"]
             .head(3)
             .tolist()
         )
-        if not reliability_df.empty
+        if not contributing.empty
         else "לא זמין"
     )
     return pd.DataFrame(
@@ -1094,7 +1189,7 @@ def validation_summary_frame(ml_forecast: Dict[str, Any]) -> pd.DataFrame:
                 "Baseline MAE": report.get("best_baseline_mae", result.get("baseline_mae")),
                 "Improvement": report.get("improvement_pct", result.get("improvement_pct")),
                 "R²": report.get("r2", result.get("r2")),
-                "Directional accuracy": report.get("directional_accuracy", result.get("directional_accuracy")),
+                "Directional accuracy": _pct_value(report.get("directional_accuracy", result.get("directional_accuracy"))),
                 "אמינות": reliability_he(report.get("reliability", result.get("reliability"))),
                 "מסקנת תיקוף": report.get("conclusion_he", result.get("validation_conclusion_he", "")),
             }
@@ -1112,7 +1207,7 @@ def compact_validation_frame(model_result: Dict[str, Any]) -> pd.DataFrame:
                 "Random Forest MAE": model_result.get("mae"),
                 "Improvement": model_result.get("improvement_pct"),
                 "R²": model_result.get("r2"),
-                "Directional accuracy": model_result.get("directional_accuracy"),
+                "Directional accuracy": _pct_value(model_result.get("directional_accuracy")),
                 "Reliability": reliability_he(model_result.get("reliability")),
             }
         ]
@@ -1246,6 +1341,13 @@ def main() -> None:
         )
         return
 
+    if not markets:
+        st.warning(
+            "אין שווקים התואמים לסינון הנוכחי. נסו להסיר את הסינון לפי נושא "
+            "או לבחור נושא אחר."
+        )
+        return
+
     # --- analysis ---------------------------------------------------------- #
     cross = cross_sectional_frame(articles, markets)
     r, p = cross_sectional_pearson(cross)
@@ -1298,14 +1400,9 @@ def main() -> None:
             src_agent_df = agent_sources_frame(agent_report)
             if not src_agent_df.empty:
                 st.markdown("**מקורות בעלי תרומה גבוהה לחיזוי**")
-                st.dataframe(
+                render_static_table(
                     src_agent_df.drop(columns=["הערה"], errors="ignore").head(3),
-                    use_container_width=True,
-                    hide_index=True,
-                    column_config={
-                        "סנטימנט ממוצע": st.column_config.NumberColumn("סנטימנט ממוצע", format="%+.3f"),
-                        "ציון חזוי": st.column_config.NumberColumn("ציון חזוי", format="%.4f"),
-                    },
+                    {"סנטימנט ממוצע": "{:+.3f}", "ציון חזוי": "{:.4f}"},
                 )
             else:
                 st.info("לא נמצאו מספיק נתונים להצגת רשימת מקורות מהימנה בהרצה הנוכחית.")
@@ -1313,13 +1410,9 @@ def main() -> None:
             agent_market_df = agent_markets_frame(agent_report)
             if not agent_market_df.empty:
                 st.markdown("**שווקים בולטים למעקב**")
-                st.dataframe(
+                render_static_table(
                     agent_market_df.head(5),
-                    use_container_width=True,
-                    hide_index=True,
-                    column_config={
-                        "שינוי חזוי": st.column_config.NumberColumn("שינוי חזוי", format="%+.3f"),
-                    },
+                    {"שינוי חזוי": "{:+.3f}"},
                 )
             else:
                 st.info("לא נמצאו מספיק נתונים להצגת רשימת שווקים מהימנה בהרצה הנוכחית.")
@@ -1347,7 +1440,7 @@ def main() -> None:
                 "Random Forest MAE": st.column_config.NumberColumn("Random Forest MAE", format="%.4f"),
                 "Improvement": st.column_config.NumberColumn("Improvement", format="%+.1f%%"),
                 "R²": st.column_config.NumberColumn("R²", format="%.3f"),
-                "Directional accuracy": st.column_config.NumberColumn("Directional accuracy", format="%.1%"),
+                "Directional accuracy": st.column_config.NumberColumn("Directional accuracy", format="%.1f%%"),
             },
         )
         st.caption(validation_interpretation(model_result, p))
@@ -1364,14 +1457,9 @@ def main() -> None:
     src_table_col, src_chart_col = st.columns([1.15, 1])
     with src_table_col:
         if not compact_sources.empty:
-            st.dataframe(
+            render_static_table(
                 compact_sources,
-                use_container_width=True,
-                hide_index=True,
-                column_config={
-                    "Average Sentiment": st.column_config.NumberColumn("Average Sentiment", format="%+.3f"),
-                    "Predictive Score": st.column_config.NumberColumn("Predictive Score", format="%.4f"),
-                },
+                {"Average Sentiment": "{:+.3f}", "Predictive Score": "{:.4f}"},
             )
         else:
             st.info("אין עדיין מספיק נתוני ML לדירוג מקורות.")
@@ -1389,14 +1477,9 @@ def main() -> None:
     )
     top_forecasts_he = top_forecast_table_he(future_df, model_result, limit=5)
     if not top_forecasts_he.empty:
-        st.dataframe(
+        render_static_table(
             top_forecasts_he,
-            use_container_width=True,
-            hide_index=True,
-            column_config={
-                "הסתברות נוכחית": st.column_config.NumberColumn("הסתברות נוכחית", format="%.1f%%"),
-                "הסתברות חזויה 24 שעות": st.column_config.NumberColumn("הסתברות חזויה 24 שעות", format="%.1f%%"),
-            },
+            {"הסתברות נוכחית": "{:.1f}%", "הסתברות חזויה 24 שעות": "{:.1f}%"},
         )
         with st.expander("כל התחזיות"):
             st.dataframe(
@@ -1436,7 +1519,7 @@ def main() -> None:
                     "Baseline MAE": st.column_config.NumberColumn("Baseline MAE", format="%.4f"),
                     "Improvement": st.column_config.NumberColumn("Improvement", format="%+.1f%%"),
                     "R²": st.column_config.NumberColumn("R²", format="%.3f"),
-                    "Directional accuracy": st.column_config.NumberColumn("Directional accuracy", format="%.1%"),
+                    "Directional accuracy": st.column_config.NumberColumn("Directional accuracy", format="%.1f%%"),
                 },
             )
 
@@ -1558,16 +1641,52 @@ def main() -> None:
                             column_config={"ערך": st.column_config.NumberColumn("ערך", format="%.4f")},
                         )
 
+                    moving_subset = report.get("moving_subset") or {}
+                    if moving_subset:
+                        st.markdown("**תיקוף על תצפיות שבהן השוק זז**")
+                        moving_subset_df = pd.DataFrame(
+                            [
+                                {
+                                    "סטטוס": moving_subset.get("status"),
+                                    "תצפיות בדיקה": moving_subset.get("n_test"),
+                                    "חלק מהמדגם": _pct_value(moving_subset.get("share_of_test")),
+                                    "Random Forest MAE": moving_subset.get("random_forest_mae"),
+                                    "Baseline MAE": moving_subset.get("baseline_mae"),
+                                    "Improvement": moving_subset.get("improvement_pct"),
+                                    "R²": moving_subset.get("r2"),
+                                    "Directional accuracy": _pct_value(moving_subset.get("directional_accuracy")),
+                                }
+                            ]
+                        )
+                        st.dataframe(
+                            moving_subset_df,
+                            use_container_width=True,
+                            hide_index=True,
+                            column_config={
+                                "חלק מהמדגם": st.column_config.NumberColumn("חלק מהמדגם", format="%.1f%%"),
+                                "Random Forest MAE": st.column_config.NumberColumn("Random Forest MAE", format="%.4f"),
+                                "Baseline MAE": st.column_config.NumberColumn("Baseline MAE", format="%.4f"),
+                                "Improvement": st.column_config.NumberColumn("Improvement", format="%+.1f%%"),
+                                "R²": st.column_config.NumberColumn("R²", format="%.3f"),
+                                "Directional accuracy": st.column_config.NumberColumn("Directional accuracy", format="%.1f%%"),
+                            },
+                        )
+
                     topic_perf = report.get("topic_performance") or []
                     if topic_perf:
                         st.markdown("**ביצועים לפי נושא**")
+                        topic_perf_df = pd.DataFrame(topic_perf)
+                        if "directional_accuracy" in topic_perf_df.columns:
+                            topic_perf_df["directional_accuracy"] = pd.to_numeric(
+                                topic_perf_df["directional_accuracy"], errors="coerce"
+                            ) * 100
                         st.dataframe(
-                            pd.DataFrame(topic_perf),
+                            topic_perf_df,
                             use_container_width=True,
                             hide_index=True,
                             column_config={
                                 "mae": st.column_config.NumberColumn("MAE", format="%.4f"),
-                                "directional_accuracy": st.column_config.NumberColumn("Directional Accuracy", format="%.1%"),
+                                "directional_accuracy": st.column_config.NumberColumn("Directional Accuracy", format="%.1f%%"),
                             },
                         )
 
@@ -1611,22 +1730,23 @@ def main() -> None:
 
                     baselines = result.get("baselines") or {}
                     if baselines:
+                        baselines_df = pd.DataFrame(
+                            [
+                                {
+                                    "Baseline": name,
+                                    "MAE": values.get("mae"),
+                                    "Directional Accuracy": _pct_value(values.get("directional_accuracy")),
+                                }
+                                for name, values in baselines.items()
+                            ]
+                        )
                         st.dataframe(
-                            pd.DataFrame(
-                                [
-                                    {
-                                        "Baseline": name,
-                                        "MAE": values.get("mae"),
-                                        "Directional Accuracy": values.get("directional_accuracy"),
-                                    }
-                                    for name, values in baselines.items()
-                                ]
-                            ),
+                            baselines_df,
                             use_container_width=True,
                             hide_index=True,
                             column_config={
                                 "MAE": st.column_config.NumberColumn("MAE", format="%.4f"),
-                                "Directional Accuracy": st.column_config.NumberColumn("Directional Accuracy", format="%.1%"),
+                                "Directional Accuracy": st.column_config.NumberColumn("Directional Accuracy", format="%.1f%%"),
                             },
                         )
 
