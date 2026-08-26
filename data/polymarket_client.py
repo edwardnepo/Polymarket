@@ -24,7 +24,7 @@ from __future__ import annotations
 
 import json
 from datetime import datetime, timedelta, timezone
-from typing import Any, Dict, Iterable, List, Optional
+from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import requests
 from requests.adapters import HTTPAdapter
@@ -35,7 +35,14 @@ except Exception:  # pragma: no cover - extremely defensive fallback
     Retry = None  # type: ignore
 
 from config.logging_config import get_logger
-from config.settings import Settings, get_settings
+from config.settings import (
+    DEFAULT_EXCLUDED_MARKET_TERMS,
+    Settings,
+    get_settings,
+    keyword_bucket,
+    matched_keywords,
+    matches_any,
+)
 
 logger = get_logger(__name__)
 
@@ -95,40 +102,42 @@ class PolymarketClient:
     # ------------------------------------------------------------------ #
     # Keyword filtering
     # ------------------------------------------------------------------ #
-    # Negative keywords: even if a geopolitical term matches, reject the market
-    # when any of these sports/entertainment terms appear (e.g. "Will Iran win
-    # the 2026 FIFA World Cup?" matches "iran" but is not a security event).
-    # Stems are used so "Olympics"/"Olympic" and "sport"/"sports" both match.
-    _EXCLUDED_TERMS: tuple = (
-        "fifa",
-        "world cup",
-        "football",
-        "soccer",
-        "sport",
-        "olympic",
-    )
+    # Canonical sports/entertainment reject list, shared with the dashboard.
+    _EXCLUDED_TERMS: tuple = DEFAULT_EXCLUDED_MARKET_TERMS
 
     def _matched_keywords(self, *texts: Optional[str]) -> List[str]:
         """Return the subset of configured keywords found in ``texts``."""
-        haystack_parts: List[str] = []
-        for text in texts:
-            if text:
-                haystack_parts.append(text)
-        haystack = " ".join(haystack_parts)
-        haystack_lower = haystack.lower()
-        matched: List[str] = []
-        for kw in self.keywords:
-            # ASCII keywords were lower-cased in settings; match case-insensitively.
-            needle = kw.lower() if kw.isascii() else kw
-            hay = haystack_lower if kw.isascii() else haystack
-            if needle in hay:
-                matched.append(kw)
-        return matched
+        return matched_keywords(self.keywords, *texts)
+
+    @staticmethod
+    def _title_texts(raw: Dict[str, Any]) -> Tuple[Optional[str], ...]:
+        """Fields a market is *qualified* on: what the market actually asks.
+
+        The description is deliberately excluded here. Polymarket descriptions
+        list resolution sources and nominees, so matching on them admitted
+        markets that are not geopolitical at all — e.g. "Will UNRWA win the
+        Nobel Peace Prize?" qualified purely because Netanyahu appeared among
+        the nominees in its description.
+        """
+        return (raw.get("question"), raw.get("slug"), raw.get("groupItemTitle"))
+
+    @staticmethod
+    def _all_texts(raw: Dict[str, Any]) -> Tuple[Optional[str], ...]:
+        """Fields a market is *rejected* on — description included.
+
+        The asymmetry is intentional: a stray mention must never qualify a
+        market, but it should still be able to disqualify one.
+        """
+        return (
+            raw.get("question"),
+            raw.get("slug"),
+            raw.get("groupItemTitle"),
+            raw.get("description"),
+        )
 
     def _has_excluded_topic(self, *texts: Optional[str]) -> bool:
         """True if any negative keyword appears — used to hard-reject the market."""
-        haystack = " ".join(t for t in texts if t).lower()
-        return any(term in haystack for term in self._EXCLUDED_TERMS)
+        return matches_any(self._EXCLUDED_TERMS, *texts)
 
     # ------------------------------------------------------------------ #
     # Gamma: markets
@@ -289,6 +298,7 @@ class PolymarketClient:
         ordered = True
         now = datetime.now(timezone.utc)
         skipped_inactive = 0
+        skipped_excluded = 0
 
         while offset < scan_limit:
             try:
@@ -306,23 +316,13 @@ class PolymarketClient:
                 break
 
             for raw in page:
-                matched_kw = self._matched_keywords(
-                    raw.get("question"),
-                    raw.get("slug"),
-                    raw.get("description"),
-                    raw.get("groupItemTitle"),
-                )
+                matched_kw = self._matched_keywords(*self._title_texts(raw))
                 if not matched_kw:
                     continue
-                # Hard-reject sports/entertainment markets (FIFA, World Cup, etc.)
-                # even when a geopolitical keyword incidentally matches.
-                if self._has_excluded_topic(
-                    raw.get("question"),
-                    raw.get("slug"),
-                    raw.get("description"),
-                    raw.get("groupItemTitle"),
-                ):
-                    skipped_inactive += 1
+                # Hard-reject sport/award/entertainment markets even when a
+                # geopolitical keyword incidentally matches (FIFA, UFC, Nobel).
+                if self._has_excluded_topic(*self._all_texts(raw)):
+                    skipped_excluded += 1
                     continue
                 normalised = self._normalise_market(raw)
                 if normalised is None:
@@ -336,20 +336,102 @@ class PolymarketClient:
                 matched.append(normalised)
 
             offset += page_size
-            if len(matched) >= max_markets * 3:
-                # Collected a healthy surplus; stop scanning early.
+            if len(matched) >= max_markets * 8:
+                # Collected a healthy surplus; stop scanning early. The pool
+                # must be well over ``max_markets`` for the diversity pass
+                # below to have alternatives to choose from.
                 break
 
         matched.sort(key=lambda m: (m.get("volume") or 0.0), reverse=True)
-        result = matched[:max_markets]
+        if self.settings.market_diversify:
+            result = self._diversify(matched, max_markets)
+        else:
+            result = matched[:max_markets]
         logger.info(
-            "Selected %d active geopolitical markets (scanned up to offset %d; "
-            "skipped %d closed/resolved/past-deadline).",
+            "Selected %d active geopolitical markets from %d candidates "
+            "(scanned up to offset %d; skipped %d closed/resolved/past-deadline, "
+            "%d sport/award). Topic spread: %s",
             len(result),
+            len(matched),
             offset,
             skipped_inactive,
+            skipped_excluded,
+            self._topic_spread(result),
         )
         return result
+
+    # ------------------------------------------------------------------ #
+    # Basket construction
+    # ------------------------------------------------------------------ #
+    @staticmethod
+    def _primary_keyword(market: Dict[str, Any]) -> str:
+        """The most specific keyword a market matched — its topic bucket.
+
+        Keywords are ordered specific-to-generic so that, say, "hormuz" wins
+        over "iran" for "Iran charges Hormuz fees by August 31?". Without this
+        every Iran-adjacent market collapses into one bucket.
+        """
+        keywords = market.get("matched_keywords") or []
+        if not keywords:
+            return "other"
+        specific = sorted(keywords, key=lambda kw: (-len(kw), kw))[0]
+        return keyword_bucket(specific)
+
+    @staticmethod
+    def _topic_spread(markets: Sequence[Dict[str, Any]]) -> Dict[str, int]:
+        spread: Dict[str, int] = {}
+        for market in markets:
+            key = PolymarketClient._primary_keyword(market)
+            spread[key] = spread.get(key, 0) + 1
+        return dict(sorted(spread.items(), key=lambda kv: -kv[1]))
+
+    def _diversify(
+        self, candidates: List[Dict[str, Any]], max_markets: int
+    ) -> List[Dict[str, Any]]:
+        """Spread the basket across topics instead of taking the top-N by volume.
+
+        Polymarket's Middle-East volume is overwhelmingly concentrated in Iran
+        leadership contracts, so a straight volume ranking returns a basket that
+        is ~90% one topic and leaves the per-topic breakdown meaningless. We
+        round-robin across topic buckets (highest volume first within each), then
+        backfill by volume if the buckets run dry.
+        """
+        if len(candidates) <= max_markets:
+            return list(candidates)
+
+        buckets: Dict[str, List[Dict[str, Any]]] = {}
+        for market in candidates:  # candidates are already volume-sorted
+            buckets.setdefault(self._primary_keyword(market), []).append(market)
+
+        # Visit buckets by their strongest market, so high-signal topics lead.
+        order = sorted(buckets, key=lambda k: -(buckets[k][0].get("volume") or 0.0))
+        cap = max(1, int(max_markets * self.settings.market_topic_max_share))
+
+        selected: List[Dict[str, Any]] = []
+        taken: Dict[str, int] = {key: 0 for key in order}
+        while len(selected) < max_markets:
+            progressed = False
+            for key in order:
+                if len(selected) >= max_markets:
+                    break
+                if taken[key] >= cap or taken[key] >= len(buckets[key]):
+                    continue
+                selected.append(buckets[key][taken[key]])
+                taken[key] += 1
+                progressed = True
+            if not progressed:
+                break
+
+        if len(selected) < max_markets:
+            chosen = {id(m) for m in selected}
+            for market in candidates:
+                if len(selected) >= max_markets:
+                    break
+                if id(market) not in chosen:
+                    selected.append(market)
+
+        selected.sort(key=lambda m: (m.get("volume") or 0.0), reverse=True)
+        return selected
 
     # ------------------------------------------------------------------ #
     # CLOB: price history

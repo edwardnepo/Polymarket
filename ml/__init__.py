@@ -1,4 +1,4 @@
-"""Machine-learning layer: NLP sentiment analysis of BBC articles."""
+"""Machine-learning layer: NLP sentiment analysis and movement forecasting."""
 
 from ml.sentiment_analyzer import SentimentAnalyzer
 

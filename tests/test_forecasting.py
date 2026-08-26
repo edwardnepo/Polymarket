@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from datetime import datetime, timedelta, timezone
 
 import pytest
@@ -57,14 +58,47 @@ def test_build_ml_dataset_preserves_source_features_and_targets():
 
     assert not dataset.empty
     assert {"market_id", "timestamp", "historical_probability"}.issubset(dataset.columns)
-    assert "source__ynet__count" in dataset.columns
-    assert "source__globes__sentiment" in dataset.columns
+    assert "source__ynet__count_24h" in dataset.columns
+    assert "source__globes__sentiment_24h" in dataset.columns
 
-    row_after_articles = dataset.loc[dataset["article_volume"] > 0].iloc[0]
+    row_after_articles = dataset.loc[dataset["article_count_24h"] > 0].iloc[0]
     assert row_after_articles["market_id"] == "m1"
-    assert row_after_articles["source__ynet__count"] >= 1
+    assert row_after_articles["source__ynet__count_24h"] >= 1
     assert row_after_articles["target_delta_1h"] > 0
     assert row_after_articles["target_delta_1d"] > 0
+
+
+def test_dataset_has_no_unsuffixed_duplicate_columns():
+    """Every window feature carries an explicit ``_<n>h`` suffix.
+
+    Earlier revisions also emitted unsuffixed aliases of the primary (24h)
+    window, producing exact-duplicate columns: the model split one signal
+    across two identical features and per-source importance double-counted
+    the primary window.
+    """
+    start = datetime(2026, 6, 1, tzinfo=timezone.utc)
+    dataset = build_ml_dataset(_articles(start), [_market(start)], article_window_hours=24)
+
+    aliases = {"article_volume", "mean_sentiment", "sentiment_min", "sentiment_max"}
+    offenders = [
+        col
+        for col in dataset.columns
+        if col in aliases or re.fullmatch(r"source__.+__(count|sentiment)", col)
+    ]
+    assert not offenders, f"unsuffixed duplicate columns: {offenders}"
+
+    # No two *varying* numeric columns may be identical. Constant (all-zero)
+    # columns are excluded: an outlet with no matched articles legitimately
+    # produces zeros across every window.
+    numeric = dataset.select_dtypes(include="number")
+    varying = numeric.loc[:, numeric.nunique() > 1]
+    duplicated = [
+        (a, b)
+        for i, a in enumerate(varying.columns)
+        for b in varying.columns[i + 1 :]
+        if varying[a].equals(varying[b])
+    ]
+    assert not duplicated, f"identical feature columns: {duplicated}"
 
 
 def test_build_ml_artifacts_trains_when_sklearn_available():

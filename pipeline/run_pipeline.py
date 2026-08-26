@@ -275,7 +275,7 @@ def _parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     parser.add_argument(
         "--full-text",
         action="store_true",
-        help="Download full BBC article bodies (slower, richer sentiment input).",
+        help="Download full article bodies from every source (slower, richer sentiment input).",
     )
     parser.add_argument("--skip-articles", action="store_true", help="Skip news ingest stage.")
     parser.add_argument("--skip-markets", action="store_true", help="Skip Polymarket ingest stage.")

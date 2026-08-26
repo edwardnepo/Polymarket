@@ -28,17 +28,37 @@ MOVEMENT_THRESHOLD = 0.005
 MODEL_MIN_ROWS = 12
 TRAIN_FRACTION = 0.80
 ARTICLE_WINDOWS_HOURS: Tuple[int, ...] = (1, 3, 6, 12, 24)
+# The "headline" article window used for display and for the per-source
+# validation table. Every window in ARTICLE_WINDOWS_HOURS is emitted with an
+# explicit ``_<n>h`` suffix, so this suffix is always present in the dataset.
+PRIMARY_WINDOW_HOURS = 24
+PRIMARY_SUFFIX = f"{PRIMARY_WINDOW_HOURS}h"
 
+# Topic dimension for the per-topic performance breakdown. Kept aligned with
+# what is actually traded: the Middle-East book has shifted from active-war
+# contracts toward ceasefire durability, nuclear diplomacy, regional
+# normalisation, maritime/energy disruption and Israeli elections.
 TOPIC_KEYWORDS: Dict[str, Tuple[str, ...]] = {
-    "iran": ("iran", "tehran", "khamenei", "irgc", "revolutionary guard"),
+    "iran": ("iran", "iranian", "tehran", "khamenei", "irgc", "revolutionary guard", "איראן"),
     "israel": ("israel", "israeli", "idf", "netanyahu", "jerusalem", "tel aviv", "נתניהו"),
-    "gaza": ("gaza", "rafah", "khan younis", "gazans"),
-    "hezbollah": ("hezbollah", "nasrallah"),
-    "hamas": ("hamas", "sinwar"),
-    "nuclear_deal": ("nuclear", "uranium", "jcpoa", "enrichment", "nuke"),
-    "ceasefire": ("ceasefire", "truce", "hostage deal", "deal", "הפסקת אש"),
-    "sanctions": ("sanction", "sanctions", "embargo"),
-    "regional_war": ("regional war", "middle east war", "escalation", "strike", "missile", "attack", "war"),
+    "gaza": ("gaza", "rafah", "khan younis", "gazans", "unrwa", "עזה"),
+    "hezbollah": ("hezbollah", "nasrallah", "litani", "חיזבאללה"),
+    "hamas": ("hamas", "sinwar", "disarm", "חמאס"),
+    "nuclear_deal": ("nuclear", "uranium", "jcpoa", "enrichment", "npt", "iaea",
+                     "fordow", "natanz", "nuke"),
+    "ceasefire": ("ceasefire", "truce", "hostage deal", "הפסקת אש"),
+    "sanctions": ("sanction", "sanctions", "embargo", "blockade", "sanction relief"),
+    "regional_war": ("regional war", "middle east war", "escalation", "strike",
+                     "missile", "attack", "war", "military action", "invade"),
+    # ── added for the current phase ──────────────────────────────────────
+    "diplomacy": ("abraham accords", "normalize relations", "normalise relations",
+                  "diplomatic meeting", "diplomatic relations", "recognize palestine",
+                  "recognise palestine", "reopen its embassy", "peace deal",
+                  "negotiation", "accords", "summit"),
+    "energy_maritime": ("hormuz", "strait", "shipping", "tanker", "opec", "oil",
+                        "kharg", "blockade", "airspace"),
+    "elections": ("election", "knesset", "likud", "prime minister", "head of state",
+                  "leadership change", "coup", "referendum", "בחירות"),
 }
 
 _NON_FEATURE_COLUMNS = {
@@ -235,9 +255,11 @@ def _market_rows(
         return []
 
     market_keywords = {str(kw).lower() for kw in (market.get("matched_keywords") or [])}
+    # Topics come from what the market *asks*, not from its description.
+    # Descriptions restate resolution rules and background, so scoring them
+    # tagged "Will Netanyahu be the next Prime Minister?" as regional_war.
     market_topics = _topic_labels(
         market.get("question"),
-        market.get("description"),
         market.get("slug"),
         market.get("matched_keywords") or [],
     )
@@ -245,14 +267,6 @@ def _market_rows(
     for idx, point in enumerate(history):
         timestamp = point["timestamp"]
         probability = float(point["probability"])
-        window, window_features = _window_features(
-            article_df,
-            timestamp,
-            market_keywords,
-            market_topics,
-            sources,
-            article_window_hours,
-        )
         hour = timestamp.hour
         dow = timestamp.weekday()
         row: Dict[str, Any] = {
@@ -263,10 +277,6 @@ def _market_rows(
             "matched_keywords": ", ".join(sorted(market_keywords)),
             "topic_labels": ", ".join(sorted(market_topics)),
             "historical_probability": probability,
-            "article_volume": int(len(window)),
-            "mean_sentiment": float(window["sentiment"].mean()) if not window.empty else 0.0,
-            "sentiment_min": float(window["sentiment"].min()) if not window.empty else 0.0,
-            "sentiment_max": float(window["sentiment"].max()) if not window.empty else 0.0,
             "market_volume": float(market.get("volume") or 0.0),
             "market_liquidity": float(market.get("liquidity") or 0.0),
             "history_point_index": idx,
@@ -283,11 +293,13 @@ def _market_rows(
         else:
             row["probability_change_prev"] = 0.0
 
-        row.update(window_features)
-        for window_hours in ARTICLE_WINDOWS_HOURS:
-            if window_hours == article_window_hours:
-                continue
-            _window, lag_features = _window_features(
+        # Every window is emitted with an explicit ``_<n>h`` suffix. Earlier
+        # revisions also wrote unsuffixed aliases for the primary window,
+        # which produced exact-duplicate columns: the model then split one
+        # signal across two identical features and the per-source importance
+        # double-counted the primary window.
+        for window_hours in sorted({*ARTICLE_WINDOWS_HOURS, article_window_hours}):
+            _window, window_features = _window_features(
                 article_df,
                 timestamp,
                 market_keywords,
@@ -295,12 +307,8 @@ def _market_rows(
                 sources,
                 window_hours,
             )
-            row.update(lag_features)
+            row.update(window_features)
 
-        suffix = f"{article_window_hours}h"
-        for source_slug, _source_name in sources:
-            row[f"source__{source_slug}__count"] = row.get(f"source__{source_slug}__count_{suffix}", 0)
-            row[f"source__{source_slug}__sentiment"] = row.get(f"source__{source_slug}__sentiment_{suffix}", 0.0)
         for topic in TOPIC_KEYWORDS:
             row[f"topic__{topic}"] = 1 if topic in market_topics else 0
 
@@ -539,12 +547,12 @@ def _source_validation(
         {
             match.group(1)
             for col in test_df.columns
-            if (match := re.match(r"^source__(.+)__count$", col))
+            if (match := re.match(rf"^source__(.+)__count_{PRIMARY_SUFFIX}$", col))
         }
     )
     for source in source_slugs:
-        count_col = f"source__{source}__count"
-        sentiment_col = f"source__{source}__sentiment"
+        count_col = f"source__{source}__count_{PRIMARY_SUFFIX}"
+        sentiment_col = f"source__{source}__sentiment_{PRIMARY_SUFFIX}"
         counts = pd.to_numeric(test_df[count_col], errors="coerce").fillna(0)
         related = test_df.loc[counts > 0]
         n_rows = int(len(related))
@@ -715,8 +723,10 @@ def _train_one_target(
                     "predicted_delta": round(float(pred_delta), 4),
                     "predicted_probability": round(float(np.clip(current + pred_delta, 0, 1)), 4),
                     "predicted_direction": _movement_label(float(pred_delta)),
-                    "article_volume": int(row.get("article_volume") or 0),
-                    "mean_sentiment": round(float(row.get("mean_sentiment") or 0.0), 4),
+                    "article_volume": int(row.get(f"article_count_{PRIMARY_SUFFIX}") or 0),
+                    "mean_sentiment": round(
+                        float(row.get(f"mean_sentiment_{PRIMARY_SUFFIX}") or 0.0), 4
+                    ),
                 }
             )
 
@@ -797,15 +807,15 @@ def _compact_dataset_records(dataset: pd.DataFrame) -> List[Dict[str, Any]]:
         "unix",
         "topic_labels",
         "historical_probability",
-        "article_volume",
-        "mean_sentiment",
+        f"article_count_{PRIMARY_SUFFIX}",
+        f"mean_sentiment_{PRIMARY_SUFFIX}",
         "target_delta_1h",
         "target_delta_1d",
     ]
     keep.extend(
         col
         for col in dataset.columns
-        if re.match(r"^source__.+__(count|sentiment)$", col)
+        if re.match(rf"^source__.+__(count|sentiment)_{PRIMARY_SUFFIX}$", col)
     )
     compact = dataset[[col for col in keep if col in dataset.columns]].copy()
     return compact.replace({np.nan: None}).to_dict(orient="records")

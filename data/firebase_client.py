@@ -3,7 +3,7 @@
 Wraps ``firebase-admin`` / ``google-cloud-firestore`` to provide idempotent
 upserts and simple reads for the three core collections:
 
-* ``bbc_articles``            — BBC News articles + sentiment.
+* ``news_articles``           — news articles + sentiment (all outlets).
 * ``polymarket_markets``      — markets + embedded probability history.
 * ``polymarket_price_history``— (optional) flattened per-point series.
 * ``pipeline_runs``           — run metadata for observability.

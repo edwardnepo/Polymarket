@@ -1,4 +1,4 @@
-"""NLP sentiment analysis of BBC News articles.
+"""NLP sentiment analysis of news articles from every configured outlet.
 
 Wraps a Hugging Face ``transformers`` text-classification pipeline.  The model
 is loaded lazily on first use (model download / weight load is expensive), and

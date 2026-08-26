@@ -1,1821 +1,1968 @@
 [
   {
-    "article_id": "2b78a12a159cf415",
-    "title": "Iran targets Kuwaiti infrastructure to send 'calibrated signal' to US following direct strikes",
-    "url": "https://www.jpost.com/middle-east/iran-news/article-902961",
-    "summary": "Iran's Islamic Revolutionary Guard Corps claimed the attacks had been on a US military support center at Kuwait's Camp Arifjan, and alleged it had destroyed a radar facility at Ali Al Salem Air Base.",
+    "article_id": "86915dcd6bbff1ab",
+    "title": "US water sector supplier hack draws FBI scrutiny as Iran-linked cyber concerns grow",
+    "url": "https://www.jpost.com/middle-east/iran-news/article-906647",
+    "summary": "Cote said the FBI told the company the data breach was an opportunistic attack not specifically targeting Micro-Comm, and the company recommended that customers change passwords out of caution.",
     "source": "The Jerusalem Post",
     "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
-    "published_at": "2026-07-19T14:37:44+00:00",
+    "published_at": "2026-08-26T14:16:03+00:00",
     "matched_keywords": [
       "iran"
     ],
-    "fetched_at": "2026-07-19T12:00:30.019013+00:00",
+    "fetched_at": "2026-08-26T12:13:38.314583+00:00",
     "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.99893,
-    "sentiment": -0.99893
+    "sentiment_score": 0.995442,
+    "sentiment": -0.995442
   },
   {
-    "article_id": "af37d2e547533116",
-    "title": "US strikes hit southern Iran as IRGC reports Strait of Hormuz vessel 'accidents' amid tensions",
-    "url": "https://www.jpost.com/middle-east/iran-news/article-902943",
-    "summary": "During the strikes overnight on Saturday into the early hours of Sunday, explosions were heard in Bandar Abbas and Qeshm Island, Iranian state-affiliated media reported.",
+    "article_id": "c6707475f3603d56",
+    "title": "US pivot from strikes to sanctions in Iran war shows lack of clear strategy, experts say",
+    "url": "https://www.jpost.com/middle-east/iran-news/article-906643",
+    "summary": "Despite the apparent success of the US’s blockade and sanctions campaign, Iranian officials have repeatedly expressed that they would not falter in maintaining control over the Strait of Hormuz.",
     "source": "The Jerusalem Post",
     "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
-    "published_at": "2026-07-19T12:27:40+00:00",
+    "published_at": "2026-08-26T14:03:26+00:00",
     "matched_keywords": [
-      "iran"
+      "iran",
+      "iranian",
+      "hormuz"
     ],
-    "fetched_at": "2026-07-19T12:00:30.019044+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.822427,
-    "sentiment": -0.822427
+    "fetched_at": "2026-08-26T12:13:38.314770+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.626324,
+    "sentiment": 0.626324
   },
   {
-    "article_id": "fdf722c98f4c6909",
-    "title": "US and Iran exchange strikes after two US soldiers killed in Jordan",
-    "url": "https://www.bbc.co.uk/news/articles/cgk417jp83po?at_medium=RSS&at_campaign=rss",
-    "summary": "Kuwait says an electricity and water plant is on fire after the second such attack in two days. Iran says US strikes hit an under-construction nuclear power plant.",
+    "article_id": "f46720797b1fcd42",
+    "title": "Ex-chief constable investigated over ban on Israeli Maccabi Tel Aviv fans",
+    "url": "https://www.bbc.co.uk/news/articles/cq5xe813w1do?at_medium=RSS&at_campaign=rss",
+    "summary": "Craig Guildford, three police officers and a staff member face IOPC investigation.",
     "source": "BBC News",
-    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
-    "published_at": "2026-07-19T11:57:10+00:00",
+    "source_feed": "https://feeds.bbci.co.uk/news/rss.xml",
+    "published_at": "2026-08-26T12:10:04+00:00",
     "matched_keywords": [
-      "iran"
+      "israeli"
     ],
-    "fetched_at": "2026-07-19T12:00:29.145052+00:00",
+    "fetched_at": "2026-08-26T12:13:37.542465+00:00",
     "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.996279,
-    "sentiment": -0.996279
+    "sentiment_score": 0.9615,
+    "sentiment": -0.9615
   },
   {
-    "article_id": "23752a4ec37ef508",
-    "title": "Kuwait, Bahrain defend against 'sinful Iranian aggression' as Tehran renews attacks on Gulf",
-    "url": "https://www.jpost.com/middle-east/iran-news/article-902936",
-    "summary": "The sirens follow the eighth night of US-Iran strikes over the weekend, triggered by the death of two US service members in Iran's strike on a US military base in Jordan on Friday.",
-    "source": "The Jerusalem Post",
-    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
-    "published_at": "2026-07-19T11:50:24+00:00",
+    "article_id": "ee400fb5ea169c3e",
+    "title": "איראן: יש הסכמות עם עומאן על הורמוז; הוא לא ייפתח אם ארה\"ב לא תקבל את תנאינו",
+    "url": "https://www.ynet.co.il/news/article/s1ibe8hpmx",
+    "summary": "דובר משמרות המהפכה הודיע כי הגיעו להסכמות עם עומאן על חלוקת ההכנסות מהשיט במצר. הוא טען כי \"הורמוז נמצא בשליטתנו - ואין ספינות אויב במפרץ\"",
+    "source": "Ynet",
+    "source_feed": "https://www.ynet.co.il/Integration/StoryRss2.xml",
+    "published_at": "2026-08-26T12:01:10+00:00",
     "matched_keywords": [
-      "iran"
+      "איראן"
     ],
-    "fetched_at": "2026-07-19T12:00:30.019056+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.984091,
-    "sentiment": -0.984091
-  },
-  {
-    "article_id": "e7d98dd78495545e",
-    "title": "High Court freezes key parts of government’s controversial media overhaul law",
-    "url": "https://www.timesofisrael.com/high-court-freezes-key-parts-of-governments-controversial-media-overhaul-law/",
-    "summary": "Key clauses in law removing barriers to political interference, market concentration in broadcast news frozen by order amid fears they could influence election; Karhi vows to defy court The post High Court freezes key parts of government&#8217;s controversial media overhaul law appeared first on The Times of Israel .",
-    "source": "The Times of Israel",
-    "source_feed": "https://www.timesofisrael.com/feed/",
-    "published_at": "2026-07-19T11:21:47+00:00",
-    "matched_keywords": [
-      "israel"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.757343+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.975644,
-    "sentiment": -0.975644
-  },
-  {
-    "article_id": "0357d9b7b0846a01",
-    "title": "Deaths of 2 U.S. Troops in Jordan Brings American Toll in the War With Iran to 16",
-    "url": "https://www.nytimes.com/2026/07/18/world/middleeast/us-troops-killed-iran-war-jordan.html",
-    "summary": "President Trump vowed to avenge the deaths of any U.S. military personnel.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-19T11:00:25+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.819208+00:00",
+    "fetched_at": "2026-08-26T12:13:39.150905+00:00",
     "sentiment_label": "POSITIVE",
-    "sentiment_score": 0.812848,
-    "sentiment": 0.812848
+    "sentiment_score": 0.839124,
+    "sentiment": 0.839124
   },
   {
-    "article_id": "9ffc628acd834a35",
-    "title": "Daily Briefing July 19: Knesset disbands with bangs and whimpers",
-    "url": "https://www.timesofisrael.com/daily-briefing-july-19-knesset-disbands-with-bangs-and-whimpers/",
-    "summary": "Political correspondent Tal Schneider brings an overview of the judicial overhaul legislation passed in the 25th Knesset and how the Supreme Court has taken unprecedented steps to counter it The post Daily Briefing July 19: Knesset disbands with bangs and whimpers appeared first on The Times of Israel .",
-    "source": "The Times of Israel",
-    "source_feed": "https://www.timesofisrael.com/feed/",
-    "published_at": "2026-07-19T10:35:31+00:00",
-    "matched_keywords": [
-      "israel"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.757363+00:00",
-    "sentiment_label": "POSITIVE",
-    "sentiment_score": 0.984435,
-    "sentiment": 0.984435
-  },
-  {
-    "article_id": "62bd2bb719aa56a4",
-    "title": "Iran targets Kurdistan in regional escalation, spiking gas prices and tensions - analysis",
-    "url": "https://www.jpost.com/middle-east/iran-news/article-902917",
-    "summary": "Iran’s attacks on the Kurdistan Region come as the Iraqi prime minister has wrapped up his visit to the US.",
-    "source": "The Jerusalem Post",
-    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
-    "published_at": "2026-07-19T10:31:17+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.019069+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.973186,
-    "sentiment": -0.973186
-  },
-  {
-    "article_id": "37ebd2f3065df98d",
-    "title": "13 homes burnt, dozens damaged in West Bank settlement as crews battle blaze for 2nd day",
-    "url": "https://www.timesofisrael.com/13-homes-burnt-dozens-damaged-in-west-bank-settlement-as-crews-battle-blaze-for-2nd-day/",
-    "summary": "Over 100 families said to evacuate homes in Havat Gilad, no casualties reported; probe indicates cigarette caused fire, no other materials found at scene, arson not suspected The post 13 homes burnt, dozens damaged in West Bank settlement as crews battle blaze for 2nd day appeared first on The Times of Israel .",
-    "source": "The Times of Israel",
-    "source_feed": "https://www.timesofisrael.com/feed/",
-    "published_at": "2026-07-19T10:25:46+00:00",
-    "matched_keywords": [
-      "israel"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.757377+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.988051,
-    "sentiment": -0.988051
-  },
-  {
-    "article_id": "0364a363ead11b32",
-    "title": "‘Bring your sons from afar’: The decade-long operation to return Hadar Goldin’s body",
-    "url": "https://www.timesofisrael.com/bring-your-sons-from-afar-the-decade-long-operation-to-return-hadar-goldins-body/",
-    "summary": "From secret raids to double agents, an intelligence team spent 10 years chasing the trail to the missing soldier's body, Ynet reports The post &#8216;Bring your sons from afar&#8217;: The decade-long operation to return Hadar Goldin&#8217;s body appeared first on The Times of Israel .",
-    "source": "The Times of Israel",
-    "source_feed": "https://www.timesofisrael.com/feed/",
-    "published_at": "2026-07-19T10:25:20+00:00",
-    "matched_keywords": [
-      "israel"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.757393+00:00",
-    "sentiment_label": "POSITIVE",
-    "sentiment_score": 0.974799,
-    "sentiment": 0.974799
-  },
-  {
-    "article_id": "e6b15a9d3adb4392",
-    "title": "‘Battle for the center’: Large majority of Israelis already know how they’ll vote — poll",
-    "url": "https://www.timesofisrael.com/battle-for-the-center-large-majority-of-israelis-already-know-how-theyll-vote-poll/",
-    "summary": "Jewish People Policy Institute survey finds just 14% of voters are undecided ahead of election on October 27, with most of the undecided in the center The post &#8216;Battle for the center&#8217;: Large majority of Israelis already know how they&#8217;ll vote &#8212; poll appeared first on The Times of Israel .",
-    "source": "The Times of Israel",
-    "source_feed": "https://www.timesofisrael.com/feed/",
-    "published_at": "2026-07-19T09:40:19+00:00",
-    "matched_keywords": [
-      "israel"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.757410+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.986104,
-    "sentiment": -0.986104
-  },
-  {
-    "article_id": "086b96f1ec1e079a",
-    "title": "Lebanon's Aoun marks first trip to Trump's White House with Hezbollah disarmament plan",
-    "url": "https://www.jpost.com/middle-east/article-902906",
-    "summary": "Aoun, who served as the commander of Lebanon's US-backed army before being elected president last year, is the first Lebanese head of state in nearly 20 years to visit the White House.",
-    "source": "The Jerusalem Post",
-    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
-    "published_at": "2026-07-19T09:15:39+00:00",
-    "matched_keywords": [
-      "lebanon",
-      "hezbollah"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.019079+00:00",
-    "sentiment_label": "POSITIVE",
-    "sentiment_score": 0.997555,
-    "sentiment": 0.997555
-  },
-  {
-    "article_id": "ce88dd00af3c603c",
-    "title": "בן גביר חשף את השיחה הראשונה עם נתניהו: \"הטעות הכי קשה שלו - זה התנאי החדש שלי\"",
-    "url": "https://www.maariv.co.il/news/politics/article-1346187",
-    "summary": "השר איתמר בן גביר על הבחירות המתקרבות: \"הגוש לא סיים את דרכו, אבל זה תלוי בו\". בפרשת ג'פניקה הוא הודה ששוחח עם אברמוב: \"אני לא מנותק מהציבור\"",
-    "source": "Maariv",
-    "source_feed": "https://www.maariv.co.il/Rss/RssFeedsMivzakim",
-    "published_at": "2026-07-19T09:01:36+00:00",
+    "article_id": "b86ffcdf7296e0b9",
+    "title": "נתניהו הגיע לניחום אבלים בבית משפחתו יהודה כץ ששרידיו הושבו אחרי 44 שנה",
+    "url": "https://www.ynet.co.il/news/article/hyp5mindfe",
+    "summary": "",
+    "source": "Ynet",
+    "source_feed": "https://www.ynet.co.il/Integration/StoryRss1854.xml",
+    "published_at": "2026-08-26T11:52:55+00:00",
     "matched_keywords": [
       "נתניהו"
     ],
-    "fetched_at": "2026-07-19T12:00:31.759023+00:00",
+    "fetched_at": "2026-08-26T12:13:39.181192+00:00",
     "sentiment_label": "POSITIVE",
-    "sentiment_score": 0.777116,
-    "sentiment": 0.777116
+    "sentiment_score": 0.885354,
+    "sentiment": 0.885354
   },
   {
-    "article_id": "5fa89684a0d320a4",
-    "title": "Settlers accused of burning, vandalizing West Bank mosque in overnight attack",
-    "url": "https://www.timesofisrael.com/settlers-accused-of-burning-vandalizing-west-bank-mosque-in-overnight-attack/",
-    "summary": "Pictures from scene show Star of David graffitied on wall; police investigating incident that caused damage to house of prayer, car, dairy factory in village in South Hebron Hills The post Settlers accused of burning, vandalizing West Bank mosque in overnight attack appeared first on The Times of Israel .",
-    "source": "The Times of Israel",
-    "source_feed": "https://www.timesofisrael.com/feed/",
-    "published_at": "2026-07-19T08:28:10+00:00",
+    "article_id": "a5d366ab6e098b21",
+    "title": "סקר מנדטים: עופר וינטר על שישה מנדטים - גוש נתניהו בשפל חדש",
+    "url": "https://www.maariv.co.il/news/politics/article-1359905",
+    "summary": "סקר חדש מציב את גדי איזנקוט בראש עם 25 מנדטים, מול 21 לליכוד ו-15 לבנט. עופר וינטר עובר את אחוז החסימה עם 6 מנדטים, סמוטריץ' נותר בחוץ, וגוש נתניהו עומד על 47 בלבד",
+    "source": "Maariv",
+    "source_feed": "https://www.maariv.co.il/Rss/RssFeedsMivzakim",
+    "published_at": "2026-08-26T11:49:34+00:00",
     "matched_keywords": [
-      "israel"
+      "נתניהו"
     ],
-    "fetched_at": "2026-07-19T12:00:29.757423+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.956749,
-    "sentiment": -0.956749
+    "fetched_at": "2026-08-26T12:13:40.296794+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.709356,
+    "sentiment": 0.709356
   },
   {
-    "article_id": "cfa867ed7a5b53ac",
-    "title": "With Ben Gvir’s backing, prison guards quietly branding domestic criminals as terrorists",
-    "url": "https://www.timesofisrael.com/with-ben-gvirs-backing-prison-guards-quietly-branding-domestic-criminals-as-terrorists/",
-    "summary": "Public defenders alarmed over uptick in Arab inmates being moved to squalid security wings where they serve alongside terror prisoners, based on questionable misconduct allegations The post With Ben Gvir&#8217;s backing, prison guards quietly branding domestic criminals as terrorists appeared first on The Times of Israel .",
-    "source": "The Times of Israel",
-    "source_feed": "https://www.timesofisrael.com/feed/",
-    "published_at": "2026-07-19T08:16:05+00:00",
+    "article_id": "91518262517635e8",
+    "title": "Diesel Price Nears Record High, Helping Oil Companies and Hurting Consumers",
+    "url": "https://www.nytimes.com/2026/08/26/business/energy-environment/diesel-prices-iran-war-oil.html",
+    "summary": "The cost of the fuel, used in farm machinery, trucks and other heavy equipment, has surged because of the war in Iran and Ukrainian attacks on Russian refineries.",
+    "source": "The New York Times",
+    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
+    "published_at": "2026-08-26T11:45:16+00:00",
     "matched_keywords": [
-      "israel"
+      "iran"
     ],
-    "fetched_at": "2026-07-19T12:00:29.757439+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.990883,
-    "sentiment": -0.990883
+    "fetched_at": "2026-08-26T12:13:39.085625+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.806678,
+    "sentiment": 0.806678
   },
   {
-    "article_id": "6565126923eb926c",
-    "title": "ההתפתחויות שמרמזות: הסלמה משמעותית בפתח",
-    "url": "https://www.ynet.co.il/news/article/b1gzpx9vme",
-    "summary": "חזרת מטוסי התדלוק והגעה של מטוסי קרב לארץ. אזהרות המסע האמריקניות, לישראל - וגם לעולם כולו. וגם סיום המונדיאל והציוץ המסתורי של ראש הסגל של טראמפ: כל האינדיקציות שמראות שארה\"ב מעלה את רמת הכוננות לאפשרות של חזרה למלחמה מול איראן - והסיבות שזה לא יקרה ושישראל לא תהיה מעורבת",
+    "article_id": "ae1baf987a355efa",
+    "title": "Kurdish-Led Militia in Syria Disbands in Boost for U.S.-Backed Government",
+    "url": "https://www.nytimes.com/2026/08/26/world/middleeast/kurdish-militia-syria-disbands.html",
+    "summary": "The Syrian Democratic Forces, a Kurdish-led armed group that has lost territory and authority in recent months, will integrate with the country’s military.",
+    "source": "The New York Times",
+    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
+    "published_at": "2026-08-26T11:25:17+00:00",
+    "matched_keywords": [
+      "syria"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.085426+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.994777,
+    "sentiment": 0.994777
+  },
+  {
+    "article_id": "2eecd1da29fa3d9e",
+    "title": "ליד בית ספר ובית חולים: צה\"ל השמיד מחסן נשק של חמאס",
+    "url": "https://www.ynet.co.il/news/article/sjnj9bhwfe",
+    "summary": "",
+    "source": "Ynet",
+    "source_feed": "https://www.ynet.co.il/Integration/StoryRss1854.xml",
+    "published_at": "2026-08-26T11:22:44+00:00",
+    "matched_keywords": [
+      "חמאס"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.181387+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.85389,
+    "sentiment": 0.85389
+  },
+  {
+    "article_id": "4f060048410615be",
+    "title": "הקמת מדינה פלסטינית – הפתרון הציוני היחיד | נדב תמיר",
+    "url": "https://www.maariv.co.il/news/opinions/article-1359896",
+    "summary": "ראשי האופוזיציה מפחדים להציע אלטרנטיבות כי נתניהו הצליח להשיג שליטה מלאה בשיח הישראלי. לעומת זאת, עבאס מאתגר את המערכת הפוליטית הישראלית, גם כשהוא ממש לא מתכוון לכך",
+    "source": "Maariv",
+    "source_feed": "https://www.maariv.co.il/Rss/RssFeedsMivzakim",
+    "published_at": "2026-08-26T11:15:20+00:00",
+    "matched_keywords": [
+      "נתניהו"
+    ],
+    "fetched_at": "2026-08-26T12:13:40.297078+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.821297,
+    "sentiment": 0.821297
+  },
+  {
+    "article_id": "a335435955f7d831",
+    "title": "Iran and Oman Report Progress in Talks on Strait of Hormuz",
+    "url": "https://www.nytimes.com/2026/08/26/world/middleeast/iran-oman-strait-hormuz.html",
+    "summary": "The two countries said they would create a temporary shipping lane and clear mines in the waterway. Global oil prices dipped after the joint announcement.",
+    "source": "The New York Times",
+    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
+    "published_at": "2026-08-26T11:02:07+00:00",
+    "matched_keywords": [
+      "iran",
+      "oman",
+      "hormuz"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.085193+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.998846,
+    "sentiment": -0.998846
+  },
+  {
+    "article_id": "98cdbf940e72b708",
+    "title": "הקרב עד הרגע האחרון: מי הצטרף למי, השריונים הפנויים - וההפתעות שבדרך",
+    "url": "https://www.ynet.co.il/news/elections2026/article/hyifkz2wze",
+    "summary": "פחות משבועיים לסגירת הרשימות: בליכוד עדיין מחכים לשריונים של נתניהו, בנט ולפיד מתמודדים עם כאב ראש של עודף מועמדים - ואינזקוט עם חוסר. גם לליברמן אינפלציית שמות. מי כבר הבטיח מקום, מי עדיין מחכה לטלפון, מי עלול להישאר בחוץ - וגם: האפשרות של הדר מוכתר למצוא את עצמה בעוצמה יהודית",
     "source": "Ynet",
     "source_feed": "https://www.ynet.co.il/Integration/StoryRss2.xml",
-    "published_at": "2026-07-19T07:58:08+00:00",
+    "published_at": "2026-08-26T10:59:36+00:00",
+    "matched_keywords": [
+      "נתניהו"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.151843+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.799446,
+    "sentiment": 0.799446
+  },
+  {
+    "article_id": "82771b805757df67",
+    "title": "יש שני גושים בלבד: הבלוף שמכשיר לנתניהו רוטציה גם בלי 61 | דן פרי",
+    "url": "https://www.maariv.co.il/news/opinions/article-1359887",
+    "summary": "הספין שייתכן ש\"אף גוש לא ניצח\" הוא ביבי-בלוף שיש לדחות. הגוש קובע מי ניצח בבחירות - הרכב הקואליציה שתקום בעקבות הניצחון הוא עניין אחר",
+    "source": "Maariv",
+    "source_feed": "https://www.maariv.co.il/Rss/RssFeedsMivzakim",
+    "published_at": "2026-08-26T10:41:22+00:00",
+    "matched_keywords": [
+      "נתניהו"
+    ],
+    "fetched_at": "2026-08-26T12:13:40.297614+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.779089,
+    "sentiment": 0.779089
+  },
+  {
+    "article_id": "5ec375df928a277e",
+    "title": "הדחיקה של גמליאל בספירה החוזרת והלחץ בליכוד: \"גניבת מקום, נשקול מפלגה אחרת\"",
+    "url": "https://www.ynet.co.il/news/elections2026/article/skmla43vmg",
+    "summary": "הספירה החוזרת בקלפי בבאר יעקב דחקה את גילה גמליאל למקום ה-35 והלא ריאלי, אף שתוצאות סופיות יתפרסמו בחמישי. חברי ליכוד החלו לפנות לראש הסגל של נתניהו בטענות למעורבות של חיים כץ למען המועמדת המועדפת עליו: \"תפעל להעמיד אותו במקום\". חבר מועצה בקדימה-צורן: \"זו יריקה בפרצופנו\"",
+    "source": "Ynet",
+    "source_feed": "https://www.ynet.co.il/Integration/StoryRss2.xml",
+    "published_at": "2026-08-26T10:34:59+00:00",
+    "matched_keywords": [
+      "נתניהו"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.152143+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.826716,
+    "sentiment": 0.826716
+  },
+  {
+    "article_id": "df87a447eddcc2a9",
+    "title": "Israel's seizure of Unrwa training college in East Jerusalem condemned",
+    "url": "https://www.bbc.co.uk/news/articles/c5yl89yrldpo?at_medium=RSS&at_campaign=rss",
+    "summary": "It marks the shutting of the last of the Palestinian refugee agency's facilities in the sector of the city, after Israel passed a law against it.",
+    "source": "BBC News",
+    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
+    "published_at": "2026-08-26T10:34:39+00:00",
+    "matched_keywords": [
+      "israel",
+      "palestinian",
+      "jerusalem"
+    ],
+    "fetched_at": "2026-08-26T12:13:37.455567+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.999442,
+    "sentiment": -0.999442
+  },
+  {
+    "article_id": "d4c15b850ce3bdd2",
+    "title": "Iran economic sanctions leading to extremist regime elements gaining power, dissident says - report",
+    "url": "https://www.jpost.com/middle-east/iran-news/article-906616",
+    "summary": "\"Under President Trump, the Treasury Department will continue to cut off every economic lifeline sustaining this regime, until Tehran is left completely alone,\" Treasury Secretary Scott Bessent said.",
+    "source": "The Jerusalem Post",
+    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
+    "published_at": "2026-08-26T10:09:45+00:00",
+    "matched_keywords": [
+      "iran",
+      "tehran"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.314946+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.969002,
+    "sentiment": -0.969002
+  },
+  {
+    "article_id": "189e11e4e1a649aa",
+    "title": "איראן תשתה מכוס התרעלה? החוקר מעריך בזהירות - ארה\"ב הפכה את המשוואה",
+    "url": "https://www.maariv.co.il/news/politics/article-1359867",
+    "summary": "ראש המל\"ל לשעבר ד\"ר איל חולתא התייחס ברדיו 103fm לסנקציות האמריקאיות על איראן והסביר שנראה שהאמריקאים הצליחו לצאת כשידם על העליונה, אחרי שבמשך זמן רב נראה היה שהאיראנים הם שעתידים להרוויח מהעימות",
+    "source": "Maariv",
+    "source_feed": "https://www.maariv.co.il/Rss/RssFeedsMivzakim",
+    "published_at": "2026-08-26T09:54:20+00:00",
+    "matched_keywords": [
+      "איראן"
+    ],
+    "fetched_at": "2026-08-26T12:13:40.298026+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.749499,
+    "sentiment": 0.749499
+  },
+  {
+    "article_id": "fcc1a0305d2b521e",
+    "title": "Under Threat, Saudi Arabia Reroutes Oil Exports Yet Again",
+    "url": "https://www.nytimes.com/2026/08/26/business/saudi-oil-houthis-iran.html",
+    "summary": "Forced away from the Strait of Hormuz in the Persian Gulf, the Saudis turned to the Red Sea. Now they are relying on a less dangerous but more complicated detour via the Suez Canal.",
+    "source": "The New York Times",
+    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
+    "published_at": "2026-08-26T09:02:55+00:00",
+    "matched_keywords": [
+      "saudi arabia",
+      "hormuz"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.085806+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.991204,
+    "sentiment": -0.991204
+  },
+  {
+    "article_id": "c3b1580079203f1a",
+    "title": "Ancient Lebanese Treasures Take a Journey From Modern-Day Conflict",
+    "url": "https://www.nytimes.com/2026/08/26/world/middleeast/lebanon-byblos-israel.html",
+    "summary": "Artifacts from Byblos have been on display in Paris in a show that highlights how modern-day conflict in the Middle East imperils the cultural heritage of the region.",
+    "source": "The New York Times",
+    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
+    "published_at": "2026-08-26T09:02:23+00:00",
+    "matched_keywords": [
+      "middle east"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.086025+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.999008,
+    "sentiment": 0.999008
+  },
+  {
+    "article_id": "2a2c18d4bbf49e71",
+    "title": "Canada's retaliation tests the limit of American power under Trump",
+    "url": "https://www.bbc.co.uk/news/articles/ce8xd5k1krpo?at_medium=RSS&at_campaign=rss",
+    "summary": "The president is using US dominance to challenge allies and enemies alike - but both Canada and Iran have found ways to fight back.",
+    "source": "BBC News",
+    "source_feed": "https://feeds.bbci.co.uk/news/world/rss.xml",
+    "published_at": "2026-08-26T08:47:18+00:00",
+    "matched_keywords": [
+      "iran"
+    ],
+    "fetched_at": "2026-08-26T12:13:37.471177+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.957342,
+    "sentiment": -0.957342
+  },
+  {
+    "article_id": "6b58ce57e0c06ef1",
+    "title": "US halts Iran strikes 'for time being,' as focus shifts to economic sanctions, Rubio says - report",
+    "url": "https://www.jpost.com/middle-east/iran-news/article-906609",
+    "summary": "Operation Economic Outcast was announced on Monday by US Treasury Secretary Scott Bessent, following earlier threats of an \"economic D-Day\" against the regime.",
+    "source": "The Jerusalem Post",
+    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
+    "published_at": "2026-08-26T08:38:28+00:00",
+    "matched_keywords": [
+      "iran"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.315107+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.99225,
+    "sentiment": -0.99225
+  },
+  {
+    "article_id": "468c60e09686175e",
+    "title": "לזימי במתקפה חריפה: \"שרה נתניהו היא אישה גזענית ולא רק מתעללת\"",
+    "url": "https://www.maariv.co.il/news/politics/article-1359834",
+    "summary": "ח\"כ נעמה לזימי תקפה בחריפות את נתניהו, כינתה אותו \"ראש ממשלת הטבח\" ו\"גזען בעצמו\", שללה אפשרות שיכהן כנשיא והבהירה: הדמוקרטים מכוונים ל-15 מנדטים ולשותפות בגוש השינוי",
+    "source": "Maariv",
+    "source_feed": "https://www.maariv.co.il/Rss/RssFeedsMivzakim",
+    "published_at": "2026-08-26T08:24:54+00:00",
+    "matched_keywords": [
+      "נתניהו"
+    ],
+    "fetched_at": "2026-08-26T12:13:40.299179+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.721719,
+    "sentiment": 0.721719
+  },
+  {
+    "article_id": "f1f5dde9d5e42693",
+    "title": "Far-right Israeli lawmaker damages Palestinian memorial with sledgehammer",
+    "url": "https://www.bbc.co.uk/news/articles/c0lrw8325pzo?at_medium=RSS&at_campaign=rss",
+    "summary": "Zvi Sukkot's actions have drawn widespread condemnation, including from Israeli Prime Minister Benjamin Netanyahu.",
+    "source": "BBC News",
+    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
+    "published_at": "2026-08-26T08:17:45+00:00",
+    "matched_keywords": [
+      "israeli",
+      "palestinian",
+      "netanyahu"
+    ],
+    "fetched_at": "2026-08-26T12:13:37.455644+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.989124,
+    "sentiment": -0.989124
+  },
+  {
+    "article_id": "72b186cdceec3502",
+    "title": "לפיד הולך על הראש של איזנקוט: \"אין לנו הרבה זמן, צריך אנשים עם ניסיון\"",
+    "url": "https://www.maariv.co.il/news/politics/article-1359826",
+    "summary": "לפיד מסמן את בנט כמועמד המועדף עליו לראשות הממשלה, מבהיר כי איזנקוט יישאר שותף מרכזי ותוקף את הליכוד וש\"ס. לצד זאת הציג תוכניות לצפון ולנמל חיפה ושלל ישיבה עם נתניהו",
+    "source": "Maariv",
+    "source_feed": "https://www.maariv.co.il/Rss/RssFeedsMivzakim",
+    "published_at": "2026-08-26T08:06:00+00:00",
+    "matched_keywords": [
+      "נתניהו"
+    ],
+    "fetched_at": "2026-08-26T12:13:40.299314+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.802804,
+    "sentiment": 0.802804
+  },
+  {
+    "article_id": "9ae7e97bf3de4e08",
+    "title": "Several oil companies to avoid using ships on Iran's blacklist over security concerns, sources say",
+    "url": "https://www.jpost.com/middle-east/iran-news/article-906606",
+    "summary": "\"We will avoid our chartered vessels dealing in STS or anything to do with non-compliant ships for Middle Eastern cargoes,\" said one of the sources, who works at an Indian refinery.",
+    "source": "The Jerusalem Post",
+    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
+    "published_at": "2026-08-26T07:50:42+00:00",
+    "matched_keywords": [
+      "iran"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.315280+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.999137,
+    "sentiment": -0.999137
+  },
+  {
+    "article_id": "4ddb0c7f315dfbc7",
+    "title": "העולם מחכה לתשובות: ההשתהות והשתיקה על התקיפה בביה\"ח עולות ביוקר לישראל",
+    "url": "https://www.ynet.co.il/news/article/bkbwa1hwgx",
+    "summary": "שנה חלפה מאז ש-22 פלסטינים, בהם עיתונאים ואנשי הצלה, נהרגו מפגזים בביה\"ח נאצר בחאן יונס. סוכנויות הידיעות פרסמו הצהרה שקוראת לישראל לספק תשובות. בצה\"ל לא מתייחסים - וההאשמות מתנוססות לבדן בכותרות. במקביל, סנאטורים בארה\"ב קראו לנתניהו לרסן את \"גל האלימות\" ביהודה ושומרון",
+    "source": "Ynet",
+    "source_feed": "https://www.ynet.co.il/Integration/StoryRss2.xml",
+    "published_at": "2026-08-26T07:16:46+00:00",
+    "matched_keywords": [
+      "נתניהו"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.154300+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.754556,
+    "sentiment": 0.754556
+  },
+  {
+    "article_id": "50417ee5dad30e95",
+    "title": "דיווח: יאיר נתניהו היה יעד ההתנקשות האיראנית - והוברח לישראל",
+    "url": "https://www.ynet.co.il/news/article/bypkrxhwfg",
+    "summary": "בנו של ראש הממשלה היה על הכוונת האיראנית בזמן שהתגורר בהולנדייל ביץ' בפלורידה. לפי דיווח ברשת Newsmax האמריקנית, הוא הונחה לעזוב באופן מיידי והשאיר את חפציו מאחור. בארה\"ב נטען כי חוליה איראנית עקבה אחריו ואחר סדר יומו - עוד לפני \"שאגת הארי\"",
+    "source": "Ynet",
+    "source_feed": "https://www.ynet.co.il/Integration/StoryRss2.xml",
+    "published_at": "2026-08-26T05:53:31+00:00",
+    "matched_keywords": [
+      "נתניהו"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.154908+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.800493,
+    "sentiment": 0.800493
+  },
+  {
+    "article_id": "424457c4c2bfd5ed",
+    "title": "What to Know About Bank Melli, Singled Out in U.S. Call for Economic War",
+    "url": "https://www.nytimes.com/2026/08/26/world/europe/iran-melli-bank-us-sanctions.html",
+    "summary": "Bank Melli, Iran’s largest lender, already faces waves of sanctions that severely limit its ability to operate abroad. Every foreign branch must be shut down, Treasury Secretary Scott Bessent said.",
+    "source": "The New York Times",
+    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
+    "published_at": "2026-08-26T04:01:06+00:00",
+    "matched_keywords": [
+      "iran"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.086242+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.999185,
+    "sentiment": -0.999185
+  },
+  {
+    "article_id": "fa795e735579b46a",
+    "title": "Five ways the US-Iran conflict is shifting - analysis",
+    "url": "https://www.jpost.com/middle-east/iran-news/article-906594",
+    "summary": "From the Strait of Hormuz to sanctions and diplomacy, the US-Iran conflict is broadening into a struggle that is reshaping regional security and the global balance of power.",
+    "source": "The Jerusalem Post",
+    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
+    "published_at": "2026-08-26T02:11:57+00:00",
+    "matched_keywords": [
+      "iran",
+      "hormuz"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.315417+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.990119,
+    "sentiment": 0.990119
+  },
+  {
+    "article_id": "e45afff08418fbd7",
+    "title": "Trump sends Saudi nuclear deal to Congress but says Riyadh must recognize Israel",
+    "url": "https://www.jpost.com/middle-east/article-906593",
+    "summary": "US President Donald Trump maintained that Saudi Arabia must join the Abraham Accords for a deal to come through, a US administration official told Reuters.",
+    "source": "The Jerusalem Post",
+    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
+    "published_at": "2026-08-26T01:29:38+00:00",
+    "matched_keywords": [
+      "israel",
+      "saudi arabia",
+      "abraham accords"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.315558+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.993027,
+    "sentiment": -0.993027
+  },
+  {
+    "article_id": "c3c4b122ecc7c2f9",
+    "title": "Trump Administration Sends Saudi Nuclear Deal to Congress for Review",
+    "url": "https://www.nytimes.com/2026/08/25/us/politics/trump-saudi-nuclear-deal-congress-review.html",
+    "summary": "The prospect that the kingdom could enrich uranium has drawn opposition from Democrats and revived concerns about nuclear proliferation in the Middle East.",
+    "source": "The New York Times",
+    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
+    "published_at": "2026-08-26T01:09:26+00:00",
+    "matched_keywords": [
+      "middle east"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.086406+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.519955,
+    "sentiment": -0.519955
+  },
+  {
+    "article_id": "68b151960dc246ab",
+    "title": "Christian Convert Who Fled Iran and Was Deported By Trump Finds New Home",
+    "url": "https://www.nytimes.com/2026/08/25/world/middleeast/artemis-ghasemzadeh-iran-christian-us-deported-canada-asylum.html",
+    "summary": "Artemis Ghasemzadeh, who had escaped religious persecution, was deported to Panama under Trump’s immigration crackdown. Now, Canada has given her asylum.",
+    "source": "The New York Times",
+    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
+    "published_at": "2026-08-25T23:58:05+00:00",
+    "matched_keywords": [
+      "iran"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.087750+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.566939,
+    "sentiment": -0.566939
+  },
+  {
+    "article_id": "22280c57fed4ca2b",
+    "title": "הסכם הגרעין עם סעודיה עבר לקונגרס עם התניה; ארה\"ב: \"לעת עתה\" - לא נתקוף באיראן",
+    "url": "https://www.ynet.co.il/news/article/s1dqt9svzg",
+    "summary": "ב\"אקסיוס\" דווח כי רוביו הבהיר לבעלות בריתה של ארה\"ב כי וושינגטון אינה מתכננת בשלב זה לחדש את התקיפות, ועוברת להתמקד בסנקציות, במצור הימי ובהזרמת נפט דרך הורמוז. איראן ועומאן מקדמות מסדרון שיט זמני ופינוי מוקשים, אך בטהרן מדגישים שהמצר לא ייפתח מחדש. במקביל, טראמפ העביר לקונגרס את הסכם הגרעין האזרחי עם סעודיה: \"יתקדם רק אם תכיר בישראל\"",
+    "source": "Ynet",
+    "source_feed": "https://www.ynet.co.il/Integration/StoryRss2.xml",
+    "published_at": "2026-08-25T23:48:21+00:00",
+    "matched_keywords": [
+      "איראן"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.157521+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.676704,
+    "sentiment": 0.676704
+  },
+  {
+    "article_id": "762542fb4451d31b",
+    "title": "Lebanon extends visa of Iran's ambassador Sheibani following persona non grata designation - report",
+    "url": "https://www.jpost.com/middle-east/article-906589",
+    "summary": "Sheibani originally served as Iran's ambassador to Lebanon in the early 2000s, then was reappointed to the role in February, before the persona non grata designation.",
+    "source": "The Jerusalem Post",
+    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
+    "published_at": "2026-08-25T23:33:21+00:00",
+    "matched_keywords": [
+      "lebanon",
+      "iran"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.315716+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.515877,
+    "sentiment": 0.515877
+  },
+  {
+    "article_id": "b272f1f7288e7de0",
+    "title": "Syria's Kurdish-led SDF dissolves as part of integration with Damascus",
+    "url": "https://www.jpost.com/middle-east/article-906588",
+    "summary": "\"We announce today the end of the mission of the Syrian Democratic Forces and announce with full responsibility its dissolution as an independent military force,\" SDF commander Mazloum Abdi said.",
+    "source": "The Jerusalem Post",
+    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
+    "published_at": "2026-08-25T22:59:44+00:00",
+    "matched_keywords": [
+      "syria"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.315874+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.997443,
+    "sentiment": -0.997443
+  },
+  {
+    "article_id": "6294b0f0d2934776",
+    "title": "U.S. ‘Economic D-Day’ Targets More Than Just Iranian Oil",
+    "url": "https://www.nytimes.com/2026/08/25/world/middleeast/iran-us-sanctions-oil-gold.html",
+    "summary": "The United States threatened sanctions for any country or entity that engages with Iran’s gold, digital assets, aviation, shipping and tech industries. Here’s why that matters.",
+    "source": "The New York Times",
+    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
+    "published_at": "2026-08-25T22:58:03+00:00",
+    "matched_keywords": [
+      "iran",
+      "iranian"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.086578+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.703652,
+    "sentiment": -0.703652
+  },
+  {
+    "article_id": "c648862a71bd3693",
+    "title": "Hamas and Dahlan’s factions seek alliance that could reshape Palestinian elections and weaken Abbas",
+    "url": "https://www.jpost.com/middle-east/article-906583",
+    "summary": "A Palestinian figure who attended the Cairo anti-Abbas coalition meeting confirmed that no final decision has been made but added that the aim is clear.",
+    "source": "The Jerusalem Post",
+    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
+    "published_at": "2026-08-25T21:47:27+00:00",
+    "matched_keywords": [
+      "palestinian",
+      "hamas"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.316029+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.987776,
+    "sentiment": 0.987776
+  },
+  {
+    "article_id": "9df31261a8865b66",
+    "title": "\"מכה אנושה\" להסברה הישראלית, ואז עוד אחת. ואז עוד ועוד ועוד",
+    "url": "https://www.ynet.co.il/news/article/s15pjnjpze",
+    "summary": "ניפוץ האנדרטה בכפר הפלסטיני הוא רק האחרון בשורת אירועים שעוררו סערה בעולם: מהעימות עם ביידן והקריאה \"למחוק את חווארה\", דרך \"אטום על עזה\", החזרה לרצועה והר הבית - ועד הצעדים ביו\"ש. האמירות ששימשו את התביעה בהאג, הסנקציות על שרים והגינויים החוזרים. וגם: היחס לישראל שהידרדר לשפל",
+    "source": "Ynet",
+    "source_feed": "https://www.ynet.co.il/Integration/StoryRss2.xml",
+    "published_at": "2026-08-25T21:31:45+00:00",
+    "matched_keywords": [
+      "עזה"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.158136+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.699524,
+    "sentiment": 0.699524
+  },
+  {
+    "article_id": "6c6b7d4884723f1c",
+    "title": "Trump says all mines cleared from Strait of Hormuz",
+    "url": "https://www.bbc.co.uk/news/articles/cwyzw836d05o?at_medium=RSS&at_campaign=rss",
+    "summary": "Iran has closed the vital waterway since the beginning of the conflict causing wild fluctuations in oil prices worldwide.",
+    "source": "BBC News",
+    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
+    "published_at": "2026-08-25T21:23:41+00:00",
+    "matched_keywords": [
+      "iran",
+      "hormuz"
+    ],
+    "fetched_at": "2026-08-26T12:13:37.455794+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.729473,
+    "sentiment": -0.729473
+  },
+  {
+    "article_id": "75a79b039609f6fa",
+    "title": "How will Trump's economic 'D-Day' plan impact Iran's nuclear, ballistic missile threat? - analysis",
+    "url": "https://www.jpost.com/middle-east/iran-news/article-906577",
+    "summary": "How long do Israel, the US, and the West want to give Iran to figure out ways to charge forward on the nuclear or ballistic missile issues with whatever it has left?",
+    "source": "The Jerusalem Post",
+    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
+    "published_at": "2026-08-25T20:27:15+00:00",
+    "matched_keywords": [
+      "israel",
+      "iran"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.316231+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.998519,
+    "sentiment": -0.998519
+  },
+  {
+    "article_id": "3bb34d12ddf29300",
+    "title": "לקראת הדוח של אנבידיה: וול סטריט ננעלה בעליות בהובלת מניות השבבים; תשואות האג\"ח ירדו",
+    "url": "https://www.globes.co.il/news/article.aspx?did=1001553305#utm_source=RSS",
+    "summary": "נאסד\"ק עלה ב-0.5% &#8226; קנדה הודיעה היום על מכסי תגמול נגד ארה\"ב &#8226; דיקס ספורטינג גודס נפלה בחדות לאחר שחתכה את התחזית &#8226; הקריפטו ממשיך בראלי: הביטקוין חצה את רף ה-80 אלף דולר &#8226; הנפט נפל ביותר מ־3%: ארה״ב מאותתת כי אינה צופה חזרה למלחמה מלאה",
+    "source": "Globes",
+    "source_feed": "https://www.globes.co.il/webservice/rss/rssfeeder.asmx/FeederNode?iID=585",
+    "published_at": "2026-08-25T20:00:00+00:00",
     "matched_keywords": [
       "מלחמה"
     ],
-    "fetched_at": "2026-07-19T12:00:30.872612+00:00",
+    "fetched_at": "2026-08-26T12:13:40.874211+00:00",
     "sentiment_label": "POSITIVE",
-    "sentiment_score": 0.801197,
-    "sentiment": 0.801197
+    "sentiment_score": 0.61319,
+    "sentiment": 0.61319
   },
   {
-    "article_id": "ee6445e4ea425103",
-    "title": "US launches 8th night of strikes on Iran to ‘punish’ IRGC for deadly Jordan attack",
-    "url": "https://www.timesofisrael.com/us-launches-8th-night-of-strikes-on-iran-to-punish-irgc-for-deadly-jordan-attack/",
-    "summary": "Iran reports strikes in south and in Strait of Hormuz; US bases in Kuwait come under fire, UAE threatened; Washington warns Iran-backed groups might target Americans abroad The post US launches 8th night of strikes on Iran to &#8216;punish&#8217; IRGC for deadly Jordan attack appeared first on The Times of Israel .",
-    "source": "The Times of Israel",
-    "source_feed": "https://www.timesofisrael.com/feed/",
-    "published_at": "2026-07-19T06:57:57+00:00",
-    "matched_keywords": [
-      "israel",
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.757455+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.98295,
-    "sentiment": -0.98295
-  },
-  {
-    "article_id": "d6b2ae5b3ce54772",
-    "title": "שנאה בשקל תשעים",
-    "url": "https://www.ynet.co.il/news/article/yokra14836360",
-    "summary": "אז איך יכולים אנשיו של נתניהו להסתיר את עוצמת הכישלונות? פשוט: לחרחר שנאה",
-    "source": "Ynet",
-    "source_feed": "https://www.ynet.co.il/Integration/StoryRss2.xml",
-    "published_at": "2026-07-19T06:33:22+00:00",
-    "matched_keywords": [
-      "נתניהו"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.872633+00:00",
-    "sentiment_label": "POSITIVE",
-    "sentiment_score": 0.810535,
-    "sentiment": 0.810535
-  },
-  {
-    "article_id": "c10fc0b1990b625c",
-    "title": "Military closes area around Gaza ahead of Likud-backed settler march into Strip",
-    "url": "https://www.timesofisrael.com/military-closes-area-around-gaza-ahead-of-likud-backed-settler-march-into-strip/",
-    "summary": "Ben Gvir, Smotrich, several other MKs expected to join Nachala-led march calling for Jewish settlement in Strip, as IDF says it will thwart any attempts to illegally enter Gaza The post Military closes area around Gaza ahead of Likud-backed settler march into Strip appeared first on The Times of Israel .",
-    "source": "The Times of Israel",
-    "source_feed": "https://www.timesofisrael.com/feed/",
-    "published_at": "2026-07-19T05:52:50+00:00",
-    "matched_keywords": [
-      "israel",
-      "gaza",
-      "idf"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.757467+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.981422,
-    "sentiment": -0.981422
-  },
-  {
-    "article_id": "80533e94f382b250",
-    "title": "UK founder of Muslims Against Antisemitism challenges coreligionists to fight rising hate",
-    "url": "https://www.timesofisrael.com/uk-founder-of-muslims-against-antisemitism-challenges-coreligionists-to-fight-rising-hate/",
-    "summary": "Many British Muslim leaders privately denounce the Jew-hatred permeating the country and some of its institutions. Fiyaz Mughal is asking them to speak up before it's too late The post UK founder of Muslims Against Antisemitism challenges coreligionists to fight rising hate appeared first on The Times of Israel .",
-    "source": "The Times of Israel",
-    "source_feed": "https://www.timesofisrael.com/feed/",
-    "published_at": "2026-07-19T03:10:20+00:00",
-    "matched_keywords": [
-      "israel"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.757480+00:00",
-    "sentiment_label": "POSITIVE",
-    "sentiment_score": 0.941833,
-    "sentiment": 0.941833
-  },
-  {
-    "article_id": "8930e54b9373079c",
-    "title": "State Department urges caution for all US travelers in light of Middle East tensions",
-    "url": "https://www.jpost.com/middle-east/article-902892",
-    "summary": "\"Due to heightened tensions in the Middle East, the security environment remains complex with the potential for unforeseen escalation,\" the State Department wrote on its website.",
-    "source": "The Jerusalem Post",
-    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
-    "published_at": "2026-07-19T02:39:04+00:00",
-    "matched_keywords": [
-      "middle east"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.019089+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.945204,
-    "sentiment": -0.945204
-  },
-  {
-    "article_id": "2d2c356a67e82b7d",
-    "title": "Strait of Hormuz seeing less traffic as threat from Iran increases to commercial sailors - report",
-    "url": "https://www.jpost.com/middle-east/iran-news/article-902890",
-    "summary": "According to the International Maritime Organization, at least 17 sailors have been killed since the beginning of the war, with three killed and over a dozen wounded in the last week alone.",
-    "source": "The Jerusalem Post",
-    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
-    "published_at": "2026-07-19T02:36:59+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.019099+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.993385,
-    "sentiment": -0.993385
-  },
-  {
-    "article_id": "8d183abfa6f94736",
-    "title": "CENTCOM completes eighth wave of strikes against Iran in retaliation for death of US soldiers",
-    "url": "https://www.jpost.com/middle-east/iran-news/article-902889",
-    "summary": "Later, Iranian state television cited the Iranian Army as saying that it had targeted two US military bases in Kuwait.",
-    "source": "The Jerusalem Post",
-    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
-    "published_at": "2026-07-19T01:36:08+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.019110+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.987863,
-    "sentiment": -0.987863
-  },
-  {
-    "article_id": "9362c87a22b155ff",
-    "title": "Jordan denies evacuating airport after US warns of ‘credible threat’ amid Iran tensions",
-    "url": "https://www.timesofisrael.com/liveblog-july-19-2026/",
-    "summary": "Murky American alert comes after Iran targets Kuwait, Bahrain following US attacks overnight * High Court freezes media overhaul law, but minister says ruling invalid * IDF closes area around Gaza ahead of settler march The post Jordan denies evacuating airport after US warns of &#8216;credible threat&#8217; amid Iran tensions appeared first on The Times of Israel .",
-    "source": "The Times of Israel",
-    "source_feed": "https://www.timesofisrael.com/feed/",
-    "published_at": "2026-07-19T01:25:07+00:00",
-    "matched_keywords": [
-      "israel",
-      "gaza",
-      "iran",
-      "idf"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.757498+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.990762,
-    "sentiment": -0.990762
-  },
-  {
-    "article_id": "6aba1138876b05c1",
-    "title": "Ten-goal thriller: England beats France 6-4 to win World Cup’s third-place playoff",
-    "url": "https://www.timesofisrael.com/ten-goal-thriller-england-beats-france-6-4-to-win-world-cups-third-place-play-off/",
-    "summary": "Ostensibly marginal encounter between two teams that failed to make it to the final becomes the highest-scoring World Cup game since 1982 The post Ten-goal thriller: England beats France 6-4 to win World Cup&#8217;s third-place playoff appeared first on The Times of Israel .",
-    "source": "The Times of Israel",
-    "source_feed": "https://www.timesofisrael.com/feed/",
-    "published_at": "2026-07-19T00:52:36+00:00",
-    "matched_keywords": [
-      "israel"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.757512+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.967193,
-    "sentiment": -0.967193
-  },
-  {
-    "article_id": "c97ea9aa37239794",
-    "title": "Damascus calls Hezbollah ‘terrorist militia’, partners with Iraq to stop arms smuggling",
-    "url": "https://www.jpost.com/middle-east/article-902888",
-    "summary": "The ministry said specialized security units intercepted a suspicious vehicle near the Syrian-Iraqi border and discovered a cache of long-range missiles, guided anti-tank missiles, and drones.",
-    "source": "The Jerusalem Post",
-    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
-    "published_at": "2026-07-19T00:49:04+00:00",
-    "matched_keywords": [
-      "hezbollah"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.019123+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.987289,
-    "sentiment": -0.987289
-  },
-  {
-    "article_id": "b233e621dcf431bd",
-    "title": "Why Jordan Is Becoming a New Focus in the U.S.-Iran War",
-    "url": "https://www.nytimes.com/2026/07/18/world/middleeast/iran-war-jordan-attacks.html",
-    "summary": "Four Iranian attacks in five days have targeted U.S. troops in Jordan, U.S. officials said, including one on Friday that killed two soldiers and left another service member missing.",
+    "article_id": "b3a8a7efd845d7a8",
+    "title": "What’s More Than ‘Maximum’? Trump Faces Limits on Iran Sanctions.",
+    "url": "https://www.nytimes.com/2026/08/25/us/politics/trump-iran-maximum-sanctions.html",
+    "summary": "President Trump’s “Economic D-Day” is intended to break the stalemate with Iran. But decades of sanctions have done little to change the country’s behavior.",
     "source": "The New York Times",
     "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-18T23:03:24+00:00",
+    "published_at": "2026-08-25T19:14:11+00:00",
     "matched_keywords": [
       "iran"
     ],
-    "fetched_at": "2026-07-19T12:00:30.819196+00:00",
+    "fetched_at": "2026-08-26T12:13:39.086748+00:00",
     "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.995117,
-    "sentiment": -0.995117
+    "sentiment_score": 0.939169,
+    "sentiment": -0.939169
   },
   {
-    "article_id": "11d2d58775c55c44",
-    "title": "Two US service members killed, one missing in action after Iran strikes base in Jordan",
-    "url": "https://www.jpost.com/middle-east/article-902880",
-    "summary": "United States Central Command announced that two service members were killed in action, one is missing in action, and four were injured Friday in Jordan in a post on X/Twitter.",
-    "source": "The Jerusalem Post",
-    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
-    "published_at": "2026-07-18T20:41:20+00:00",
+    "article_id": "32fbea4f41ef5894",
+    "title": "Israeli Lawmaker Smashes Palestinian Monument in West Bank",
+    "url": "https://www.nytimes.com/2026/08/25/world/middleeast/israel-lawmaker-palestinian-monument.html",
+    "summary": "Videos showed Israeli troops standing by as Zvi Sukkot attacked the monument with a sledgehammer. The military said soldiers had stopped the demolition.",
+    "source": "The New York Times",
+    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
+    "published_at": "2026-08-25T18:52:03+00:00",
     "matched_keywords": [
-      "iran"
+      "israeli",
+      "west bank",
+      "palestinian"
     ],
-    "fetched_at": "2026-07-19T12:00:30.019131+00:00",
+    "fetched_at": "2026-08-26T12:13:39.086895+00:00",
     "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.996745,
-    "sentiment": -0.996745
+    "sentiment_score": 0.998348,
+    "sentiment": -0.998348
   },
   {
-    "article_id": "9933853a96db788d",
-    "title": "Khamenei says Trump's signature on MoU is 'worthless' as US, Iran continue strikes",
-    "url": "https://www.jpost.com/middle-east/iran-news/article-902879",
-    "summary": "Khamenei threatened that \"the noble Iranian nation and the Axis of Resistance have unforgettable lessons in store\" for the US Army.",
+    "article_id": "01bf9b4157951288",
+    "title": "After strike on Turkish base in Syria, US urges Israel to show restraint",
+    "url": "https://www.jpost.com/middle-east/article-906567",
+    "summary": "Washington says restraint and dialogue are the best path forward to prevent further escalation among Jerusalem, Damascus, and Ankara.",
     "source": "The Jerusalem Post",
     "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
-    "published_at": "2026-07-18T20:16:37+00:00",
+    "published_at": "2026-08-25T18:45:50+00:00",
     "matched_keywords": [
-      "iran"
+      "israel",
+      "jerusalem",
+      "syria"
     ],
-    "fetched_at": "2026-07-19T12:00:30.019142+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.999581,
-    "sentiment": -0.999581
-  },
-  {
-    "article_id": "55b6a1de10db1515",
-    "title": "From forced conversion to genocide: How Yazidis carry centuries of persecution into exile",
-    "url": "https://www.jpost.com/middle-east/article-902798",
-    "summary": "MIDDLE EAST AFFAIRS: The Islamic interpretation of the Yazidi faith is what members of ISIS used to justify the enslavement of over 6,000 women and children and the murder of more than 5,000 people.",
-    "source": "The Jerusalem Post",
-    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
-    "published_at": "2026-07-18T19:33:32+00:00",
-    "matched_keywords": [
-      "middle east"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.019151+00:00",
+    "fetched_at": "2026-08-26T12:13:38.316526+00:00",
     "sentiment_label": "POSITIVE",
-    "sentiment_score": 0.978864,
-    "sentiment": 0.978864
+    "sentiment_score": 0.979243,
+    "sentiment": 0.979243
   },
   {
-    "article_id": "bcb2b11990b6237f",
-    "title": "US strikes hit Iran for seventh consecutive night",
-    "url": "https://www.bbc.co.uk/news/articles/cy748n8zx8ro?at_medium=RSS&at_campaign=rss",
-    "summary": "Iran has retaliated against US allies in the region, with Kuwait reporting that a power and water plant had been hit.",
+    "article_id": "2143268663009eee",
+    "title": "Iran May Have Little to Lose as U.S. Tries to Squeeze Its Economy",
+    "url": "https://www.nytimes.com/2026/08/25/world/middleeast/iran-us-economy-sanctions.html",
+    "summary": "Experts warn that a campaign aimed at avoiding military escalation could instead provoke it, as Iranian leaders vow retaliation across the oil-rich Gulf.",
+    "source": "The New York Times",
+    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
+    "published_at": "2026-08-25T18:28:40+00:00",
+    "matched_keywords": [
+      "iran",
+      "iranian"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.087369+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.996117,
+    "sentiment": -0.996117
+  },
+  {
+    "article_id": "778358cc42f11d33",
+    "title": "Why Syria’s removal from the US terror list matters for Israel - analysis",
+    "url": "https://www.jpost.com/middle-east/article-906568",
+    "summary": "It's one thing for Israel to take military action in a country that the US has formally labeled a state sponsor of terrorism. It's quite another to do so after the US has removed that designation.",
+    "source": "The Jerusalem Post",
+    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
+    "published_at": "2026-08-25T18:11:07+00:00",
+    "matched_keywords": [
+      "israel",
+      "syria"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.316718+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.984115,
+    "sentiment": -0.984115
+  },
+  {
+    "article_id": "2d1d9d76685b8417",
+    "title": "Trump: All mines cleared from Hormuz, Space Force watching nuclear sites, strait",
+    "url": "https://www.jpost.com/middle-east/iran-news/article-906564",
+    "summary": "A US official confirmed to The Jerusalem Post that both inbound and outbound shipping lanes in the strait have been cleared of mines by US Central Command (CENTCOM).",
+    "source": "The Jerusalem Post",
+    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
+    "published_at": "2026-08-25T17:40:41+00:00",
+    "matched_keywords": [
+      "jerusalem",
+      "hormuz"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.316875+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.926976,
+    "sentiment": -0.926976
+  },
+  {
+    "article_id": "8edc70442ec2c472",
+    "title": "US offers to lift Iran sanctions if Tehran reopens Strait of Hormuz, stops proxy attacks - report",
+    "url": "https://www.jpost.com/middle-east/iran-news/article-906557",
+    "summary": "The Strait of Hormuz has been severely affected in recent months, with shipping traffic through the waterway sharply declining amid Iranian threats and restrictions.",
+    "source": "The Jerusalem Post",
+    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
+    "published_at": "2026-08-25T16:37:35+00:00",
+    "matched_keywords": [
+      "iran",
+      "iranian",
+      "tehran",
+      "hormuz"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.317032+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.998594,
+    "sentiment": -0.998594
+  },
+  {
+    "article_id": "8b3e162f7cf88263",
+    "title": "Palestinian Authority schools praise martydom, use October 7 attack in math lessons",
+    "url": "https://www.jpost.com/middle-east/article-906558",
+    "summary": "Beyond reducing October 7 to a math exercise, the nine-year-olds were also praised by their teacher in written feedback for writing questions relating to martyrdom, including child martyrdom.",
+    "source": "The Jerusalem Post",
+    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
+    "published_at": "2026-08-25T16:28:00+00:00",
+    "matched_keywords": [
+      "palestinian"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.317202+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.992137,
+    "sentiment": 0.992137
+  },
+  {
+    "article_id": "6c17217408bbb6a2",
+    "title": "What's included in the new US sanctions campaign to pressure Iran's economy? - explainer",
+    "url": "https://www.jpost.com/middle-east/iran-news/article-906553",
+    "summary": "US Treasury Secretary Scott Bessent announced \"an economic onslaught\" against Iran, combining new sanctions with with threats against Tehran's trading partners.",
+    "source": "The Jerusalem Post",
+    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
+    "published_at": "2026-08-25T16:06:14+00:00",
+    "matched_keywords": [
+      "iran",
+      "tehran"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.317357+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.984683,
+    "sentiment": -0.984683
+  },
+  {
+    "article_id": "de20a447217a94c2",
+    "title": "European rights court orders Turkey to free imprisoned businessman",
+    "url": "https://www.bbc.co.uk/news/articles/cn5drvyg92no?at_medium=RSS&at_campaign=rss",
+    "summary": "Philanthropist and activist Osman Kavala has spent almost a decade in jail over charges rights groups say are politically motivated.",
+    "source": "BBC News",
+    "source_feed": "https://feeds.bbci.co.uk/news/world/rss.xml",
+    "published_at": "2026-08-25T15:58:20+00:00",
+    "matched_keywords": [
+      "turkey"
+    ],
+    "fetched_at": "2026-08-26T12:13:37.471027+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.981861,
+    "sentiment": -0.981861
+  },
+  {
+    "article_id": "e12a16b75cd78081",
+    "title": "US offers $10 million reward for information on senior IRGC leaders, including one killed in April",
+    "url": "https://www.jpost.com/middle-east/iran-news/article-906542",
+    "summary": "The US State Department's Rewards for Justice offered a bounty of up to $10m. for information on five IRGC leaders, including Majid Khademi, who was killed by an Israeli strike in April.",
+    "source": "The Jerusalem Post",
+    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
+    "published_at": "2026-08-25T15:20:09+00:00",
+    "matched_keywords": [
+      "israeli"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.317548+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.985522,
+    "sentiment": -0.985522
+  },
+  {
+    "article_id": "fdf0f5b35cf56e96",
+    "title": "Who does Iran trade with and what could Trump's 'economic D-Day' mean?",
+    "url": "https://www.bbc.co.uk/news/articles/cqxvj1zd4qjo?at_medium=RSS&at_campaign=rss",
+    "summary": "Iran is no stranger to US sanctions and has developed deep economic ties with several countries.",
     "source": "BBC News",
     "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
-    "published_at": "2026-07-18T17:44:56+00:00",
+    "published_at": "2026-08-25T15:04:52+00:00",
     "matched_keywords": [
       "iran"
     ],
-    "fetched_at": "2026-07-19T12:00:29.145098+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.983492,
-    "sentiment": -0.983492
+    "fetched_at": "2026-08-26T12:13:37.455865+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.995305,
+    "sentiment": 0.995305
   },
   {
-    "article_id": "c864041a45108d77",
-    "title": "Why did Iran claim to attack an abandoned US garrison in Syria? - analysis",
-    "url": "https://www.jpost.com/middle-east/iran-news/article-902873",
-    "summary": "Iran is likely trying to send a message to Syria. Iran wants weapons to continue to flow to Hezbollah via Syria.",
+    "article_id": "cf8ac485690150f8",
+    "title": "China Pushes Back After Trump Tightens the Screws on Iran",
+    "url": "https://www.nytimes.com/2026/08/25/business/us-bessent-china-iran.html",
+    "summary": "The Trump administration risks a clash with Beijing as it tries to cut off Iran’s economic lifelines without upending a fragile U.S.-China truce.",
+    "source": "The New York Times",
+    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
+    "published_at": "2026-08-25T14:59:39+00:00",
+    "matched_keywords": [
+      "iran"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.087047+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.746028,
+    "sentiment": -0.746028
+  },
+  {
+    "article_id": "f0e33af55825c91a",
+    "title": "Amnesty International issues rare condemnation of Hamas, demands end to extrajudicial executions",
+    "url": "https://www.jpost.com/middle-east/article-906540",
+    "summary": "The organization, which has frequently criticized Israel’s actions in Gaza, Lebanon, and the West Bank, demanded that Hamas end impunity for extrajudicial killings and reprisal attacks.",
     "source": "The Jerusalem Post",
     "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
-    "published_at": "2026-07-18T16:07:38+00:00",
-    "matched_keywords": [
-      "hezbollah",
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.019160+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.997704,
-    "sentiment": -0.997704
-  },
-  {
-    "article_id": "4b7625bb6f9ac30b",
-    "title": "U.S. Strikes Leave Iranians Isolated and Scared",
-    "url": "https://www.nytimes.com/2026/07/18/world/middleeast/us-iran-war-strikes-bridges-bandar-abbas.html",
-    "summary": "Overnight strikes damaged a tunnel and three bridges in Hormozgan Province, the governor’s office said.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-18T16:02:40+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.819220+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.996512,
-    "sentiment": -0.996512
-  },
-  {
-    "article_id": "49a5e1a46ad92641",
-    "title": "Kuwait accuses Iran of targeting civilian sites after attacks spark fires.",
-    "url": "https://www.nytimes.com/live/2026/07/18/world/iran-war-strikes-trump-hormuz/kuwait-power-water-facilities-attacks",
-    "summary": "",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-18T14:24:02+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.819231+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.99335,
-    "sentiment": -0.99335
-  },
-  {
-    "article_id": "31b8e84a8e3763d3",
-    "title": "Iran claims coordinated attacks on US military sites in Kuwait, Jordan, Bahrain",
-    "url": "https://www.jpost.com/middle-east/iran-news/article-902870",
-    "summary": "Sirens, missile interceptions, and reported damage followed as Iran claimed attacks on US bases in Kuwait, Jordan, and Bahrain.",
-    "source": "The Jerusalem Post",
-    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
-    "published_at": "2026-07-18T13:37:00+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.019170+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.996604,
-    "sentiment": -0.996604
-  },
-  {
-    "article_id": "5608cc01788ddb28",
-    "title": "Israel Counters Iranian Spying by Warning Against Recruitment",
-    "url": "https://www.nytimes.com/2026/07/18/world/middleeast/israel-recruits-rabbis-iran.html",
-    "summary": "The Israeli authorities have enacted a broad array of countermeasures to contain what they describe as online recruiting efforts by Iranian agents.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-18T13:09:16+00:00",
+    "published_at": "2026-08-25T14:30:03+00:00",
     "matched_keywords": [
       "israel",
-      "iran"
+      "gaza",
+      "west bank",
+      "lebanon",
+      "hamas"
     ],
-    "fetched_at": "2026-07-19T12:00:30.819244+00:00",
+    "fetched_at": "2026-08-26T12:13:38.317717+00:00",
     "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.993061,
-    "sentiment": -0.993061
+    "sentiment_score": 0.970731,
+    "sentiment": -0.970731
   },
   {
-    "article_id": "fad57e6102dc1172",
-    "title": "Will Mahmoud Abbas actually let Palestinians vote? Critics say he's testing the waters first",
-    "url": "https://www.jpost.com/middle-east/article-902794",
-    "summary": "PALESTINIAN AFFAIRS: The PA president wants to remove any Israeli claim that Palestinians are not a partner for peace,’ said one Palestinian analyst, after the election announcement.",
-    "source": "The Jerusalem Post",
-    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
-    "published_at": "2026-07-18T11:49:55+00:00",
+    "article_id": "bf04c548ca283979",
+    "title": "Israeli attacks kill five in Gaza, including two children, medics say",
+    "url": "https://www.bbc.co.uk/news/articles/ce8x1rdgp3lo?at_medium=RSS&at_campaign=rss",
+    "summary": "An Israeli strike on Monday killed a four-year-old boy, while a 10-year-old girl was hit by a bullet inside her tent, according to medics and relatives.",
+    "source": "BBC News",
+    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
+    "published_at": "2026-08-25T14:07:50+00:00",
     "matched_keywords": [
-      "israel"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.019182+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.982445,
-    "sentiment": -0.982445
-  },
-  {
-    "article_id": "c35594188309bb88",
-    "title": "Iran claims to have struck US military assets in Kuwait, Jordan with missiles, drones - report",
-    "url": "https://www.jpost.com/middle-east/article-902856",
-    "summary": "According to Iranian state media, drones targeted US ammunition stores and communication assets at Kuwait’s Ali Al Salem Air Base and US military assets at Muwaffaq Salti Air Base in Jordan.",
-    "source": "The Jerusalem Post",
-    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
-    "published_at": "2026-07-17T23:28:44+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.019195+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.99205,
-    "sentiment": -0.99205
-  },
-  {
-    "article_id": "235dbe54d4bb0f69",
-    "title": "War Between U.S. and Iran Expands, With Strikes Across the Region",
-    "url": "https://www.nytimes.com/2026/07/17/world/middleeast/us-iran-war-strikes-infrastructure-civilians.html",
-    "summary": "Videos and reports in Iranian state media showed damage to bridges, railways and other infrastructure. U.S. allies in the region reported retaliatory strikes by Iran.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-17T21:49:49+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.819254+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.979025,
-    "sentiment": -0.979025
-  },
-  {
-    "article_id": "9f23a6e9fd221ffd",
-    "title": "Israeli Strike in Gaza Kills Seven People, Health Officials Say",
-    "url": "https://www.nytimes.com/2026/07/17/world/middleeast/israeli-strike-gaza-kills-eight.html",
-    "summary": "The Israeli military said the attack targeted members of the second-biggest militant group in Gaza. It also said it was “aware of the claims that several uninvolved individuals” had been harmed.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-17T19:52:28+00:00",
-    "matched_keywords": [
-      "israel",
+      "israeli",
       "gaza"
     ],
-    "fetched_at": "2026-07-19T12:00:30.819267+00:00",
+    "fetched_at": "2026-08-26T12:13:37.456035+00:00",
     "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.992377,
-    "sentiment": -0.992377
+    "sentiment_score": 0.994874,
+    "sentiment": -0.994874
   },
   {
-    "article_id": "85cd63e2d91ab6d6",
-    "title": "Oil Prices Rise to Highest Level in a Month as Shipping in the Persian Gulf Nears a Halt",
-    "url": "https://www.nytimes.com/2026/07/17/business/strait-hormuz-iran-oil-prices.html",
-    "summary": "Shipping traffic was at its lowest level in more than a month and oil prices moved higher as the Iran war continued to disrupt the supply of energy.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-17T19:28:52+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.819290+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.984431,
-    "sentiment": -0.984431
-  },
-  {
-    "article_id": "08ca98056aef00ed",
-    "title": "US CENTCOM concludes seventh consecutive night of strikes against Iranian military sites",
-    "url": "https://www.jpost.com/middle-east/iran-news/article-902845",
-    "summary": "According to CENTCOM, US forces struck Iranian surveillance sites, military logistics infrastructure, underground weapons storage, and naval capabilities using fighter jets, drones, and warships.",
+    "article_id": "977e17a9a7cbdc70",
+    "title": "Azerbaijan mediating between Israel, Turkey in effort to reduce Syria tensions",
+    "url": "https://www.jpost.com/middle-east/article-906536",
+    "summary": "Azerbaijani President Ilham Aliyev initiated direct dialogue between Israel and Turkey a year ago, resulting in an operational coordination mechanism intended to prevent conflict in Syria.",
     "source": "The Jerusalem Post",
     "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
-    "published_at": "2026-07-17T18:01:30+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.019204+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.919854,
-    "sentiment": -0.919854
-  },
-  {
-    "article_id": "1741c91973e7921f",
-    "title": "Pakistan and Kuwait discuss expanded defense pact, sources say",
-    "url": "https://www.jpost.com/middle-east/article-902840",
-    "summary": "The talks remain at an early stage, all the sources said, and could still be complicated by heightened tensions between the United States and Iran, said one source.",
-    "source": "The Jerusalem Post",
-    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
-    "published_at": "2026-07-17T17:20:08+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.019214+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.951302,
-    "sentiment": -0.951302
-  },
-  {
-    "article_id": "9fe2ba321da87a06",
-    "title": "Leaked Iran report finds record public anger as regime focuses on holding power",
-    "url": "https://www.foxnews.com/world/leaked-iran-report-finds-record-public-anger-regime-focuses-holding-power",
-    "summary": "Iran's confidential report prepared for President Masoud Pezeshkian reveals majority support regime change or deep reform amid surging public anger over food prices and corruption.",
-    "source": "Fox News",
-    "source_feed": "https://moxie.foxnews.com/google-publisher/world.xml",
-    "published_at": "2026-07-17T15:06:59+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.523761+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.970486,
-    "sentiment": -0.970486
-  },
-  {
-    "article_id": "98f9132b98eac5c3",
-    "title": "Iran-U.S. Talks: How 4 Negotiators Would Approach Diplomacy",
-    "url": "https://www.nytimes.com/2026/07/17/world/middleeast/iran-us-war-peace-talks-strategies.html",
-    "summary": "First step: Agree on a goal.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-17T13:06:32+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.819280+00:00",
-    "sentiment_label": "POSITIVE",
-    "sentiment_score": 0.986123,
-    "sentiment": 0.986123
-  },
-  {
-    "article_id": "76448207fda00d3b",
-    "title": "Germany proposes to replace UNIFIL with EU-led force to prevent 'security vacuum'",
-    "url": "https://www.jpost.com/middle-east/article-902824",
-    "summary": "An EU force could replace UNIFIL and prevent Hezbollah from returning to areas vacated by the IDF, Germany’s foreign minister said.",
-    "source": "The Jerusalem Post",
-    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
-    "published_at": "2026-07-17T09:46:39+00:00",
-    "matched_keywords": [
-      "hezbollah",
-      "idf"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.019225+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.950209,
-    "sentiment": -0.950209
-  },
-  {
-    "article_id": "f4dc0f081a65ed2e",
-    "title": "Dubai Migrant Worker Layoffs Reveal Costs of Middle East War",
-    "url": "https://www.nytimes.com/2026/07/17/world/middleeast/dubai-iran-war-migrant-workers-layoffs.html",
-    "summary": "The Persian Gulf city attracted migrant workers with the promise of opportunity. Many now say the war has brought job losses and salary cuts.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-17T09:00:33+00:00",
-    "matched_keywords": [
-      "middle east"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.819302+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.694785,
-    "sentiment": -0.694785
-  },
-  {
-    "article_id": "36765d18ec05d31f",
-    "title": "Iran's IRGC claims it targeted US command center in Syria, state media reports",
-    "url": "https://www.jpost.com/middle-east/iran-news/article-902822",
-    "summary": "The US command center located in al-Tanf in Syria was reportedly targeted by the Islamic Revolutionary Guard Corps in retaliation for recent American attacks against Iran.",
-    "source": "The Jerusalem Post",
-    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
-    "published_at": "2026-07-17T08:18:22+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.019234+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.996055,
-    "sentiment": -0.996055
-  },
-  {
-    "article_id": "608236969d2d9d27",
-    "title": "Israeli Government Pushes Through Divisive Laws Before Election",
-    "url": "https://www.nytimes.com/2026/07/16/world/middleeast/israel-divisive-new-laws.html",
-    "summary": "Prime Minister Benjamin Netanyahu backed a series of laws undermining legal oversight of the government, benefiting allied media outlets and aiming to shore up ultra-Orthodox political support.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-17T07:22:36+00:00",
+    "published_at": "2026-08-25T14:03:44+00:00",
     "matched_keywords": [
       "israel",
+      "syria",
+      "turkey"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.317871+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.748913,
+    "sentiment": -0.748913
+  },
+  {
+    "article_id": "10262d26d1ef8c9e",
+    "title": "Hezbollah MP calls on Islamic countries to unite against Israel during meeting with Iran's Araghchi",
+    "url": "https://www.jpost.com/middle-east/article-906530",
+    "summary": "Fadlallah, a senior member of Hezbollah’s Loyalty to the Resistance parliamentary bloc, complained of Israel’s alleged “expansionist ambitions” and expressed gratitude toward Iran.",
+    "source": "The Jerusalem Post",
+    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
+    "published_at": "2026-08-25T13:49:39+00:00",
+    "matched_keywords": [
+      "israel",
+      "hezbollah",
+      "iran"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.318039+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.980775,
+    "sentiment": 0.980775
+  },
+  {
+    "article_id": "6e8e51fc80640a56",
+    "title": "Watch: What are the US sanctions on Iran and who else will be affected?",
+    "url": "https://www.bbc.co.uk/news/videos/c07lel35rllo?at_medium=RSS&at_campaign=rss",
+    "summary": "Washington announced what it described as an \"economic D-Day\" against Iran, widening current sanctions and targetting countries with business ties with the regime.",
+    "source": "BBC News",
+    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
+    "published_at": "2026-08-25T13:46:28+00:00",
+    "matched_keywords": [
+      "iran"
+    ],
+    "fetched_at": "2026-08-26T12:13:37.457467+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.976505,
+    "sentiment": -0.976505
+  },
+  {
+    "article_id": "984e19f014ae069c",
+    "title": "U.S. Removes Syria From Its List of Terrorism Sponsors",
+    "url": "https://www.nytimes.com/2026/08/25/world/middleeast/us-syria-terrorism-list-sanctions.html",
+    "summary": "The move lifted economic sanctions on the country, raising hopes of further recovery after its brutal civil war.",
+    "source": "The New York Times",
+    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
+    "published_at": "2026-08-25T13:03:53+00:00",
+    "matched_keywords": [
+      "syria"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.087191+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.945389,
+    "sentiment": 0.945389
+  },
+  {
+    "article_id": "f5179261eca9bf9a",
+    "title": "US preparing to send diplomats back to Middle East embassies after Iran war evacuations - report",
+    "url": "https://www.jpost.com/middle-east/iran-news/article-906517",
+    "summary": "Foreign Service officers could begin returning to their posts as early as this week, according to the report.",
+    "source": "The Jerusalem Post",
+    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
+    "published_at": "2026-08-25T12:58:42+00:00",
+    "matched_keywords": [
+      "iran",
+      "middle east"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.318169+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.970108,
+    "sentiment": -0.970108
+  },
+  {
+    "article_id": "e9eee10f0d5a5bd5",
+    "title": "Trump hopes sanctions will topple Iran's regime - its leaders are betting otherwise",
+    "url": "https://www.bbc.co.uk/news/articles/cr50n9gnljgo?at_medium=RSS&at_campaign=rss",
+    "summary": "The US says new sanctions are an \"economic D-Day\", but Tehran's leaders have survived restrictions before.",
+    "source": "BBC News",
+    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
+    "published_at": "2026-08-25T12:37:53+00:00",
+    "matched_keywords": [
+      "iran",
+      "tehran"
+    ],
+    "fetched_at": "2026-08-26T12:13:37.455725+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.831633,
+    "sentiment": -0.831633
+  },
+  {
+    "article_id": "9690c72dd5777093",
+    "title": "Hamas, Gazan NGO cm'tee warn parents to stop children flying kites after Israel threatens strikes",
+    "url": "https://www.jpost.com/middle-east/article-906513",
+    "summary": "The announcement, made by the \"popular committees,\" was coordinated with Hamas authorities, a source in the terror group said.",
+    "source": "The Jerusalem Post",
+    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
+    "published_at": "2026-08-25T12:18:40+00:00",
+    "matched_keywords": [
+      "israel",
+      "hamas"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.318310+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.994396,
+    "sentiment": -0.994396
+  },
+  {
+    "article_id": "d8d72c4edc2de5f2",
+    "title": "Could Iran’s regime collapse? Experts assess Bessent’s bid to sever financial lifelines",
+    "url": "https://www.foxnews.com/world/could-irans-regime-collapse-experts-assess-bessents-bid-sever-financial-lifelines",
+    "summary": "Scott Bessent's \"Economic D-Day\" against Iran sent the rial to an all-time low as experts debate whether maximum pressure can trigger regime change.",
+    "source": "Fox News",
+    "source_feed": "https://moxie.foxnews.com/google-publisher/world.xml",
+    "published_at": "2026-08-25T12:09:47+00:00",
+    "matched_keywords": [
+      "iran"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.784395+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.99959,
+    "sentiment": -0.99959
+  },
+  {
+    "article_id": "62bd4787a0226a7f",
+    "title": "China hits out at 'illegal' new US sanctions on Iran and trading partners",
+    "url": "https://www.bbc.co.uk/news/articles/clyl8965j5go?at_medium=RSS&at_campaign=rss",
+    "summary": "The US has threatened to isolate nations that continue to do business with Tehran, which sells much of its oil to Beijing.",
+    "source": "BBC News",
+    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
+    "published_at": "2026-08-25T11:53:36+00:00",
+    "matched_keywords": [
+      "iran",
+      "tehran"
+    ],
+    "fetched_at": "2026-08-26T12:13:37.455946+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.993028,
+    "sentiment": -0.993028
+  },
+  {
+    "article_id": "d8b20e845decec3b",
+    "title": "Trump Administration to Return Diplomats to Middle East Embassies",
+    "url": "https://www.nytimes.com/2026/08/25/world/middleeast/us-diplomats-middle-east-embassies.html",
+    "summary": "Evacuated foreign service officers could begin heading back to their posts as early as this week, an internal document shows, suggesting Washington does not anticipate a renewal of full-scale conflict with Iran.",
+    "source": "The New York Times",
+    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
+    "published_at": "2026-08-25T09:32:55+00:00",
+    "matched_keywords": [
+      "iran",
+      "middle east"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.087580+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.992874,
+    "sentiment": -0.992874
+  },
+  {
+    "article_id": "6655729cdf1212ab",
+    "title": "Iran says it is 'fully prepared' to counter widened US economic sanctions",
+    "url": "https://www.bbc.co.uk/news/articles/c0qxew81y83o?at_medium=RSS&at_campaign=rss",
+    "summary": "The US calls its latest sanctions on Iran an \"economic D-Day\", but Tehran says it has a plan to address them.",
+    "source": "BBC News",
+    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
+    "published_at": "2026-08-25T08:08:26+00:00",
+    "matched_keywords": [
+      "iran",
+      "tehran"
+    ],
+    "fetched_at": "2026-08-26T12:13:37.456110+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.883573,
+    "sentiment": -0.883573
+  },
+  {
+    "article_id": "854f4ce0ee9de527",
+    "title": "Pakistan says army chief held talks with Iran focused on preventing further escalation in MidEast",
+    "url": "https://www.jpost.com/middle-east/iran-news/article-906482",
+    "summary": "Pakistan's army chief Asim Munir discussed regional peace and ways to reach a negotiated settlement to disputes, the statement added.",
+    "source": "The Jerusalem Post",
+    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
+    "published_at": "2026-08-25T06:17:58+00:00",
+    "matched_keywords": [
+      "iran"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.318453+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.624125,
+    "sentiment": -0.624125
+  },
+  {
+    "article_id": "a34c43663f8e5711",
+    "title": "US State Dept. sanctions Iranian military activities, fuel export in Operation Economic Outcast",
+    "url": "https://www.jpost.com/middle-east/iran-news/article-906474",
+    "summary": "Sanctions targeted Iranian individuals and companies that facilitated the trade of petroleum and petrochemical products with Iran or supported military action against US forces.",
+    "source": "The Jerusalem Post",
+    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
+    "published_at": "2026-08-25T02:41:10+00:00",
+    "matched_keywords": [
+      "iran",
+      "iranian"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.318613+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.992189,
+    "sentiment": -0.992189
+  },
+  {
+    "article_id": "c5dedd7d56ace352",
+    "title": "Syria off US terror blacklist after nearly 50 years as Trump admin clears investment hurdle",
+    "url": "https://www.foxnews.com/world/syria-off-us-terror-blacklist-after-nearly-50-years-trump-admin-clears-investment-hurdle",
+    "summary": "The United States formally removed Syria from its state sponsors of terrorism list after Marco Rubio authorized the rescission and delisted HTS.",
+    "source": "Fox News",
+    "source_feed": "https://moxie.foxnews.com/google-publisher/world.xml",
+    "published_at": "2026-08-25T00:34:54+00:00",
+    "matched_keywords": [
+      "syria"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.784572+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.996268,
+    "sentiment": -0.996268
+  },
+  {
+    "article_id": "4ff6fd0394b8a139",
+    "title": "US removes Syria from list of state sponsors of terrorism",
+    "url": "https://www.bbc.co.uk/news/articles/c33knmyl0y5o?at_medium=RSS&at_campaign=rss",
+    "summary": "The Trump administration has embraced Syria's new president, former al-Qaeda linked militant Ahmed al-Sharaa.",
+    "source": "BBC News",
+    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
+    "published_at": "2026-08-25T00:17:25+00:00",
+    "matched_keywords": [
+      "syria"
+    ],
+    "fetched_at": "2026-08-26T12:13:37.456175+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.985543,
+    "sentiment": 0.985543
+  },
+  {
+    "article_id": "d3400220e3fa14ca",
+    "title": "Iran Pledges to Defy Trump’s Economic Sanctions",
+    "url": "https://www.nytimes.com/2026/08/24/world/middleeast/iran-sanctions-economy-us-trump.html",
+    "summary": "Analysts say Tehran could intensify the dispute militarily after the United States announced new efforts to squeeze Iran’s economy. One Iranian official vowed that “not a single drop of oil” would leave the gulf.",
+    "source": "The New York Times",
+    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
+    "published_at": "2026-08-24T21:12:01+00:00",
+    "matched_keywords": [
+      "iran",
+      "iranian",
+      "tehran"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.087937+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.981149,
+    "sentiment": -0.981149
+  },
+  {
+    "article_id": "217965b7a3eaf0dd",
+    "title": "US removes Syria's designation as State Sponsor of Terrorism",
+    "url": "https://www.jpost.com/middle-east/article-906461",
+    "summary": "The State Department formally removed Syria from the US list of State Sponsors of Terrorism after the previously announced move underwent congressional review.",
+    "source": "The Jerusalem Post",
+    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
+    "published_at": "2026-08-24T20:41:43+00:00",
+    "matched_keywords": [
+      "syria"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.318747+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.995484,
+    "sentiment": -0.995484
+  },
+  {
+    "article_id": "7be5109d5c787ab9",
+    "title": "What are Iran's options to escalate further in face of US economic threats? - explainer",
+    "url": "https://www.jpost.com/middle-east/iran-news/article-906459",
+    "summary": "Iranian attacks and threats to shipping have already stopped most traffic through the Strait of Hormuz, largely shutting down a waterway that once carried around a fifth of global energy.",
+    "source": "The Jerusalem Post",
+    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
+    "published_at": "2026-08-24T20:21:48+00:00",
+    "matched_keywords": [
+      "iran",
+      "iranian",
+      "hormuz"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.318932+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.999141,
+    "sentiment": -0.999141
+  },
+  {
+    "article_id": "ddd9f16b2ae796e9",
+    "title": "Syria court sentences Assad-era grand mufti to life in prison",
+    "url": "https://www.bbc.co.uk/news/articles/cd68ygy73v4o?at_medium=RSS&at_campaign=rss",
+    "summary": "Ahmed Hassoun was convicted of crimes including inciting civil war and complicity in intentional killing.",
+    "source": "BBC News",
+    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
+    "published_at": "2026-08-24T20:10:28+00:00",
+    "matched_keywords": [
+      "syria"
+    ],
+    "fetched_at": "2026-08-26T12:13:37.456240+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.985405,
+    "sentiment": -0.985405
+  },
+  {
+    "article_id": "a3b769f3d120b982",
+    "title": "Iran tried to assassinate one of Netanyahu's sons, prime minister says",
+    "url": "https://www.foxnews.com/world/iran-tried-assassinate-netanyahu-son-prime-minister-says",
+    "summary": "Benjamin Netanyahu claims Iran tried to murder one of his sons, urging enhanced protection for prime ministerial candidates during the election campaign.",
+    "source": "Fox News",
+    "source_feed": "https://moxie.foxnews.com/google-publisher/world.xml",
+    "published_at": "2026-08-24T18:13:26+00:00",
+    "matched_keywords": [
+      "iran",
       "netanyahu"
     ],
-    "fetched_at": "2026-07-19T12:00:30.819317+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.690057,
-    "sentiment": -0.690057
-  },
-  {
-    "article_id": "79b649b43e762004",
-    "title": "CENTCOM 'holding Iran accountable,' completes sixth night of strikes against military targets",
-    "url": "https://www.jpost.com/middle-east/iran-news/article-902818",
-    "summary": "CENTCOM added that over 50,000 US service members stationed in the Middle East remain \"vigilant, lethal, and ready.\"",
-    "source": "The Jerusalem Post",
-    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
-    "published_at": "2026-07-17T05:25:10+00:00",
-    "matched_keywords": [
-      "iran",
-      "middle east"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.019243+00:00",
+    "fetched_at": "2026-08-26T12:13:38.784901+00:00",
     "sentiment_label": "POSITIVE",
-    "sentiment_score": 0.938972,
-    "sentiment": 0.938972
+    "sentiment_score": 0.520389,
+    "sentiment": 0.520389
   },
   {
-    "article_id": "4a1cd7f58a636973",
-    "title": "Sirens sound across Bahrain, Kuwait as Iran threatens 'heavy costs' following US strikes",
-    "url": "https://www.jpost.com/middle-east/iran-news/article-902811",
-    "summary": "The sirens were activated following a reported Iranian attack on US helicopters and reconnaissance aircraft at the Shakir Airbase, the country’s military airport.",
+    "article_id": "9780becae9026dad",
+    "title": "Saudi vessel attacked in Red Sea, national shipping company confirms following Houthi claims",
+    "url": "https://www.jpost.com/middle-east/article-906441",
+    "summary": "The Houthis have carried out attacks on Saudi oil facilities and shipping in the Red Sea in recent weeks, and they claimed to have targeted Saudi oil giant Aramco facilities in Yanbu in July.",
     "source": "The Jerusalem Post",
     "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
-    "published_at": "2026-07-17T02:59:05+00:00",
+    "published_at": "2026-08-24T18:05:51+00:00",
     "matched_keywords": [
-      "iran"
+      "houthi"
     ],
-    "fetched_at": "2026-07-19T12:00:30.019258+00:00",
+    "fetched_at": "2026-08-26T12:13:38.319113+00:00",
     "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.923568,
-    "sentiment": -0.923568
+    "sentiment_score": 0.986308,
+    "sentiment": -0.986308
   },
   {
-    "article_id": "d3e20777a9d3318f",
-    "title": "Herzog says Israel-Saudi peace is his dream, 'unsurprised' by renewed Iran conflict, in interview",
-    "url": "https://www.jpost.com/middle-east/article-902806",
-    "summary": "President Isaac Herzog discussed the unfolding situation with Iran and the prospect of normalization in the region in a Thursday interview with Saudi state-owned Al-Arabiya.",
+    "article_id": "46898c903807268f",
+    "title": "'This is Beirut': Lebanese ready for peace with Israel, drinks in Tel Aviv, analyst tells 'Post'",
+    "url": "https://www.jpost.com/middle-east/article-906440",
+    "summary": "Contrary to public statements, Selena Ryan told the Post she has received many messages from Shia Muslims, in addition to messages from other sects, in Lebanon expressing desire for peace.",
     "source": "The Jerusalem Post",
     "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
-    "published_at": "2026-07-17T01:43:40+00:00",
+    "published_at": "2026-08-24T17:16:43+00:00",
     "matched_keywords": [
       "israel",
-      "iran"
+      "lebanon"
     ],
-    "fetched_at": "2026-07-19T12:00:30.019272+00:00",
+    "fetched_at": "2026-08-26T12:13:38.319296+00:00",
     "sentiment_label": "POSITIVE",
-    "sentiment_score": 0.970898,
-    "sentiment": 0.970898
+    "sentiment_score": 0.524161,
+    "sentiment": 0.524161
   },
   {
-    "article_id": "8b16b68ca27c9027",
-    "title": "Iran judiciary denies Trump statement that American prisoner was freed",
-    "url": "https://www.jpost.com/middle-east/iran-news/article-902801",
-    "summary": "Trump announced the alleged release in a post on Truth Social, claiming that the unnamed detainee was “safely outside of Iran and in good condition.”",
-    "source": "The Jerusalem Post",
-    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
-    "published_at": "2026-07-17T01:10:33+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.019282+00:00",
-    "sentiment_label": "POSITIVE",
-    "sentiment_score": 0.58083,
-    "sentiment": 0.58083
-  },
-  {
-    "article_id": "90286a8dabb60d52",
-    "title": "Trump expected to expand Iran military campaign as Tehran warns of broader retaliation",
-    "url": "https://www.jpost.com/middle-east/iran-news/article-902792",
-    "summary": "Sources cautioned that it remains unclear when the next phase of the operation will begin or what level of increased military activity Trump will ultimately authorize.",
-    "source": "The Jerusalem Post",
-    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
-    "published_at": "2026-07-16T21:22:12+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.019294+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.996766,
-    "sentiment": -0.996766
-  },
-  {
-    "article_id": "7dc90f77c9943b49",
-    "title": "Strait of Hormuz Tanker Traffic Erodes Further as Oil Prices Rise",
-    "url": "https://www.nytimes.com/2026/07/16/business/strait-hormuz-iran-war-oil.html",
-    "summary": "Very few ships passed through the waterway on the first full day of the U.S. naval blockade of Iran.",
+    "article_id": "d79f6e0589d20000",
+    "title": "Syria and Israel Hold U.S.-Mediated Talks to Try to Ease Tensions",
+    "url": "https://www.nytimes.com/2026/08/24/world/middleeast/syria-israel-talks-us-jordan.html",
+    "summary": "The discussions, reported by the Syrian state news agency, came days after Israel struck an air base in Syria’s northwest, the latest in a series of military interventions.",
     "source": "The New York Times",
     "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-16T21:09:59+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.819325+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.989664,
-    "sentiment": -0.989664
-  },
-  {
-    "article_id": "4becf98503a55d7f",
-    "title": "Here’s Where the U.S. and Iran Have Launched Attacks as the War Escalates",
-    "url": "https://www.nytimes.com/2026/07/16/world/middleeast/iran-war-us-strikes.html",
-    "summary": "The U.S. military has appeared to widen its targets in Iran, while Iran has fired at bases belonging to American allies in the Middle East.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-16T20:38:19+00:00",
-    "matched_keywords": [
-      "iran",
-      "middle east"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.819341+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.982009,
-    "sentiment": -0.982009
-  },
-  {
-    "article_id": "896910edb57fa17f",
-    "title": "Dubai denies reports of explosions as Iran claims US struck in Bandar Abbas, Qeshm Island",
-    "url": "https://www.jpost.com/middle-east/article-902784",
-    "summary": "Witnesses told Reuters that they heard blasts in downtown Dubai, United Arab Emirates, on Thursday, however, Dubai's official media office called these reports \"false.\"",
-    "source": "The Jerusalem Post",
-    "source_feed": "https://www.jpost.com/rss/rssfeedsmiddleeastnews.aspx",
-    "published_at": "2026-07-16T19:32:08+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.019302+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.996531,
-    "sentiment": -0.996531
-  },
-  {
-    "article_id": "936438c45fe2d1b6",
-    "title": "Iran calls on Houthis to prepare to cut off Red Sea gateway — can the terror group do it?",
-    "url": "https://www.foxnews.com/world/iran-calls-houthis-prepare-cut-off-red-sea-gateway-can-terror-group-do-it",
-    "summary": "Iran reportedly told Houthis to prepare to close the Bab el-Mandeb Strait with missiles, drones and sea mines if the U.S. strikes Iranian infrastructure.",
-    "source": "Fox News",
-    "source_feed": "https://moxie.foxnews.com/google-publisher/world.xml",
-    "published_at": "2026-07-16T15:53:39+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.523802+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.993922,
-    "sentiment": -0.993922
-  },
-  {
-    "article_id": "27f6eb4b4d1629cb",
-    "title": "Diesel Prices Hit $5 a Gallon Again, Up 33% Since Start of Iran War",
-    "url": "https://www.nytimes.com/2026/07/16/business/diesel-prices-us-iran-war.html",
-    "summary": "U.S. diesel prices first surpassed $5 a gallon in March. Renewed fighting in the Persian Gulf and reduced refinery capacity are pushing up prices again.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-16T13:43:47+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.819354+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.58048,
-    "sentiment": -0.58048
-  },
-  {
-    "article_id": "a9a939bfabf6ad03",
-    "title": "In Iran war, Trump Risks Another American ‘Forever War’",
-    "url": "https://www.nytimes.com/2026/07/16/world/middleeast/forever-war-trump-iran.html",
-    "summary": "President Trump, who promised to “end wars,” not start them, may have fallen into a familiar presidential trap.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-16T13:20:24+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.819365+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.995159,
-    "sentiment": -0.995159
-  },
-  {
-    "article_id": "38c131c939f2096e",
-    "title": "US strikes oil tanker with missiles as it enforces new Iran blockade",
-    "url": "https://www.bbc.co.uk/news/articles/clyqwkegqk0o?at_medium=RSS&at_campaign=rss",
-    "summary": "The US military targeted an unladen oil tanker which it said was heading for the key Iranian oil terminal on Kharg island.",
-    "source": "BBC News",
-    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
-    "published_at": "2026-07-16T12:09:26+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.145065+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.989865,
-    "sentiment": -0.989865
-  },
-  {
-    "article_id": "45559dddd50c0fdc",
-    "title": "US launches fresh strikes on Iran as Trump warns Tehran it 'better behave'",
-    "url": "https://www.bbc.co.uk/news/articles/c9323zgq6wvo?at_medium=RSS&at_campaign=rss",
-    "summary": "US President Donald Trump says he is yet to decide whether or not he will \"finish off\" Iran.",
-    "source": "BBC News",
-    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
-    "published_at": "2026-07-16T04:06:11+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.145073+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.994407,
-    "sentiment": -0.994407
-  },
-  {
-    "article_id": "7f3944afc6cdc1bd",
-    "title": "Iranian American Woman Held in Iran on Spying Charges Is Released",
-    "url": "https://www.nytimes.com/2026/07/15/world/middleeast/iran-american-released-trump.html",
-    "summary": "The dual Iranian-U.S. citizen, Dena Karari, had her passport seized in December 2024 and had not been able to leave Iran as she faced espionage charges.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-16T03:21:53+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.819374+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.978182,
-    "sentiment": -0.978182
-  },
-  {
-    "article_id": "768ad98cacf9f694",
-    "title": "Iran’s Top Negotiator Signals Door to Diplomacy Is Still Open",
-    "url": "https://www.nytimes.com/2026/07/15/world/middleeast/iran-ghalibaf-us-talks.html",
-    "summary": "Facing intense divisions within Iran, Gen. Mohammad Bagher Ghalibaf both struck a defiant tone and argued that diplomacy could defend Iran’s interests.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-16T02:55:49+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.819385+00:00",
-    "sentiment_label": "POSITIVE",
-    "sentiment_score": 0.988613,
-    "sentiment": 0.988613
-  },
-  {
-    "article_id": "d63edfd6d1067a8c",
-    "title": "U.S. Military Again Blockades Iranian Ports After Collapse of Cease-Fire",
-    "url": "https://www.nytimes.com/2026/07/15/us/politics/us-blockade-iran.html",
-    "summary": "President Trump ordered U.S. warships and aircraft to stop vessels going to and from Iran. Enforcing a blockade takes a huge commitment of warships and aircraft.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-15T23:02:36+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.819394+00:00",
-    "sentiment_label": "POSITIVE",
-    "sentiment_score": 0.623447,
-    "sentiment": 0.623447
-  },
-  {
-    "article_id": "4e9074181e0c7f28",
-    "title": "At War With Iran Again, Trump Finds an Opponent He Cannot Easily Dominate",
-    "url": "https://www.nytimes.com/2026/07/14/us/politics/iran-trump-war.html",
-    "summary": "The president is accustomed to forcing other countries to bend to his will. But he is struggling to come up with a strategy to extract Iranian concessions as the cease-fire he brokered collapses.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-15T22:32:37+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.819490+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.998674,
-    "sentiment": -0.998674
-  },
-  {
-    "article_id": "7b8667ec7986278a",
-    "title": "Oil Prices Tick Higher as U.S. Reinstates Iran Blockade",
-    "url": "https://www.nytimes.com/2026/07/15/business/oil-prices-stocks-gas.html",
-    "summary": "The United States reinstated its blockade on Iranian ports in the Strait of Hormuz and shipping slowed to a crawl amid the renewed warfare in the critical waterway.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-15T20:04:06+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.819447+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.998009,
-    "sentiment": -0.998009
-  },
-  {
-    "article_id": "11d1040db56d49e2",
-    "title": "U.S. and Iran Trade Strikes With No Sign of Backing Down",
-    "url": "https://www.nytimes.com/2026/07/15/world/middleeast/iran-us-strikes-war.html",
-    "summary": "On the fifth straight day of fighting, the U.S. launched a 90-minute attack on Iran, while Tehran targeted Bahrain, Jordan and Kuwait.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-15T20:02:07+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.819402+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.986352,
-    "sentiment": -0.986352
-  },
-  {
-    "article_id": "2bbb663ae308a962",
-    "title": "Billboard in Iran’s Capital Depicts Trump in a Coffin",
-    "url": "https://www.nytimes.com/2026/07/15/world/middleeast/iran-tehran-billboard-trump-coffin.html",
-    "summary": "Threatening imagery in Enghelab Square is nothing new, but has rarely taken such lurid form.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-15T18:41:19+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.819413+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.974045,
-    "sentiment": -0.974045
-  },
-  {
-    "article_id": "dea6dbea4f2bbca4",
-    "title": "U.S. Strikes Hit Greater Tunb Island in Strait of Hormuz",
-    "url": "https://www.nytimes.com/2026/07/15/world/middleeast/us-iran-hormuz-greater-tunb-island.html",
-    "summary": "The U.S. military said on Wednesday it had attacked Iranian cruise missile storage and launch sites on Greater Tunb, one of several small islands in the Strait of Hormuz subject to a decades-old territorial dispute.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-15T17:04:50+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.819424+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.983176,
-    "sentiment": -0.983176
-  },
-  {
-    "article_id": "f300ed70a4126384",
-    "title": "For Israel, the U.S.-Iran Hostilities Have Created an Uneasy Limbo",
-    "url": "https://www.nytimes.com/2026/07/15/world/middleeast/israel-us-iran-trump.html",
-    "summary": "Officials see a return to full-blown war as preferable to an agreement that fails to curb the threats Iran poses to Israel. Meanwhile, they wait.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-15T14:44:50+00:00",
+    "published_at": "2026-08-24T16:41:33+00:00",
     "matched_keywords": [
       "israel",
-      "iran"
+      "syria"
     ],
-    "fetched_at": "2026-07-19T12:00:30.819466+00:00",
+    "fetched_at": "2026-08-26T12:13:39.088109+00:00",
     "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.998055,
-    "sentiment": -0.998055
+    "sentiment_score": 0.986966,
+    "sentiment": -0.986966
   },
   {
-    "article_id": "8bebe4c317a3e4f3",
-    "title": "What Trump’s New Iran Blockade Could Mean for Oil Prices",
-    "url": "https://www.nytimes.com/2026/07/15/business/trump-iran-blockade-oil-prices.html",
-    "summary": "The first blockade in April choked off Iranian exports without causing a lasting price surge. Now global oil reserves are lower, and ships face heightened risks.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-15T11:48:07+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.819480+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.998644,
-    "sentiment": -0.998644
-  },
-  {
-    "article_id": "1645bf93e8e728c2",
-    "title": "The Vague Clause That Helps Explain the U.S.-Iran Fight Over the Strait of Hormuz",
-    "url": "https://www.nytimes.com/2026/07/15/world/middleeast/iran-war-hormuz-strait.html",
-    "summary": "The memorandum of understanding between the United States and Iran has done little to calm tension, in part because they disagree on what it actually means.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-15T11:26:33+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.819438+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.999176,
-    "sentiment": -0.999176
-  },
-  {
-    "article_id": "7a49db3472714cd4",
-    "title": "Trump won’t rule out Kharg Island takeover: What a US assault could look like",
-    "url": "https://www.foxnews.com/world/trump-wont-rule-out-kharg-island-takeover-what-us-assault-could-look-like",
-    "summary": "Military experts detail how U.S. Marines could seize Iran's Kharg Island in hours but warn holding it against missile and drone attacks is far riskier.",
-    "source": "Fox News",
-    "source_feed": "https://moxie.foxnews.com/google-publisher/world.xml",
-    "published_at": "2026-07-15T09:50:03+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.523857+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.982994,
-    "sentiment": -0.982994
-  },
-  {
-    "article_id": "0b2d06aa8e2ffa8a",
-    "title": "Oil, Shipping, Flights: Disruptions Are Back as U.S.-Iran War Reignites",
-    "url": "https://www.nytimes.com/2026/07/15/world/middleeast/iran-war-oil-shipping-flight-disruptions.html",
-    "summary": "Higher prices for energy, food and air travel are likely to persist as the two sides escalate their clash over the Strait of Hormuz and launch airstrikes in the Middle East.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-15T09:08:32+00:00",
-    "matched_keywords": [
-      "iran",
-      "middle east"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.819457+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.979822,
-    "sentiment": -0.979822
-  },
-  {
-    "article_id": "4c491c6cf8d39ac6",
-    "title": "Trump threatens to bomb bridges and power plants unless Iran resumes talks",
-    "url": "https://www.bbc.co.uk/news/articles/cy0608wy8pro?at_medium=RSS&at_campaign=rss",
-    "summary": "Trump's comments aired as the two countries exchanged fire for the fourth day in a row and the US resumed blockading Iranian ports.",
+    "article_id": "c5704ab79e7089f6",
+    "title": "Israel warns of 'forceful' response to kites flown from Gaza",
+    "url": "https://www.bbc.co.uk/news/articles/c5y58g2dp3xo?at_medium=RSS&at_campaign=rss",
+    "summary": "Hamas says the kites found in Israeli border communities in recent days were launched by children in Gaza.",
     "source": "BBC News",
     "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
-    "published_at": "2026-07-15T09:06:52+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.145080+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.992343,
-    "sentiment": -0.992343
-  },
-  {
-    "article_id": "4ce8899a9cfff4e6",
-    "title": "Briton's Iran jail sentence extended by two years, family says",
-    "url": "https://www.bbc.co.uk/news/articles/c4gygp4pk31o?at_medium=RSS&at_campaign=rss",
-    "summary": "Relatives of Craig Foreman say his punishment is being extended for talking to the media from jail.",
-    "source": "BBC News",
-    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
-    "published_at": "2026-07-15T08:33:27+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.145092+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.978276,
-    "sentiment": -0.978276
-  },
-  {
-    "article_id": "1d9065a835e45cba",
-    "title": "Trump retreat over Hormuz tolls suggests he is struggling to end Iran war",
-    "url": "https://www.bbc.co.uk/news/articles/crele3r8j19o?at_medium=RSS&at_campaign=rss",
-    "summary": "The abrupt about-face from the US president was the latest twist in a conflict that has now lasted more than four months.",
-    "source": "BBC News",
-    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
-    "published_at": "2026-07-14T23:17:27+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.145086+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.982726,
-    "sentiment": -0.982726
-  },
-  {
-    "article_id": "491cd16402e4194f",
-    "title": "Iran’s Cyberattackers Tracked Phones of U.S. Military Personnel in the Mideast, Data Suggests",
-    "url": "https://www.nytimes.com/2026/07/14/world/middleeast/iran-cyberattack-us-military-phones-tracking.html",
-    "summary": "Researchers say Iran’s cyberwarfare capabilities have grown more advanced and aggressive during the war with the United States and Israel.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-14T22:43:01+00:00",
+    "published_at": "2026-08-24T13:56:22+00:00",
     "matched_keywords": [
       "israel",
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.819502+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.959035,
-    "sentiment": -0.959035
-  },
-  {
-    "article_id": "1082dadbdd77540a",
-    "title": "Iran’s Former Leader Denies Times Report",
-    "url": "https://www.nytimes.com/2026/07/14/world/middleeast/mahmoud-ahmadinejad-iran-israeli-asset.html",
-    "summary": "The Times reported that Israel had planned to reinstall Mahmoud Ahmadinejad as Iran’s leader after the war.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-14T22:16:03+00:00",
-    "matched_keywords": [
-      "israel",
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.819533+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.977531,
-    "sentiment": -0.977531
-  },
-  {
-    "article_id": "3bf49903295ae41d",
-    "title": "FBI snares an American heir indicted for allegedly bankrolling anti-cop, pro-Hamas communist revolution",
-    "url": "https://www.foxnews.com/world/fbi-snares-american-heir-indicted-bankrolling-anti-cop-pro-hamas-communist-revolution",
-    "summary": "James Cox Chambers Jr., estranged heir to the $27 billion Cox empire, was detained in Spain for alleged money laundering and Hamas support.",
-    "source": "Fox News",
-    "source_feed": "https://moxie.foxnews.com/google-publisher/world.xml",
-    "published_at": "2026-07-14T21:49:03+00:00",
-    "matched_keywords": [
-      "hamas"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.523869+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.976496,
-    "sentiment": -0.976496
-  },
-  {
-    "article_id": "6a045d56541db4d5",
-    "title": "Watch: The clash between US and Iran for control of the Strait of Hormuz",
-    "url": "https://www.bbc.co.uk/news/videos/cx2425dmpl3o?at_medium=RSS&at_campaign=rss",
-    "summary": "The BBC's Barbara Plett Usher examines the latest tensions over the key international shipping channel.",
-    "source": "BBC News",
-    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
-    "published_at": "2026-07-14T21:13:12+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.145212+00:00",
-    "sentiment_label": "POSITIVE",
-    "sentiment_score": 0.973417,
-    "sentiment": 0.973417
-  },
-  {
-    "article_id": "f477b17cdc9d19e5",
-    "title": "Mike Huckabee rejects Ro Khanna's Israel visit claims: 'Not held at gunpoint'",
-    "url": "https://www.foxnews.com/world/mike-huckabee-rejects-ro-khannas-israel-visit-claims-not-held-gunpoint",
-    "summary": "Ro Khanna claims violent Israeli settlers detained his delegation for 75 minutes in the West Bank, and U.S. Ambassador to Israel Mike Huckabee angrily fired back.",
-    "source": "Fox News",
-    "source_feed": "https://moxie.foxnews.com/google-publisher/world.xml",
-    "published_at": "2026-07-14T20:45:34+00:00",
-    "matched_keywords": [
-      "israel"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.523882+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.993906,
-    "sentiment": -0.993906
-  },
-  {
-    "article_id": "7eff6459fde93ae9",
-    "title": "Trump Drops Plan to Tax Ships in Strait of Hormuz as Fighting with Iran Escalates",
-    "url": "https://www.nytimes.com/2026/07/14/world/middleeast/trump-hormuz-shipping-fee-dropped.html",
-    "summary": "The president’s proposal to impose a fee on shipping in the Strait of Hormuz threatened to increase global energy prices.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-14T20:07:29+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.819512+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.992774,
-    "sentiment": -0.992774
-  },
-  {
-    "article_id": "e1f48830241a699e",
-    "title": "Europe, Flexing Muscle in Ukraine, Is Still on Sidelines in Iran",
-    "url": "https://www.nytimes.com/2026/07/14/world/europe/macron-trump-bastille-day-military-parade.html",
-    "summary": "In a show of collective strength, President Emmanuel Macron of France hosted European allies at the annual Bastille Day parade in Paris. Yet Europe is still a hostage to America’s foreign policy.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-14T19:17:57+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.819588+00:00",
-    "sentiment_label": "POSITIVE",
-    "sentiment_score": 0.994475,
-    "sentiment": 0.994475
-  },
-  {
-    "article_id": "8deb8d3d91fbbab1",
-    "title": "Strait of Hormuz 'faultline' exposes weakness of the US-Iran deal",
-    "url": "https://www.bbc.co.uk/news/articles/cwy0ydn033yo?at_medium=RSS&at_campaign=rss",
-    "summary": "Control of the waterway has become a key point of contention between the US and Iran, as a ceasefire deal falters.",
-    "source": "BBC News",
-    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
-    "published_at": "2026-07-14T19:13:49+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.145105+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.99933,
-    "sentiment": -0.99933
-  },
-  {
-    "article_id": "245e2ca38fdbe2a4",
-    "title": "‘We Love Iraq,’ Trump Tells New Prime Minister in Oval Office Meeting",
-    "url": "https://www.nytimes.com/2026/07/14/us/politics/iraq-trump-oval-office-meeting.html",
-    "summary": "The meeting comes as President Trump’s administration has been ratcheting up pressure on Baghdad to diminish Iran’s influence in Iraq.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-14T19:09:58+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.819523+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.997104,
-    "sentiment": -0.997104
-  },
-  {
-    "article_id": "103ab69302060349",
-    "title": "Israel Strikes Police Post, Killing 7, Gaza Officials Say",
-    "url": "https://www.nytimes.com/2026/07/14/world/middleeast/israel-strikes-gaza-police-force-hamas.html",
-    "summary": "Hamas says the strike hit Gaza’s civil security, while Israel says it targeted “terrorists.” Israel has stepped up attacks in Gaza recently as a cease-fire with Hamas has floundered.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-14T19:03:21+00:00",
-    "matched_keywords": [
-      "israel",
+      "israeli",
       "gaza",
       "hamas"
     ],
-    "fetched_at": "2026-07-19T12:00:30.819544+00:00",
+    "fetched_at": "2026-08-26T12:13:37.456304+00:00",
     "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.998035,
-    "sentiment": -0.998035
+    "sentiment_score": 0.98975,
+    "sentiment": -0.98975
   },
   {
-    "article_id": "a1a443dd08159894",
-    "title": "Israeli strike on police post in north Gaza kills seven, officials say",
-    "url": "https://www.bbc.co.uk/news/articles/cqj1jqeyl5ro?at_medium=RSS&at_campaign=rss",
-    "summary": "A senior officer in the Hamas-run police force was among those killed in the strike, which Israel's military says targeted \"terrorists\".",
-    "source": "BBC News",
-    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
-    "published_at": "2026-07-14T17:13:27+00:00",
-    "matched_keywords": [
-      "israel",
-      "gaza",
-      "hamas"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.145111+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.9977,
-    "sentiment": -0.9977
-  },
-  {
-    "article_id": "1c2a7c5736b3b1a2",
-    "title": "Jeffries Says He Will Oppose Proposal to Cut Off U.S. Aid to Israel",
-    "url": "https://www.nytimes.com/2026/07/14/world/middleeast/jeffries-israel-aid.html",
-    "summary": "The House Democratic leader said he would not seek to persuade other Democrats to vote against the measure, which has divided the party amid a deep rift over support for Israel.",
+    "article_id": "2bf6f342ca6b065a",
+    "title": "Iran Cracks Down on One Luxury Left to Its Youth: Coffee Shops",
+    "url": "https://www.nytimes.com/2026/08/24/world/middleeast/iran-cafe-closures.html",
+    "summary": "In recent weeks, the police have closed dozens of cafes, often citing laws that stipulate women must veil in public. Experts say the closures are part of an effort to control public space.",
     "source": "The New York Times",
     "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-14T15:53:18+00:00",
-    "matched_keywords": [
-      "israel"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.819576+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.980524,
-    "sentiment": -0.980524
-  },
-  {
-    "article_id": "4a25e09b76142cbe",
-    "title": "India Condemns Deadly Iranian Strike on Commercial Ship",
-    "url": "https://www.nytimes.com/2026/07/14/world/middleeast/iran-killed-indian-sailors.html",
-    "summary": "India issued a diplomatic protest after an Indian sailor was killed and dozens more were injured in an Iranian attack on a tanker in the Strait of Hormuz.",
-    "source": "The New York Times",
-    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-14T15:34:42+00:00",
+    "published_at": "2026-08-24T11:49:33+00:00",
     "matched_keywords": [
       "iran"
     ],
-    "fetched_at": "2026-07-19T12:00:30.819558+00:00",
+    "fetched_at": "2026-08-26T12:13:39.088295+00:00",
     "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.993788,
-    "sentiment": -0.993788
+    "sentiment_score": 0.992958,
+    "sentiment": -0.992958
   },
   {
-    "article_id": "70ad0046ef46e719",
-    "title": "Israel and Lebanon Meet to Advance Peace Talks, as Broader Truce Unravels",
-    "url": "https://www.nytimes.com/2026/07/14/world/middleeast/israel-lebanon-peace-talks.html",
-    "summary": "Expectations are low for the latest round of U.S.-mediated talks, aimed at ending months of war between Israel and t Hezbollah.",
+    "article_id": "ed2da5af0d1a6e14",
+    "title": "Which Countries Could Be Hurt Most by Trump’s Plan to Hit Iran’s Economy?",
+    "url": "https://www.nytimes.com/article/us-iran-economy-sanctions-trade-trump-china.html",
+    "summary": "President Trump has threatened economic penalties on countries that do business with Iran as he seeks to add pressure on Tehran to negotiate an end to the war.",
     "source": "The New York Times",
     "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
-    "published_at": "2026-07-14T15:06:02+00:00",
+    "published_at": "2026-08-24T08:49:48+00:00",
+    "matched_keywords": [
+      "iran",
+      "tehran"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.089553+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.995503,
+    "sentiment": -0.995503
+  },
+  {
+    "article_id": "9821b91e16b65e1f",
+    "title": "Hormuz crisis hides a deeper oil threat that could outlast the war",
+    "url": "https://www.foxnews.com/world/strait-hormuz-may-only-half-story-new-oil-threat-comes-focus",
+    "summary": "Art Berman warns that 8 million barrels shut in near the Strait of Hormuz may never fully recover, even after a ceasefire reopens the waterway.",
+    "source": "Fox News",
+    "source_feed": "https://moxie.foxnews.com/google-publisher/world.xml",
+    "published_at": "2026-08-23T10:00:56+00:00",
+    "matched_keywords": [
+      "hormuz"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.785417+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.997875,
+    "sentiment": -0.997875
+  },
+  {
+    "article_id": "df08220fb0f31208",
+    "title": "The U.S. Start-Up Making Low-Cost Interceptors for the Iran War",
+    "url": "https://www.nytimes.com/2026/08/23/business/powerus-counter-drone-iran-war.html",
+    "summary": "For Florida-based Powerus, becoming a global supplier of counterdrone technology has meant involving the Trumps, a golf course and a new way of doing business.",
+    "source": "The New York Times",
+    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
+    "published_at": "2026-08-23T09:00:20+00:00",
+    "matched_keywords": [
+      "iran"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.088463+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.993794,
+    "sentiment": 0.993794
+  },
+  {
+    "article_id": "e31109fac92933ac",
+    "title": "Syria says Israeli strike near Damascus violation of international law",
+    "url": "https://www.bbc.co.uk/news/articles/c2dkdegr2xeo?at_medium=RSS&at_campaign=rss",
+    "summary": "The latest incident comes days after reports emerged Israel had struck a military airbase close to the Turkish border.",
+    "source": "BBC News",
+    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
+    "published_at": "2026-08-22T21:42:42+00:00",
+    "matched_keywords": [
+      "israel",
+      "israeli",
+      "syria"
+    ],
+    "fetched_at": "2026-08-26T12:13:37.456374+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.997173,
+    "sentiment": -0.997173
+  },
+  {
+    "article_id": "1262d25144421912",
+    "title": "Lebanon’s Efforts to Tame Hezbollah Stall Amid Israel War",
+    "url": "https://www.nytimes.com/2026/08/22/world/middleeast/lebanon-hezbollah-israel-diplomacy.html",
+    "summary": "President Joseph Aoun took office with a popular mandate to reassert control after the militant group dragged the country back into war with Israel.",
+    "source": "The New York Times",
+    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
+    "published_at": "2026-08-22T09:02:01+00:00",
     "matched_keywords": [
       "israel",
       "lebanon",
       "hezbollah"
     ],
-    "fetched_at": "2026-07-19T12:00:30.819567+00:00",
+    "fetched_at": "2026-08-26T12:13:39.088605+00:00",
     "sentiment_label": "POSITIVE",
-    "sentiment_score": 0.959538,
-    "sentiment": 0.959538
+    "sentiment_score": 0.875462,
+    "sentiment": 0.875462
   },
   {
-    "article_id": "126a32b8754821b0",
-    "title": "Inside Israel's mission to train civilians to stop the next Oct 7-like terror attack",
-    "url": "https://www.foxnews.com/world/inside-israels-mission-train-civilians-stop-next-oct-7-like-terror-attack",
-    "summary": "A full-scale terror attack drill at Kibbutz Bror Hayil simulates Oct. 7-style infiltration, training civil defense squads near the Gaza border.",
+    "article_id": "6686591094cf7780",
+    "title": "Turkey Requests Netanyahu’s Arrest, Saying Israel Abused Flotilla Activists",
+    "url": "https://www.nytimes.com/2026/08/21/world/middleeast/turkey-netanyahu-arrest-israel.html",
+    "summary": "Turkey’s request for an Interpol ‘red notice’ came at a time of escalating tensions between the two countries.",
+    "source": "The New York Times",
+    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
+    "published_at": "2026-08-21T20:35:40+00:00",
+    "matched_keywords": [
+      "israel",
+      "netanyahu",
+      "turkey"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.088737+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.996242,
+    "sentiment": -0.996242
+  },
+  {
+    "article_id": "e67c26f7715b6f8a",
+    "title": "Stocks and Bonds Steady at the End of a Tumultuous Week",
+    "url": "https://www.nytimes.com/2026/08/21/business/stocks-bonds-oil-prices.html",
+    "summary": "Fears about the war in Iran, government deficits, the economy and corporate borrowing stirred global markets.",
+    "source": "The New York Times",
+    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
+    "published_at": "2026-08-21T20:16:06+00:00",
+    "matched_keywords": [
+      "iran"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.089198+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.970066,
+    "sentiment": 0.970066
+  },
+  {
+    "article_id": "ef2dae3154dc80c0",
+    "title": "How Israel is expanding settlements in drive to reshape West Bank",
+    "url": "https://www.bbc.co.uk/news/articles/c2lq5g4dedpo?at_medium=RSS&at_campaign=rss",
+    "summary": "There has been a significant expansion of building and road construction on Palestinian land occupied by Israel in recent years.",
+    "source": "BBC News",
+    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
+    "published_at": "2026-08-21T19:31:47+00:00",
+    "matched_keywords": [
+      "israel",
+      "west bank",
+      "palestinian"
+    ],
+    "fetched_at": "2026-08-26T12:13:37.456521+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.992189,
+    "sentiment": 0.992189
+  },
+  {
+    "article_id": "8a15b0cd864f205f",
+    "title": "Palestinian Teenager Killed After Israeli Settlers Enter West Bank Village",
+    "url": "https://www.nytimes.com/2026/08/21/world/middleeast/palestinian-teenager-killed-israeli-settlers-west-bank.html",
+    "summary": "Palestinian and Israeli authorities offered divergent accounts of the incident, which came as settler violence has surged across the Israeli-occupied territory.",
+    "source": "The New York Times",
+    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
+    "published_at": "2026-08-21T18:32:08+00:00",
+    "matched_keywords": [
+      "israeli",
+      "west bank",
+      "palestinian"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.088891+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.992914,
+    "sentiment": -0.992914
+  },
+  {
+    "article_id": "52e71dd5edfae209",
+    "title": "UK, Canada and Australia condemn Israel for refusing criminal probe into aid worker killings in Gaza",
+    "url": "https://www.bbc.co.uk/news/articles/cvgl2pe09eno?at_medium=RSS&at_campaign=rss",
+    "summary": "Seven World Central Kitchen workers were killed in the Israeli strike on their convoy in 2024.",
+    "source": "BBC News",
+    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
+    "published_at": "2026-08-21T15:58:57+00:00",
+    "matched_keywords": [
+      "israel",
+      "israeli",
+      "gaza"
+    ],
+    "fetched_at": "2026-08-26T12:13:37.456448+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.966149,
+    "sentiment": -0.966149
+  },
+  {
+    "article_id": "770492407dcb0928",
+    "title": "Iran Must Plan to Overcome U.S. Sanctions After Trump’s ‘Economic D-Day’ Threats, Tehran Official Says",
+    "url": "https://www.nytimes.com/2026/08/21/world/middleeast/iran-sanctions-united-states-ghalibaf.html",
+    "summary": "Mohammad Bagher Ghalibaf, lead negotiator in talks with Washington, made the comments after President Trump vowed an “economic D-Day” against Iran.",
+    "source": "The New York Times",
+    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
+    "published_at": "2026-08-21T14:41:40+00:00",
+    "matched_keywords": [
+      "iran",
+      "tehran"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.089070+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.961006,
+    "sentiment": -0.961006
+  },
+  {
+    "article_id": "195ff5e5b6b39f77",
+    "title": "Iran War Raises Risk of Collisions and Oil Spills in Strait of Hormuz",
+    "url": "https://www.nytimes.com/2026/08/21/business/iran-war-hormuz-oil-spill.html",
+    "summary": "More vessels are navigating the Strait of Hormuz with their location devices turned off to evade attacks by Iran, adding to the threat of collisions.",
+    "source": "The New York Times",
+    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
+    "published_at": "2026-08-21T09:02:46+00:00",
+    "matched_keywords": [
+      "iran",
+      "hormuz"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.089359+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.990182,
+    "sentiment": -0.990182
+  },
+  {
+    "article_id": "4440cdf7f68096f3",
+    "title": "What to Know About Iran’s Economic Ties With Gulf Countries",
+    "url": "https://www.nytimes.com/2026/08/19/world/middleeast/iran-emirates-gulf-economic-ties.html",
+    "summary": "The United Arab Emirates, Iran’s most important regional trading partner, announced a total embargo on transactions with Tehran on Tuesday.",
+    "source": "The New York Times",
+    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
+    "published_at": "2026-08-21T06:59:20+00:00",
+    "matched_keywords": [
+      "iran",
+      "tehran",
+      "emirates"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.090190+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.887073,
+    "sentiment": -0.887073
+  },
+  {
+    "article_id": "68a062c22da7e242",
+    "title": "As Iran and U.S. Settle Into an Uneasy Standoff, Who Will Blink First?",
+    "url": "https://www.nytimes.com/2026/08/20/world/middleeast/iran-us-war-standoff-hormuz.html",
+    "summary": "For weeks, there has been no diplomatic progress, but also no full-scale fighting, as each side seems to believe it can hold out longer than the other.",
+    "source": "The New York Times",
+    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
+    "published_at": "2026-08-20T17:14:54+00:00",
+    "matched_keywords": [
+      "iran"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.089860+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.996621,
+    "sentiment": -0.996621
+  },
+  {
+    "article_id": "23b4a0d3f189ef1a",
+    "title": "Israeli defense minister puts NATO power on notice as Middle East tensions surge: ‘Dangerous adventures’",
+    "url": "https://www.foxnews.com/world/israeli-defense-minister-puts-nato-power-notice-middle-east-tensions-surge-dangerous-adventures",
+    "summary": "Israeli Defense Minister Israel Katz warned Recep Tayyip Erdoğan not to test Israel's resolve after the Abu al-Duhur airbase strike in Syria.",
     "source": "Fox News",
     "source_feed": "https://moxie.foxnews.com/google-publisher/world.xml",
-    "published_at": "2026-07-14T13:18:52+00:00",
+    "published_at": "2026-08-20T17:12:38+00:00",
+    "matched_keywords": [
+      "israel",
+      "israeli",
+      "middle east",
+      "syria"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.786293+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.981995,
+    "sentiment": 0.981995
+  },
+  {
+    "article_id": "3108a79e856acb2b",
+    "title": "What we know about Israel's criminal investigations",
+    "url": "https://www.bbc.co.uk/news/videos/cdx8w1g2q5eo?at_medium=RSS&at_campaign=rss",
+    "summary": "The Israeli military has confirmed for the first time that it opened fire on a car carrying five-year-old Palestinian girl Hind Rajab, who was killed along with six relatives in Gaza in 2024.",
+    "source": "BBC News",
+    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
+    "published_at": "2026-08-20T12:16:45+00:00",
+    "matched_keywords": [
+      "israel",
+      "israeli",
+      "gaza",
+      "palestinian"
+    ],
+    "fetched_at": "2026-08-26T12:13:37.457560+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.970331,
+    "sentiment": -0.970331
+  },
+  {
+    "article_id": "c7bff95e2d8dfa23",
+    "title": "Christian Zionists take on anti-Israel ‘propaganda’ from biblical heartland",
+    "url": "https://www.foxnews.com/world/christian-zionists-take-on-anti-israel-propaganda-from-biblical-heartland",
+    "summary": "The Israel Guys inaugurated a major visitor center in Har Bracha on the West Bank, inviting Christians in Israel to see Judea and Samaria's biblical heartland firsthand.",
+    "source": "Fox News",
+    "source_feed": "https://moxie.foxnews.com/google-publisher/world.xml",
+    "published_at": "2026-08-20T10:55:46+00:00",
+    "matched_keywords": [
+      "israel",
+      "west bank"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.786629+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.997637,
+    "sentiment": 0.997637
+  },
+  {
+    "article_id": "ddb9ead3f8303caa",
+    "title": "Why Your Next Long-Haul Layover May Be in Seoul, Not Dubai",
+    "url": "https://www.nytimes.com/2026/08/20/world/asia/iran-war-asia-airports-dubai.html",
+    "summary": "The Iran war has slashed transit traffic at Middle Eastern airports, creating opportunities for hubs in Asia and beyond — at least for now.",
+    "source": "The New York Times",
+    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
+    "published_at": "2026-08-20T09:06:17+00:00",
+    "matched_keywords": [
+      "iran"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.090029+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.80421,
+    "sentiment": 0.80421
+  },
+  {
+    "article_id": "891dc80498b90692",
+    "title": "Iran taps financial lifeline, Russian arms as Trump escalates 'crushing' economic warfare",
+    "url": "https://www.foxnews.com/world/iran-taps-financial-lifeline-russian-arms-trump-escalates-crushing-economic-warfare",
+    "summary": "Iran is deepening ties with Russia and China through BRICS and the Shanghai Cooperation Organization to blunt U.S. sanctions, analysts warn.",
+    "source": "Fox News",
+    "source_feed": "https://moxie.foxnews.com/google-publisher/world.xml",
+    "published_at": "2026-08-20T01:09:10+00:00",
+    "matched_keywords": [
+      "iran"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.786788+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.875481,
+    "sentiment": 0.875481
+  },
+  {
+    "article_id": "8a9f04a7bc4c8a14",
+    "title": "Israel Opens Criminal Investigation Into Killings of Hind Rajab and Gaza Medical Workers",
+    "url": "https://www.nytimes.com/2026/08/19/world/middleeast/israel-criminal-investigation-hind-rajab-gaza-workers.html",
+    "summary": "Two high-profile cases that had spurred international condemnation of the country’s conduct in Gaza were transferred to the military police. Such investigations have rarely led to convictions.",
+    "source": "The New York Times",
+    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
+    "published_at": "2026-08-19T20:18:49+00:00",
     "matched_keywords": [
       "israel",
       "gaza"
     ],
-    "fetched_at": "2026-07-19T12:00:30.523893+00:00",
+    "fetched_at": "2026-08-26T12:13:39.090583+00:00",
     "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.993235,
-    "sentiment": -0.993235
+    "sentiment_score": 0.967723,
+    "sentiment": -0.967723
   },
   {
-    "article_id": "536414e4586442e5",
-    "title": "Yemen's Houthis launch missiles at Saudi Arabia after strikes on Sanaa airport",
-    "url": "https://www.bbc.co.uk/news/articles/cp9ldle3d3xo?at_medium=RSS&at_campaign=rss",
-    "summary": "The Iran-backed Houthis blame Saudi Arabia for the attack in Yemen's capital and say they targeted Abha airport in response.",
+    "article_id": "9396e8c91ac0b474",
+    "title": "How the U.S. Navy Is Helping Get Oil Through the Strait of Hormuz",
+    "url": "https://www.nytimes.com/2026/08/19/business/iran-hormuz-oman-us-navy.html",
+    "summary": "With Iran making ship traffic perilous, a U.S. operation offers a way out for some energy exports, stealthily shepherding tankers on dangerous journeys.",
+    "source": "The New York Times",
+    "source_feed": "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml",
+    "published_at": "2026-08-19T19:59:31+00:00",
+    "matched_keywords": [
+      "iran",
+      "hormuz"
+    ],
+    "fetched_at": "2026-08-26T12:13:39.090374+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.964442,
+    "sentiment": -0.964442
+  },
+  {
+    "article_id": "a0e824c0fefc2cc0",
+    "title": "Multiple deadly Israeli strikes in Gaza in under 24 hours",
+    "url": "https://www.bbc.co.uk/news/videos/cp3rgxzk5x2o?at_medium=RSS&at_campaign=rss",
+    "summary": "BBC Verify looks at footage from two deadly strikes in under 24 hours in Gaza.",
     "source": "BBC News",
     "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
-    "published_at": "2026-07-14T10:02:43+00:00",
+    "published_at": "2026-08-19T17:46:01+00:00",
     "matched_keywords": [
-      "iran"
+      "israeli",
+      "gaza"
     ],
-    "fetched_at": "2026-07-19T12:00:29.145124+00:00",
+    "fetched_at": "2026-08-26T12:13:37.457616+00:00",
     "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.99154,
-    "sentiment": -0.99154
+    "sentiment_score": 0.990413,
+    "sentiment": -0.990413
   },
   {
-    "article_id": "b86db470b405c0a6",
-    "title": "UAE condemns Iran's 'brazen' attack on tankers as US launches fresh strikes",
-    "url": "https://www.bbc.co.uk/news/articles/c8d2vn38dy1o?at_medium=RSS&at_campaign=rss",
-    "summary": "The third consecutive night of US strikes on Iran came as Trump announced a 20% charge as part of a new blockade on the Strait of Hormuz.",
-    "source": "BBC News",
-    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
-    "published_at": "2026-07-14T04:50:48+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.145118+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.993354,
-    "sentiment": -0.993354
-  },
-  {
-    "article_id": "42863eaa743cc44e",
-    "title": "Iran-backed terror proxy Houthis threaten fresh attacks after Yemen airport strike",
-    "url": "https://www.foxnews.com/world/iran-backed-terror-proxy-houthis-threaten-fresh-attacks-after-yemen-airport-strike",
-    "summary": "The Houthis threatened to strike King Khalid Airport in Riyadh after what they called \"blatant aggression\" targeting the Sanaa airport runway.",
+    "article_id": "1899450ce546f36d",
+    "title": "Cuba’s economic freefall is hiding a national security threat just miles from Florida: report",
+    "url": "https://www.foxnews.com/world/cubas-economic-freefall-hiding-national-security-threat-just-miles-from-florida-report",
+    "summary": "A new report says Cuba's ties with Russia, China and Iran create intelligence and military threats just 90 miles from the Florida coastline.",
     "source": "Fox News",
     "source_feed": "https://moxie.foxnews.com/google-publisher/world.xml",
-    "published_at": "2026-07-13T19:05:43+00:00",
+    "published_at": "2026-08-19T15:23:14+00:00",
     "matched_keywords": [
       "iran"
     ],
-    "fetched_at": "2026-07-19T12:00:30.523906+00:00",
+    "fetched_at": "2026-08-26T12:13:38.787414+00:00",
     "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.995816,
-    "sentiment": -0.995816
+    "sentiment_score": 0.990278,
+    "sentiment": -0.990278
   },
   {
-    "article_id": "1f37a4912d17cc51",
-    "title": "US and Iran trade fire as tensions rise over Strait of Hormuz",
-    "url": "https://www.bbc.co.uk/news/articles/cevlr112pmgo?at_medium=RSS&at_campaign=rss",
-    "summary": "Within hours of the latest US attacks, Iran said it had struck US military assets in Kuwait, Jordan, Bahrain and Oman.",
+    "article_id": "0ab383d37d206ac8",
+    "title": "Families' agonising search for answers as thousands still missing in Gaza",
+    "url": "https://www.bbc.co.uk/news/articles/ce34r0er75go?at_medium=RSS&at_campaign=rss",
+    "summary": "Ten months after a ceasefire was declared, thousands of Palestinians in Gaza are still reported missing.",
     "source": "BBC News",
     "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
-    "published_at": "2026-07-13T15:16:09+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.145130+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.980355,
-    "sentiment": -0.980355
-  },
-  {
-    "article_id": "630ca67bdb916f0b",
-    "title": "UK pins string of antisemitic attacks on Iran-linked group, bans IRGC",
-    "url": "https://www.foxnews.com/world/uk-pins-string-antisemitic-attacks-iran-linked-group-bans-irgc",
-    "summary": "Keir Starmer announced sweeping national security powers after British intelligence linked antisemitic arson attacks to an Iran-backed proxy.",
-    "source": "Fox News",
-    "source_feed": "https://moxie.foxnews.com/google-publisher/world.xml",
-    "published_at": "2026-07-13T14:25:56+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:30.523924+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.97102,
-    "sentiment": -0.97102
-  },
-  {
-    "article_id": "5a4933b75ee0ed56",
-    "title": "UK bans support for Iran's Islamic Revolutionary Guard Corps",
-    "url": "https://www.bbc.co.uk/news/articles/cz0jkj7e87go?at_medium=RSS&at_campaign=rss",
-    "summary": "Shabana Mahmood will use new powers to ban support for the group, which has been linked to death threats and intimidation on British soil.",
-    "source": "BBC News",
-    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
-    "published_at": "2026-07-13T12:50:19+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.145140+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.996324,
-    "sentiment": -0.996324
-  },
-  {
-    "article_id": "4940d15a8918273a",
-    "title": "US releases footage of strikes on Iran",
-    "url": "https://www.bbc.co.uk/news/videos/c8628y50508o?at_medium=RSS&at_campaign=rss",
-    "summary": "US Central Command says it attacked military targets in Iran and at sea.",
-    "source": "BBC News",
-    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
-    "published_at": "2026-07-13T07:07:50+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.145218+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.986226,
-    "sentiment": -0.986226
-  },
-  {
-    "article_id": "f1a444987dbd63a8",
-    "title": "US insists Strait of Hormuz is open as it exchanges strikes with Iran",
-    "url": "https://www.bbc.co.uk/news/articles/cj9gkpp0dkeo?at_medium=RSS&at_campaign=rss",
-    "summary": "Iranian forces earlier said the Strait was closed and launched wide-ranging attacks at US allies and bases in the region.",
-    "source": "BBC News",
-    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
-    "published_at": "2026-07-12T22:17:40+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.145146+00:00",
-    "sentiment_label": "POSITIVE",
-    "sentiment_score": 0.96949,
-    "sentiment": 0.96949
-  },
-  {
-    "article_id": "ab996cac53c001fe",
-    "title": "US Democrat Ro Khanna says he was detained by armed Israeli settlers",
-    "url": "https://www.bbc.co.uk/news/articles/c0qyk9jwq9no?at_medium=RSS&at_campaign=rss",
-    "summary": "Khanna, 49, was visiting the occupied West Bank when he was held for 90 minutes, he says.",
-    "source": "BBC News",
-    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
-    "published_at": "2026-07-11T18:00:09+00:00",
-    "matched_keywords": [
-      "israel"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.145155+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.98755,
-    "sentiment": -0.98755
-  },
-  {
-    "article_id": "93ed358829db0a59",
-    "title": "Iran must pledge to stop shooting at ships in Strait of Hormuz, US officials say",
-    "url": "https://www.bbc.co.uk/news/articles/crelyq79x71o?at_medium=RSS&at_campaign=rss",
-    "summary": "US media say Iran has told US officials an attack on ships crossing the strait early this week was \"a mistake\".",
-    "source": "BBC News",
-    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
-    "published_at": "2026-07-11T16:55:57+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.145161+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.999445,
-    "sentiment": -0.999445
-  },
-  {
-    "article_id": "b694a47324b8c0c6",
-    "title": "US and Iran trade attacks as Khamenei is buried",
-    "url": "https://www.bbc.co.uk/news/articles/cz75zjj5wp8o?at_medium=RSS&at_campaign=rss",
-    "summary": "Centcom says it hit 90 Iranian targets in the latest round of strikes, with the Iranian health ministry saying 14 people were killed since Tuesday.",
-    "source": "BBC News",
-    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
-    "published_at": "2026-07-10T04:18:14+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.145167+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.993042,
-    "sentiment": -0.993042
-  },
-  {
-    "article_id": "4a0b604154bc492c",
-    "title": "Iran faces uncertainty with its new political order",
-    "url": "https://www.bbc.co.uk/news/videos/cd0m837z1mdo?at_medium=RSS&at_campaign=rss",
-    "summary": "The BBC's chief international correspondent looks at how Iran's new leadership will respond to several issues affecting the country",
-    "source": "BBC News",
-    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
-    "published_at": "2026-07-09T21:11:56+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.145224+00:00",
-    "sentiment_label": "POSITIVE",
-    "sentiment_score": 0.96655,
-    "sentiment": 0.96655
-  },
-  {
-    "article_id": "3687bc6cd4061cf8",
-    "title": "Bowen: For all his bluster, Trump has no better option than talks with Iran",
-    "url": "https://www.bbc.co.uk/news/articles/cy8we3j14ndo?at_medium=RSS&at_campaign=rss",
-    "summary": "The negotiating process is fragile and recent US strikes show how hard it will be to reach agreement, writes BBC's International Editor Jeremy Bowen.",
-    "source": "BBC News",
-    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
-    "published_at": "2026-07-08T15:30:00+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.145173+00:00",
-    "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.997241,
-    "sentiment": -0.997241
-  },
-  {
-    "article_id": "1fc0de70c7bb54b6",
-    "title": "Watch: Gaza football fans watch World Cup from rubble",
-    "url": "https://www.bbc.co.uk/news/videos/c8r2nmm7xeeo?at_medium=RSS&at_campaign=rss",
-    "summary": "Hundreds of people cheered for Egypt, which shares a border with Gaza, in the match against Argentina.",
-    "source": "BBC News",
-    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
-    "published_at": "2026-07-08T07:26:49+00:00",
+    "published_at": "2026-08-19T05:04:00+00:00",
     "matched_keywords": [
       "gaza"
     ],
-    "fetched_at": "2026-07-19T12:00:29.145230+00:00",
+    "fetched_at": "2026-08-26T12:13:37.456591+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.99775,
+    "sentiment": -0.99775
+  },
+  {
+    "article_id": "a6515d92796d5f4c",
+    "title": "Iran’s gutted ranks leave loyalists filling critical posts — with one glaring problem",
+    "url": "https://www.foxnews.com/world/irans-gutted-ranks-leave-loyalists-filling-critical-posts-one-glaring-problem",
+    "summary": "Iran appoints IRGC veterans of the Islamic Revolution and Iran-Iraq War to top posts, raising questions about its shrinking circle of commanders.",
+    "source": "Fox News",
+    "source_feed": "https://moxie.foxnews.com/google-publisher/world.xml",
+    "published_at": "2026-08-18T16:22:56+00:00",
+    "matched_keywords": [
+      "iran",
+      "iraq"
+    ],
+    "fetched_at": "2026-08-26T12:13:38.788073+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.993504,
+    "sentiment": -0.993504
+  },
+  {
+    "article_id": "349298a6f31aa8e7",
+    "title": "How Israeli settlers are besieging Palestinian family homes in West Bank",
+    "url": "https://www.bbc.co.uk/news/videos/ckg6pepygr0o?at_medium=RSS&at_campaign=rss",
+    "summary": "After the homeowners made their initial report to the Israeli army, the first soldiers who arrived at the scene were filmed praying with the settlers.",
+    "source": "BBC News",
+    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
+    "published_at": "2026-08-12T20:32:03+00:00",
+    "matched_keywords": [
+      "israeli",
+      "west bank",
+      "palestinian"
+    ],
+    "fetched_at": "2026-08-26T12:13:37.457699+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.983937,
+    "sentiment": -0.983937
+  },
+  {
+    "article_id": "457c7b8c1b818a54",
+    "title": "Netanyahu's rejection of Trump's 15-point Gaza plan unlikely to be final word",
+    "url": "https://www.bbc.co.uk/news/articles/ce3q5282ep3o?at_medium=RSS&at_campaign=rss",
+    "summary": "The Trump administration is said to be unbothered by the Israeli prime minister's rejection of the deal, viewing it as campaign rhetoric ahead of a general election.",
+    "source": "BBC News",
+    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
+    "published_at": "2026-08-10T14:43:08+00:00",
+    "matched_keywords": [
+      "israeli",
+      "gaza",
+      "netanyahu"
+    ],
+    "fetched_at": "2026-08-26T12:13:37.456685+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.991693,
+    "sentiment": -0.991693
+  },
+  {
+    "article_id": "b22f5e23a0bbd2c0",
+    "title": "The phone book that led us to Assad's spy chief in hiding",
+    "url": "https://www.bbc.co.uk/news/articles/c4gyrzn8p94o?at_medium=RSS&at_campaign=rss",
+    "summary": "How we tracked down \"The Spider\" who was once one of the most-feared men in Syria.",
+    "source": "BBC News",
+    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
+    "published_at": "2026-08-07T23:23:12+00:00",
+    "matched_keywords": [
+      "syria"
+    ],
+    "fetched_at": "2026-08-26T12:13:37.456747+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.983186,
+    "sentiment": -0.983186
+  },
+  {
+    "article_id": "f2f34636f3008ed7",
+    "title": "'Digital lifeline' - Gaza tech workers give glimpse of possible future",
+    "url": "https://www.bbc.co.uk/news/articles/c1m1xm8ykk2o?at_medium=RSS&at_campaign=rss",
+    "summary": "Thousands of young people in Gaza are pursuing roles in the digital economy as the territory's wider recovery stalls.",
+    "source": "BBC News",
+    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
+    "published_at": "2026-08-03T23:13:03+00:00",
+    "matched_keywords": [
+      "gaza"
+    ],
+    "fetched_at": "2026-08-26T12:13:37.456820+00:00",
     "sentiment_label": "POSITIVE",
-    "sentiment_score": 0.987092,
-    "sentiment": 0.987092
+    "sentiment_score": 0.976498,
+    "sentiment": 0.976498
   },
   {
-    "article_id": "cb0543c835542f64",
-    "title": "Resistance and revenge - Iran wanted to send a message with its farewell to Khamenei",
-    "url": "https://www.bbc.co.uk/news/articles/c07yy3j3nljo?at_medium=RSS&at_campaign=rss",
-    "summary": "Three days of public mourning in Tehran was a political spectacle Iran's leaders wanted the world to see, writes the BBC's international correspondent Lyse Doucet.",
+    "article_id": "937d3ed96e2045c5",
+    "title": "Israeli West Bank settler tells BBC attacks on Palestinians are justified as revenge",
+    "url": "https://www.bbc.co.uk/news/articles/c4g4djgdyk2o?at_medium=RSS&at_campaign=rss",
+    "summary": "Settler violence against Palestinians is on the rise in the West Bank, as settlements and outposts expand.",
     "source": "BBC News",
     "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
-    "published_at": "2026-07-07T00:46:03+00:00",
+    "published_at": "2026-08-01T05:01:56+00:00",
     "matched_keywords": [
-      "iran"
+      "israeli",
+      "west bank"
     ],
-    "fetched_at": "2026-07-19T12:00:29.145181+00:00",
-    "sentiment_label": "POSITIVE",
-    "sentiment_score": 0.951141,
-    "sentiment": 0.951141
-  },
-  {
-    "article_id": "7913b1ca93f66c11",
-    "title": "How Iran's new regime is very different to what came before",
-    "url": "https://www.bbc.co.uk/news/articles/cg534ryp660o?at_medium=RSS&at_campaign=rss",
-    "summary": "Khamenei's funeral is another reminder of the change Iran has seen, but what does its new leadership want?",
-    "source": "BBC News",
-    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
-    "published_at": "2026-07-05T05:40:07+00:00",
-    "matched_keywords": [
-      "iran"
-    ],
-    "fetched_at": "2026-07-19T12:00:29.145187+00:00",
+    "fetched_at": "2026-08-26T12:13:37.456984+00:00",
     "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.920296,
-    "sentiment": -0.920296
+    "sentiment_score": 0.968259,
+    "sentiment": -0.968259
   },
   {
-    "article_id": "3720758aa6de4124",
-    "title": "Iran nuclear and military damage revealed after restricted satellite images released",
-    "url": "https://www.bbc.co.uk/news/articles/cr5j1qn6deno?at_medium=RSS&at_campaign=rss",
-    "summary": "Targets hit include ballistic missile infrastructure, nuclear sites, and naval bases.",
+    "article_id": "d6f43fdcdf98a81e",
+    "title": "What is Iran's Pickaxe Mountain and why does Trump say he wants to bomb it?",
+    "url": "https://www.bbc.co.uk/news/articles/c9w0ygrwrn5o?at_medium=RSS&at_campaign=rss",
+    "summary": "BBC Verify has spoken to experts and analysed satellite imagery to piece together what we know about the site, and the potential impact of a US strike.",
     "source": "BBC News",
     "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
-    "published_at": "2026-07-03T11:02:55+00:00",
+    "published_at": "2026-08-01T05:01:19+00:00",
     "matched_keywords": [
       "iran"
     ],
-    "fetched_at": "2026-07-19T12:00:29.145199+00:00",
+    "fetched_at": "2026-08-26T12:13:37.456912+00:00",
     "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.997143,
-    "sentiment": -0.997143
+    "sentiment_score": 0.84644,
+    "sentiment": -0.84644
   },
   {
-    "article_id": "ccce318f1b71714a",
-    "title": "On the Strait of Hormuz, BBC finds seized ships and shark fishermen as uneasy calm returns",
-    "url": "https://www.bbc.co.uk/news/articles/cvg53ngvvpxo?at_medium=RSS&at_campaign=rss",
-    "summary": "The BBC travels to the city of Bandar Abbas - the first time journalists from a UK broadcaster have been to the Iranian side of the strait.",
+    "article_id": "34de844dc3bbf1a3",
+    "title": "What's in the Gaza peace deal roadmap?",
+    "url": "https://www.bbc.co.uk/news/articles/c20e94k2ex5o?at_medium=RSS&at_campaign=rss",
+    "summary": "Hamas says it has accepted a disarmament plan for Gaza which will see it lay down its arms and Israeli troops withdraw from the territory.",
     "source": "BBC News",
     "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
-    "published_at": "2026-07-02T23:15:22+00:00",
+    "published_at": "2026-07-31T16:00:56+00:00",
     "matched_keywords": [
-      "iran"
+      "israeli",
+      "gaza",
+      "hamas"
     ],
-    "fetched_at": "2026-07-19T12:00:29.145193+00:00",
+    "fetched_at": "2026-08-26T12:13:37.457143+00:00",
     "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.582061,
-    "sentiment": -0.582061
+    "sentiment_score": 0.99659,
+    "sentiment": -0.99659
   },
   {
-    "article_id": "4577780d3ba59b33",
-    "title": "'Two weeks after her death I got a call': Gaza patients face agonising delays for evacuation",
-    "url": "https://www.bbc.co.uk/news/articles/cn75ex1dv61o?at_medium=RSS&at_campaign=rss",
-    "summary": "An estimated 300 Palestinians referred for treatment abroad have died since the ceasefire began, according to Gaza's Hamas-run health ministry.",
+    "article_id": "ec62d291055f55a2",
+    "title": "Bowen: Plan for Hamas to disarm faces big obstacles, yet it offers rare hope for Gaza",
+    "url": "https://www.bbc.co.uk/news/articles/c2dkje4p4klo?at_medium=RSS&at_campaign=rss",
+    "summary": "The realities of politics, war, zero trust, the deaths of thousands and the destruction of Gaza will make any agreement very complicated.",
     "source": "BBC News",
     "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
-    "published_at": "2026-07-02T04:59:55+00:00",
+    "published_at": "2026-07-31T15:18:31+00:00",
     "matched_keywords": [
       "gaza",
       "hamas"
     ],
-    "fetched_at": "2026-07-19T12:00:29.145205+00:00",
+    "fetched_at": "2026-08-26T12:13:37.457071+00:00",
+    "sentiment_label": "POSITIVE",
+    "sentiment_score": 0.749431,
+    "sentiment": 0.749431
+  },
+  {
+    "article_id": "79b781c1cf231ffc",
+    "title": "'End this nightmare': Wife of ailing Briton jailed in Saudi Arabia appeals for release",
+    "url": "https://www.bbc.co.uk/news/articles/ckg4jxxn4ggo?at_medium=RSS&at_campaign=rss",
+    "summary": "Ahmed al-Doush has been in jail in Saudi Arabia since 2024, apparently over a handful of social media posts dating back several years.",
+    "source": "BBC News",
+    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
+    "published_at": "2026-07-30T06:51:46+00:00",
+    "matched_keywords": [
+      "saudi arabia"
+    ],
+    "fetched_at": "2026-08-26T12:13:37.457297+00:00",
     "sentiment_label": "NEGATIVE",
-    "sentiment_score": 0.997202,
-    "sentiment": -0.997202
+    "sentiment_score": 0.998637,
+    "sentiment": -0.998637
+  },
+  {
+    "article_id": "a2ea883476192b2f",
+    "title": "Israel building new land barriers in Gaza and displacing families",
+    "url": "https://www.bbc.co.uk/news/articles/cpvwjmme3p0o?at_medium=RSS&at_campaign=rss",
+    "summary": "Experts have told the BBC that the earthworks suggest Israel is planning for a long-term internal border.",
+    "source": "BBC News",
+    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
+    "published_at": "2026-07-30T05:05:24+00:00",
+    "matched_keywords": [
+      "israel",
+      "gaza"
+    ],
+    "fetched_at": "2026-08-26T12:13:37.457209+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.989884,
+    "sentiment": -0.989884
+  },
+  {
+    "article_id": "6a7a2fd427df3c39",
+    "title": "'Israeli settlers laid siege to our home': Inside a Palestinian village under weekly attack",
+    "url": "https://www.bbc.co.uk/news/articles/clyxgn37lg5o?at_medium=RSS&at_campaign=rss",
+    "summary": "A home on the edge of al-Mughayyir has become a weekly frontline in the battle for the occupied West Bank.",
+    "source": "BBC News",
+    "source_feed": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
+    "published_at": "2026-07-29T05:01:12+00:00",
+    "matched_keywords": [
+      "israeli",
+      "west bank",
+      "palestinian"
+    ],
+    "fetched_at": "2026-08-26T12:13:37.457376+00:00",
+    "sentiment_label": "NEGATIVE",
+    "sentiment_score": 0.580656,
+    "sentiment": -0.580656
   }
 ]

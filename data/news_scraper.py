@@ -37,7 +37,7 @@ except Exception:  # pragma: no cover
     Retry = None  # type: ignore
 
 from config.logging_config import get_logger
-from config.settings import Settings, get_settings
+from config.settings import Settings, get_settings, matched_keywords
 
 logger = get_logger(__name__)
 
@@ -126,16 +126,8 @@ class NewsScraper:
     # Keyword filtering
     # ------------------------------------------------------------------ #
     def _matched_keywords(self, *texts: Optional[str]) -> List[str]:
-        haystack = " ".join(t for t in texts if t)
-        haystack_lower = haystack.lower()
-        matched: List[str] = []
-        for kw in self.keywords:
-            if kw.isascii():
-                if kw.lower() in haystack_lower:
-                    matched.append(kw)
-            elif kw in haystack:
-                matched.append(kw)
-        return matched
+        """Keywords found in ``texts`` (word-boundary matching, see settings)."""
+        return matched_keywords(self.keywords, *texts)
 
     # ------------------------------------------------------------------ #
     # RSS / Atom parsing

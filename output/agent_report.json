@@ -1,89 +1,103 @@
 {
-  "generated_at": "2026-07-26T14:53:39.050730+00:00",
+  "generated_at": "2026-08-26T12:14:17.234089+00:00",
   "agent_version": "rule_based_market_agent_v1",
   "status": "בהרצה הנוכחית נמצא אות חיזוי חלש בלבד. המודל עדיין אינו משפר באופן עקבי את תחזית הבסיס, ולכן יש להתייחס לתחזיות כאינדיקציה מחקרית ראשונית ולא כמסקנה חיזויית חזקה.",
   "reliability": "weak",
   "reliability_he": "אמינות נמוכה",
   "beats_baseline": false,
   "system_status": {
-    "n_articles": 112,
+    "n_articles": 117,
     "n_markets": 25,
-    "pearson_r": -0.1591,
-    "pearson_p_value": 0.5562,
-    "model_mae": 0.009887,
-    "baseline_mae": 0.008413,
-    "improvement_pct": -17.517,
-    "directional_accuracy": 0.664246
+    "pearson_r": -0.1504,
+    "pearson_p_value": 0.5644,
+    "model_mae": 0.018392,
+    "baseline_mae": 0.007952,
+    "improvement_pct": -131.287,
+    "directional_accuracy": 0.512327
   },
   "top_sources": [
     {
       "source": "BBC News",
-      "article_count": 27,
-      "average_sentiment": -0.6107,
-      "predictive_score": 0.019419,
+      "article_count": 32,
+      "average_sentiment": -0.6511,
+      "predictive_score": 0.007139,
+      "note": "מדד זה מייצג שימושיות חזויה בלבד, לא אמינות עיתונאית או אמת עובדתית."
+    },
+    {
+      "source": "Fox News",
+      "article_count": 9,
+      "average_sentiment": -0.178,
+      "predictive_score": 0.001505,
+      "note": "מדד זה מייצג שימושיות חזויה בלבד, לא אמינות עיתונאית או אמת עובדתית."
+    },
+    {
+      "source": "The New York Times",
+      "article_count": 31,
+      "average_sentiment": -0.4444,
+      "predictive_score": 7.3e-05,
       "note": "מדד זה מייצג שימושיות חזויה בלבד, לא אמינות עיתונאית או אמת עובדתית."
     }
   ],
   "top_markets": [
     {
-      "market_id": "0x5db999fad322cea2914535aae5517060c3f80ad6d8c0231cde2124a434d16846",
-      "market": "Will the U.S. invade Iran before 2027?",
-      "current_probability": 0.295,
-      "predicted_probability": 0.2151,
-      "predicted_delta": -0.0799,
+      "market_id": "0x1c38a64c494e01c9bd81362cfadeadb3b87023d1d9ffae1df5a428c03152fc74",
+      "market": "Iran-Oman Hormuz Agreement by August 31?",
+      "current_probability": 0.265,
+      "predicted_probability": 0.1694,
+      "predicted_delta": -0.0956,
       "direction": "ירידה",
-      "article_volume": 17,
+      "article_volume": 25,
       "status": "למעקב",
-      "why_selected": "שינוי חזוי של -0.080, כיוון ירידה, וכיסוי של 17 כתבות רלוונטיות.",
-      "url": "https://polymarket.com/market/will-the-us-invade-iran-before-2027"
+      "why_selected": "שינוי חזוי של -0.096, כיוון ירידה, וכיסוי של 25 כתבות רלוונטיות.",
+      "url": "https://polymarket.com/market/us-iran-hormuz-agreement-by-august-31-20260804222025507-868-993"
     },
     {
-      "market_id": "0x377e7fe65cf198a7fc4fdae3f2136b74729279267858daaf96718b23bc2a5607",
-      "market": "Iran leadership change by December 31?",
-      "current_probability": 0.255,
-      "predicted_probability": 0.2192,
-      "predicted_delta": -0.0358,
+      "market_id": "0xc1556ecbe613e403dfb9e38bf1b25a8aee2aa1687f2b343bc896dd2c9763ed74",
+      "market": "Israel x Iran ceasefire continues through August 31?",
+      "current_probability": 0.9825,
+      "predicted_probability": 0.9102,
+      "predicted_delta": -0.0723,
       "direction": "ירידה",
-      "article_volume": 17,
+      "article_volume": 30,
       "status": "למעקב",
-      "why_selected": "שינוי חזוי של -0.036, כיוון ירידה, וכיסוי של 17 כתבות רלוונטיות.",
-      "url": "https://polymarket.com/market/iran-leadership-change-by-december-31-974-976-658-482-568"
+      "why_selected": "שינוי חזוי של -0.072, כיוון ירידה, וכיסוי של 30 כתבות רלוונטיות.",
+      "url": "https://polymarket.com/market/israel-x-iran-ceasefire-continues-through-august-31-20260716224448970-754-896-823"
     },
     {
-      "market_id": "0xb3fefe9667acca5ca31a8e330219dc67a01b374331d9bf4875357655a5508815",
-      "market": "Will UNRWA win the Nobel Peace Prize in 2026?",
-      "current_probability": 0.061,
-      "predicted_probability": 0.0834,
-      "predicted_delta": 0.0224,
-      "direction": "עלייה",
-      "article_volume": 0,
-      "status": "אות חלש",
-      "why_selected": "שינוי חזוי של +0.022, כיוון עלייה, וכיסוי של 0 כתבות רלוונטיות.",
-      "url": "https://polymarket.com/market/will-unrwa-win-the-nobel-peace-prize-in-2026-983"
+      "market_id": "0x4266ab921148974f104cbadd099e13bca989441bf58acfd2a08fc6cc7440e1a1",
+      "market": "Will Mohammad Khatami be head of state in Iran end of 2026?",
+      "current_probability": 0.0015,
+      "predicted_probability": 0.0,
+      "predicted_delta": -0.0695,
+      "direction": "ירידה",
+      "article_volume": 23,
+      "status": "למעקב",
+      "why_selected": "שינוי חזוי של -0.070, כיוון ירידה, וכיסוי של 23 כתבות רלוונטיות.",
+      "url": "https://polymarket.com/market/will-mohammad-khatami-be-head-of-state-in-iran-end-of-2026"
     },
     {
-      "market_id": "0x7586a96520578acaaaa4ea84a2582f197f84255da1f3392a7aa300386c187b37",
-      "market": "Will Benjamin Netanyahu be the next Prime Minister of Israel?",
-      "current_probability": 0.345,
-      "predicted_probability": 0.3553,
-      "predicted_delta": 0.0103,
-      "direction": "עלייה",
-      "article_volume": 13,
+      "market_id": "0xaa5cdb6830cbfa2ca711b7cf93bd42cf4f8e062d44ea188c0b8ec1fb2924c083",
+      "market": "Will Reza Pahlavi lead Iran in 2026?",
+      "current_probability": 0.0295,
+      "predicted_probability": 0.0,
+      "predicted_delta": -0.069,
+      "direction": "ירידה",
+      "article_volume": 23,
       "status": "למעקב",
-      "why_selected": "שינוי חזוי של +0.010, כיוון עלייה, וכיסוי של 13 כתבות רלוונטיות.",
-      "url": "https://polymarket.com/market/will-benjamin-netanyahu-be-the-next-prime-minister-of-israel"
+      "why_selected": "שינוי חזוי של -0.069, כיוון ירידה, וכיסוי של 23 כתבות רלוונטיות.",
+      "url": "https://polymarket.com/market/will-reza-pahlavi-lead-iran-in-2026"
     },
     {
-      "market_id": "0x9ed0ecc8b8589e67967d44c4420944a41b6a6806419019a1581d514174eee9b1",
-      "market": "Will Naftali Bennett be the next Prime Minister of Israel?",
-      "current_probability": 0.07,
-      "predicted_probability": 0.077,
-      "predicted_delta": 0.007,
-      "direction": "עלייה",
-      "article_volume": 13,
+      "market_id": "0x03c583dd10a5df0d57fd8b32452554da9bbb0dd212fe0e259e8561db3b4f9153",
+      "market": "Will the next diplomatic US-Iran meeting be in Qatar by September 30, 2026?",
+      "current_probability": 0.042,
+      "predicted_probability": 0.0,
+      "predicted_delta": -0.0671,
+      "direction": "ירידה",
+      "article_volume": 23,
       "status": "למעקב",
-      "why_selected": "שינוי חזוי של +0.007, כיוון עלייה, וכיסוי של 13 כתבות רלוונטיות.",
-      "url": "https://polymarket.com/market/will-naftali-bennett-be-the-next-prime-minister-of-israel"
+      "why_selected": "שינוי חזוי של -0.067, כיוון ירידה, וכיסוי של 23 כתבות רלוונטיות.",
+      "url": "https://polymarket.com/market/will-the-next-diplomatic-us-iran-meeting-be-in-qatar-by-september-30-2026-20260622185050767"
     }
   ],
   "risks_and_limitations": [

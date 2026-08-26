@@ -40,6 +40,15 @@ from scipy import stats
 
 from agent.market_agent import generate_agent_report
 
+# MUST be the first Streamlit call in the script. Reading ``st.secrets``
+# below renders a "No secrets found" notice when no secrets.toml exists,
+# and any rendered element makes a later set_page_config() raise.
+st.set_page_config(
+    page_title="חדשות מול שוקי ניבוי",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
+
 
 def _load_streamlit_secrets_into_env() -> None:
     """Expose Streamlit Cloud secrets as env vars before Settings is created."""
@@ -49,6 +58,17 @@ def _load_streamlit_secrets_into_env() -> None:
         "FIREBASE_PROJECT_ID",
     )
     try:
+        # ``st.secrets`` warns loudly when no secrets file exists, which is the
+        # normal case for the local demo. Skip the lookup entirely in that case.
+        if not any(
+            os.path.exists(candidate)
+            for candidate in (
+                os.path.join(str(ROOT_DIR), ".streamlit", "secrets.toml"),
+                os.path.expanduser("~/.streamlit/secrets.toml"),
+                "/etc/secrets/secrets.toml",
+            )
+        ):
+            return
         secrets = st.secrets
         for key in secret_keys:
             if os.environ.get(key):
@@ -73,17 +93,14 @@ def _load_streamlit_secrets_into_env() -> None:
 
 
 _load_streamlit_secrets_into_env()
-from config.settings import get_settings
+# Imported only after the secrets shim above: these modules instantiate
+# Settings at import time, which must happen once the env is populated.
+from config.settings import DEFAULT_EXCLUDED_MARKET_TERMS, get_settings, matches_any
+from ml.forecasting import PRIMARY_SUFFIX
 
 # --------------------------------------------------------------------------- #
-# Page setup & theme
+# Theme
 # --------------------------------------------------------------------------- #
-st.set_page_config(
-    page_title="חדשות מול שוקי ניבוי",
-    layout="wide",
-    initial_sidebar_state="expanded",
-)
-
 SETTINGS = get_settings()
 DEFAULT_SNAPSHOT_DIR = os.environ.get("SNAPSHOT_DIR", "output")
 
@@ -99,7 +116,7 @@ INK = "#1f2937"
 SOURCE_LABELS_HE = {
     "Firestore": "Firestore",
     "Firestore + local ML": "Firestore + תוצאות ML מקומיות",
-    "Local snapshot": "מצב דמו — נתונים מקומיים",
+    "Local snapshot": "תמונת מצב מקומית (ההרצה האחרונה)",
     "Firestore (error)": "Firestore (שגיאה)",
     "Firestore (no creds)": "Firestore (ללא הרשאות)",
 }
@@ -111,49 +128,241 @@ DATA_SOURCE_OPTIONS_HE = {
 
 
 def inject_css() -> None:
-    """עיצוב קל שהופך את הלוח לפורמלי ומיושר לימין (RTL)."""
+    """RTL + visual design system.
+
+    Streamlit only flips a handful of containers for RTL; most widgets
+    (columns, tabs, tables, metrics, alerts, inputs) stay LTR and Hebrew ends
+    up left-aligned with punctuation on the wrong side. Everything below is an
+    explicit flip of one of those, plus a small token-based design system so
+    spacing, colour and type stay consistent across sections.
+    """
     st.markdown(
         """
         <style>
-          /* Native RTL for the whole app so Hebrew aligns right by default. */
-          body, .stApp {direction: rtl; text-align: right;}
-          .block-container {padding-top: 2.2rem; max-width: 1250px;}
-          .block-container h1, .block-container h2, .block-container h3,
-          .block-container [data-testid="stMarkdownContainer"],
-          .block-container [data-testid="stCaptionContainer"],
-          section[data-testid="stSidebar"] {direction: rtl; text-align: right;}
-          /* Metric cards keep RTL only — no custom background/border, so they
-             inherit Streamlit's theme and stay legible in light *and* dark mode. */
-          div[data-testid="stMetric"] {direction: rtl; text-align: right;}
-          .callout {direction: rtl; text-align: right; border-radius: 14px;
-              padding: 18px 22px; margin: 4px 0 6px 0;
-              border: 1px solid rgba(0,0,0,.06); line-height: 1.6;}
-          .callout h3 {margin: 0 0 6px 0; font-size: 1.15rem;}
-          .callout p {margin: 0; font-size: 1.02rem; color: #374151;}
-          .howto {direction: rtl; text-align: right; background: #f5f8ff;
-              border-right: 4px solid #2f6fed; border-radius: 8px;
-              padding: 10px 14px; margin: 2px 0 10px 0;
-              font-size: .95rem; color: #374151;}
-          .pill {display:inline-block; padding:2px 10px; border-radius:999px;
-              font-size:.8rem; font-weight:600; margin-right:6px;}
-          .kpi-card {direction:rtl; text-align:right; border:1px solid rgba(128,128,128,.25);
-              border-radius:8px; padding:14px 16px; min-height:92px; background:rgba(128,128,128,.05);}
-          .kpi-label {font-size:.86rem; color:#6b7280; margin-bottom:8px;}
-          .kpi-value {font-size:1.35rem; font-weight:700; color:#111827; line-height:1.25;
-              white-space:normal; overflow-wrap:anywhere;}
-          .status-line {direction:rtl; text-align:right; margin:14px 0 4px 0;
-              padding:12px 14px; border-radius:10px; border:1px solid #d7dee8;
-              background:#f8fafc; color:#1f2937; font-size:1.02rem; font-weight:600;}
-          /* Theme-neutral footer (no solid fill) so it reads in dark mode too. */
-          .methodology {direction: rtl; text-align: right; margin-top: 8px;
-              padding-top: 12px; border-top: 1px solid rgba(128,128,128,.30);
-              font-size: .86rem; line-height: 1.65; color: #6b7280;}
-          .methodology h4 {margin: 0 0 4px 0; font-size: .95rem; color: #6b7280;}
-          .methodology p {margin: 0;}
+          :root {
+            --ink:        #0f172a;
+            --ink-soft:   #475569;
+            --ink-muted:  #64748b;
+            --brand:      #2f6fed;
+            --pos:        #0f9d58;
+            --neg:        #d6453d;
+            --line:       rgba(148,163,184,.30);
+            --line-solid: rgba(148,163,184,.55);
+            --surface:    rgba(148,163,184,.07);
+            --surface-2:  rgba(148,163,184,.13);
+            --radius:     12px;
+            --gap:        1.15rem;
+          }
+
+          /* ── 1. Global RTL ─────────────────────────────────────────────── */
+          html, body, .stApp, .main, .block-container {
+            direction: rtl;
+            text-align: right;
+          }
+          .block-container {
+            padding-top: 2rem;
+            padding-bottom: 3rem;
+            max-width: 1180px;
+          }
+
+          /* Columns/rows are flex containers — without this the leftmost
+             column renders first and the KPI order reads backwards. */
+          div[data-testid="stHorizontalBlock"],
+          div[data-testid="stVerticalBlock"],
+          div[data-testid="column"] { direction: rtl; }
+
+          /* Markdown, captions, labels, alerts, expanders, sidebar. */
+          [data-testid="stMarkdownContainer"],
+          [data-testid="stCaptionContainer"],
+          [data-testid="stWidgetLabel"],
+          [data-testid="stExpander"] summary,
+          [data-testid="stExpander"] details,
+          [data-testid="stAlert"],
+          [data-testid="stNotification"],
+          section[data-testid="stSidebar"],
+          section[data-testid="stSidebar"] * {
+            direction: rtl;
+            text-align: right;
+          }
+          /* Alert icons belong on the right of the text in RTL. */
+          [data-testid="stAlert"] > div { flex-direction: row-reverse; }
+
+          /* Tabs run right-to-left and keep their underline on the right. */
+          [data-testid="stTabs"] [role="tablist"] { direction: rtl; }
+          [data-testid="stTabs"] [role="tab"] { direction: rtl; }
+
+          /* Metric label/value/delta. */
+          div[data-testid="stMetric"],
+          div[data-testid="stMetric"] label,
+          [data-testid="stMetricValue"],
+          [data-testid="stMetricLabel"] { direction: rtl; text-align: right; }
+          [data-testid="stMetricDelta"] { justify-content: flex-start; }
+
+          /* HTML tables (st.table) — headers and cells both need flipping. */
+          [data-testid="stTable"] table { direction: rtl; width: 100%; }
+          [data-testid="stTable"] th,
+          [data-testid="stTable"] td { text-align: right !important; }
+          [data-testid="stTable"] thead th {
+            background: var(--surface-2);
+            font-weight: 700;
+            color: var(--ink);
+            border-bottom: 1px solid var(--line-solid) !important;
+          }
+          [data-testid="stTable"] tbody tr:nth-child(even) { background: var(--surface); }
+          /* st.table always renders the DataFrame index; there is no
+             hide_index option, so the index column is removed here. */
+          [data-testid="stTable"] tbody th,
+          [data-testid="stTable"] thead th:first-child { display: none; }
+          /* Numeric cells must not be re-ordered by the bidi algorithm:
+             without this "-177.5%" renders as "177.5%-". `plaintext` picks the
+             direction from each cell's first strong character, so Hebrew cells
+             stay RTL while number-only cells fall back to LTR. */
+          [data-testid="stTable"] td { unicode-bidi: plaintext; }
+
+          /* Numbers, percentages and Latin names must stay LTR *inside* RTL
+             text, otherwise "-17.5%" renders as "%17.5-". */
+          .ltr, .kpi-value, [data-testid="stMetricValue"] {
+            unicode-bidi: isolate;
+          }
+
+          /* Inputs and controls. */
+          .stTextInput input, .stNumberInput input, .stSelectbox div,
+          .stMultiSelect div, .stRadio label { direction: rtl; text-align: right; }
+
+          /* ── 2. Typography & rhythm ────────────────────────────────────── */
+          .block-container h1 {
+            font-size: 2.0rem; font-weight: 800; letter-spacing: -.5px;
+            margin: 0 0 .35rem 0; color: var(--ink);
+          }
+          .block-container h2 { font-size: 1.35rem; font-weight: 700; }
+          .block-container h3 { font-size: 1.12rem; font-weight: 700; }
+          hr, [data-testid="stDivider"] { margin: 2rem 0 1.1rem 0 !important; }
+
+          /* Section heading with a leading rule on the right (RTL-correct). */
+          .section-title {
+            display: flex; align-items: center; gap: .6rem;
+            font-size: 1.22rem; font-weight: 700; color: var(--ink);
+            margin: .2rem 0 .15rem 0;
+          }
+          .section-title::before {
+            content: ""; width: 4px; height: 1.15em;
+            border-radius: 2px; background: var(--brand); flex: 0 0 auto;
+          }
+          .section-sub {
+            color: var(--ink-muted); font-size: .92rem;
+            margin: 0 0 var(--gap) 14px; line-height: 1.6;
+          }
+
+          /* ── 3. Components ─────────────────────────────────────────────── */
+          .callout {
+            direction: rtl; text-align: right; border-radius: var(--radius);
+            padding: 16px 20px; margin: 4px 0 8px 0;
+            border: 1px solid var(--line); line-height: 1.65;
+          }
+          .callout h3 { margin: 0 0 6px 0; font-size: 1.06rem; font-weight: 700; }
+          .callout p  { margin: 0; font-size: .98rem; color: var(--ink-soft); }
+
+          .kpi-card {
+            direction: rtl; text-align: right;
+            border: 1px solid var(--line); border-radius: var(--radius);
+            padding: 14px 16px; min-height: 96px; background: var(--surface);
+            display: flex; flex-direction: column; justify-content: space-between;
+          }
+          .kpi-label {
+            font-size: .82rem; font-weight: 600; color: var(--ink-muted);
+            margin-bottom: 6px; letter-spacing: .01em;
+          }
+          .kpi-value {
+            font-size: 1.42rem; font-weight: 800; color: var(--ink);
+            line-height: 1.2; white-space: normal; overflow-wrap: anywhere;
+          }
+          .kpi-note { font-size: .78rem; color: var(--ink-muted); margin-top: 4px; }
+
+          .status-line {
+            direction: rtl; text-align: right; margin: 16px 0 4px 0;
+            padding: 13px 16px; border-radius: var(--radius);
+            border: 1px solid var(--line); background: var(--surface);
+            color: var(--ink); font-size: 1rem; font-weight: 600;
+          }
+          .status-line.warn { border-right: 4px solid var(--neg); }
+          .status-line.ok   { border-right: 4px solid var(--pos); }
+
+          .pill {
+            display: inline-block; padding: 2px 10px; border-radius: 999px;
+            font-size: .78rem; font-weight: 700; margin-left: 6px;
+            unicode-bidi: isolate;
+          }
+          .pill.neg { background: rgba(214,69,61,.12);  color: var(--neg); }
+          .pill.pos { background: rgba(15,157,88,.12);  color: var(--pos); }
+          .pill.mut { background: var(--surface-2);     color: var(--ink-muted); }
+
+          .methodology {
+            direction: rtl; text-align: right; margin-top: 10px;
+            padding-top: 14px; border-top: 1px solid var(--line);
+            font-size: .85rem; line-height: 1.7; color: var(--ink-muted);
+          }
+          .methodology h4 { margin: 0 0 4px 0; font-size: .92rem; color: var(--ink-soft); }
+          .methodology p  { margin: 0; }
         </style>
         """,
         unsafe_allow_html=True,
     )
+
+
+# --------------------------------------------------------------------------- #
+# Presentation helpers
+# --------------------------------------------------------------------------- #
+# Plotly renders LTR by default: axis titles sit left, horizontal-bar category
+# labels sit left, and the hover box reads left-to-right. Every figure is passed
+# through this so the whole dashboard is consistently right-to-left.
+PLOT_FONT = dict(family="Assistant, Rubik, Heebo, Arial, sans-serif", size=13, color=INK)
+
+
+def style_rtl(fig: go.Figure, *, categorical_y: bool = False) -> go.Figure:
+    """Apply the shared RTL/plot styling to a Plotly figure."""
+    fig.update_layout(
+        font=PLOT_FONT,
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(148,163,184,.05)",
+        hoverlabel=dict(font=PLOT_FONT, align="right"),
+        legend=dict(x=1, xanchor="right", font=PLOT_FONT),
+        margin=dict(l=20, r=20, t=52, b=24),
+    )
+    fig.update_xaxes(
+        gridcolor="rgba(148,163,184,.22)",
+        zerolinecolor="rgba(148,163,184,.45)",
+        title_font=dict(size=12, color=NEUTRAL),
+    )
+    fig.update_yaxes(
+        gridcolor="rgba(148,163,184,.22)",
+        zerolinecolor="rgba(148,163,184,.45)",
+        title_font=dict(size=12, color=NEUTRAL),
+    )
+    # Only style the title when the figure actually has one. Plotly renders the
+    # literal string "undefined" for a title object that carries formatting but
+    # no text, which is the case for the gauge and the heatmap.
+    if (fig.layout.title.text or "").strip():
+        fig.update_layout(
+            title_x=1, title_xanchor="right", title_font=dict(size=15, color=INK)
+        )
+    else:
+        fig.update_layout(title=None, margin=dict(t=18))
+
+    if categorical_y:
+        # Horizontal bars: category labels belong on the right in RTL, and the
+        # bars grow leftward from them. Plotly's automargin does not reserve
+        # enough room for right-side labels, so the gutter is set explicitly —
+        # outlet names and Hebrew feature names are both long.
+        fig.update_yaxes(side="right", automargin=False, ticksuffix="  ")
+        fig.update_layout(margin=dict(l=24, r=215, t=52, b=44))
+    return fig
+
+
+def section(title: str, subtitle: str = "") -> None:
+    """Consistent section header: rule + title + optional one-line subtitle."""
+    st.markdown(f"<div class='section-title'>{title}</div>", unsafe_allow_html=True)
+    if subtitle:
+        st.markdown(f"<div class='section-sub'>{subtitle}</div>", unsafe_allow_html=True)
 
 
 # --------------------------------------------------------------------------- #
@@ -167,8 +376,36 @@ def _read_snapshot_json(snapshot_dir: str, name: str, default):
     return default
 
 
+SNAPSHOT_FILES = (
+    "articles.json",
+    "markets.json",
+    "run.json",
+    "ml_results.json",
+    "ml_dataset.json",
+    "agent_report.json",
+)
+
+
+def snapshot_fingerprint(snapshot_dir: str) -> Tuple[Tuple[str, float, int], ...]:
+    """Identity of the snapshot on disk: (name, mtime, size) per file.
+
+    Passed into the cached loaders so that re-running the pipeline invalidates
+    the cache. Keying only on ``snapshot_dir`` meant a refreshed ``output/``
+    kept serving the previous run's numbers until the app was restarted.
+    """
+    fingerprint = []
+    for name in SNAPSHOT_FILES:
+        path = os.path.join(snapshot_dir, name)
+        try:
+            stat = os.stat(path)
+            fingerprint.append((name, stat.st_mtime, stat.st_size))
+        except OSError:
+            fingerprint.append((name, 0.0, 0))
+    return tuple(fingerprint)
+
+
 @st.cache_data(show_spinner=False)
-def load_local_ml_artifacts(snapshot_dir: str) -> Tuple[Dict, List[Dict]]:
+def load_local_ml_artifacts(snapshot_dir: str, fingerprint: Tuple = ()) -> Tuple[Dict, List[Dict]]:
     """טעינת תוצאות ML מקומיות גם כאשר מקור הנתונים הראשי הוא Firestore."""
     run = _read_snapshot_json(snapshot_dir, "run.json", {})
     ml_results = _read_snapshot_json(snapshot_dir, "ml_results.json", {})
@@ -181,12 +418,14 @@ def load_local_ml_artifacts(snapshot_dir: str) -> Tuple[Dict, List[Dict]]:
 
 
 @st.cache_data(show_spinner=False)
-def load_local_snapshot(snapshot_dir: str) -> Tuple[List[Dict], List[Dict], Dict, List[Dict], Dict]:
+def load_local_snapshot(
+    snapshot_dir: str, fingerprint: Tuple = ()
+) -> Tuple[List[Dict], List[Dict], Dict, List[Dict], Dict]:
     """טעינת כתבות/שווקים/הרצה מתוך תמונת המצב המקומית בפורמט JSON."""
 
     articles = _read_snapshot_json(snapshot_dir, "articles.json", [])
     markets = _read_snapshot_json(snapshot_dir, "markets.json", [])
-    run, ml_dataset = load_local_ml_artifacts(snapshot_dir)
+    run, ml_dataset = load_local_ml_artifacts(snapshot_dir, fingerprint)
     agent_report = _read_snapshot_json(snapshot_dir, "agent_report.json", {})
     return articles, markets, run, ml_dataset, agent_report
 
@@ -201,31 +440,42 @@ def load_firestore() -> Tuple[List[Dict], List[Dict], Dict]:
 
 
 def load_data(source: str, snapshot_dir: str) -> Tuple[List[Dict], List[Dict], Dict, List[Dict], Dict, str]:
-    """איתור מקור הנתונים; מחזיר (articles, markets, run, source_used)."""
-    if source in ("Auto", "Firestore"):
+    """Resolve the data source; returns (articles, markets, run, …, source_used).
+
+    "Auto" prefers the **local snapshot**. The six ``output/*.json`` files are
+    written by a single pipeline run and are therefore guaranteed consistent
+    with each other and with the numbers reported elsewhere. Firestore holds
+    whatever the last non-dry-run wrote, which can be older, partially
+    populated, or written under a previous collection name — mixing it with
+    locally-computed ML results produced a dashboard that showed 0 articles
+    beside a 114-article model. Firestore is now an explicit choice.
+    """
+    fingerprint = snapshot_fingerprint(snapshot_dir)
+    has_local = any(size for _name, _mtime, size in fingerprint)
+
+    if source == "Firestore" or (source == "Auto" and not has_local):
         if SETTINGS.has_firebase_credentials:
             try:
                 articles, markets, run = load_firestore()
-                if articles or markets or source == "Firestore":
-                    local_run, ml_dataset = load_local_ml_artifacts(snapshot_dir)
-                    agent_report = _read_snapshot_json(snapshot_dir, "agent_report.json", {})
-                    if not run.get("ml_forecast") and local_run.get("ml_forecast"):
-                        run = dict(run)
-                        run["ml_forecast"] = local_run["ml_forecast"]
-                        run["_ml_loaded_from"] = local_run.get("_ml_loaded_from")
-                        run["finished_at"] = run.get("finished_at") or local_run.get("finished_at")
-                        return articles, markets, run, ml_dataset, agent_report, "Firestore + local ML"
-                    return articles, markets, run, ml_dataset, agent_report, "Firestore"
+                local_run, ml_dataset = load_local_ml_artifacts(snapshot_dir, fingerprint)
+                agent_report = _read_snapshot_json(snapshot_dir, "agent_report.json", {})
+                if not run.get("ml_forecast") and local_run.get("ml_forecast"):
+                    run = dict(run)
+                    run["ml_forecast"] = local_run["ml_forecast"]
+                    run["_ml_loaded_from"] = local_run.get("_ml_loaded_from")
+                    run["finished_at"] = run.get("finished_at") or local_run.get("finished_at")
+                    return articles, markets, run, ml_dataset, agent_report, "Firestore + local ML"
+                return articles, markets, run, ml_dataset, agent_report, "Firestore"
             except Exception as exc:  # noqa: BLE001
                 if source == "Firestore":
                     st.error(f"טעינה מ-Firestore נכשלה: {exc}")
                     return [], [], {}, [], {}, "Firestore (error)"
                 st.warning(f"Firestore אינו זמין, נעשה שימוש בתמונת המצב המקומית ({exc}).")
         elif source == "Firestore":
-            st.error("לא הוגדרו הרשאות Firebase (ראו .env.template).")
+            st.error("לא הוגדרו הרשאות Firebase.")
             return [], [], {}, [], {}, "Firestore (no creds)"
 
-    articles, markets, run, ml_dataset, agent_report = load_local_snapshot(snapshot_dir)
+    articles, markets, run, ml_dataset, agent_report = load_local_snapshot(snapshot_dir, fingerprint)
     return articles, markets, run, ml_dataset, agent_report, "Local snapshot"
 
 
@@ -263,18 +513,19 @@ def latest_data_timestamp(
 
 
 # Sports/entertainment terms that should never appear in a security dashboard.
-# Mirrors the data-layer reject list so a stale snapshot/Firestore record that
-# predates the upstream filter still can't surface (e.g. a FIFA World Cup market).
-EXCLUDED_MARKET_TERMS = ("fifa", "world cup", "football", "soccer", "sport", "olympic")
+# Re-uses the canonical data-layer reject list (same word-boundary matching), so
+# a stale snapshot/Firestore record that predates the upstream filter still
+# can't surface (e.g. a FIFA World Cup market).
+EXCLUDED_MARKET_TERMS = DEFAULT_EXCLUDED_MARKET_TERMS
 
 
 def drop_excluded_topics(markets: List[Dict]) -> List[Dict]:
     """Drop markets whose text matches a sports/entertainment negative keyword."""
     def _excluded(m: Dict) -> bool:
-        hay = " ".join(
-            str(m.get(k) or "") for k in ("question", "slug", "description")
-        ).lower()
-        return any(term in hay for term in EXCLUDED_MARKET_TERMS)
+        return matches_any(
+            EXCLUDED_MARKET_TERMS,
+            *(m.get(k) for k in ("question", "slug", "description")),
+        )
 
     return [m for m in markets if not _excluded(m)]
 
@@ -417,12 +668,23 @@ def describe_correlation(r: Optional[float], p: Optional[float], n: int) -> Tupl
     else:
         strength = "כמעט מושלם"
 
+    # The basket mixes markets whose "Yes" outcome is escalatory (invasion,
+    # strikes) with markets whose "Yes" outcome is de-escalatory (ceasefire
+    # holding, normalisation). A single "escalation ⇒ probability rises"
+    # sentence would therefore be wrong for half the basket, so the wording
+    # stays descriptive about co-movement rather than asserting a mechanism.
     if r > 0:
         direction_adj = "חיובי"
-        mechanism = "ככל שהסיקור נוטה יותר לעבר רגיעה ודיפלומטיה, ההסתברות שהשוק מייחס לאירוע נוטה לעלות"
+        mechanism = (
+            "שווקים שהנושאים שלהם מסוקרים בטון רגוע יותר נוטים להיסחר בהסתברות "
+            "גבוהה יותר. הכיוון תלוי בשאלה שכל שוק שואל ואינו מעיד על מנגנון סיבתי"
+        )
     elif r < 0:
         direction_adj = "שלילי"
-        mechanism = "ככל שהסיקור משקף יותר הסלמה ולחימה, ההסתברות שהשוק מייחס לאירוע נוטה לעלות"
+        mechanism = (
+            "שווקים שהנושאים שלהם מסוקרים בטון מסלים יותר נוטים להיסחר בהסתברות "
+            "גבוהה יותר. הכיוון תלוי בשאלה שכל שוק שואל ואינו מעיד על מנגנון סיבתי"
+        )
     else:
         direction_adj = "ניטרלי"
         mechanism = "השניים נעים באופן בלתי תלוי זה בזה"
@@ -497,8 +759,8 @@ def chart_sentiment_gauge(avg_sent: float) -> go.Figure:
             },
         )
     )
-    fig.update_layout(height=300, margin=dict(l=20, r=20, t=10, b=0),
-                      paper_bgcolor="rgba(0,0,0,0)")
+    style_rtl(fig)
+    fig.update_layout(height=290, margin=dict(l=20, r=20, t=10, b=0))
     return fig
 
 
@@ -539,17 +801,16 @@ def chart_scatter(cs: pd.DataFrame, r: Optional[float], p: Optional[float]) -> g
             )
         )
     subtitle = f"מתאם פירסון r = {r:+.2f}" if r is not None else "אין עדיין מספיק נתונים למגמה"
+    style_rtl(fig)
     fig.update_layout(
-        title=dict(text=f"כל נקודה מייצגת שוק אחד &nbsp;•&nbsp; {subtitle}", font=dict(size=15)),
+        title_text=f"כל נקודה מייצגת שוק אחד · {subtitle}",
         xaxis_title="מדד המתיחות בסיקור — הסלמה (משמאל) עד רגיעה (מימין)",
         yaxis_title="הסתברות השוק (כן)",
-        margin=dict(l=10, r=10, t=50, b=10),
-        height=440,
+        height=430,
         showlegend=False,
-        plot_bgcolor="#fbfcfe",
     )
-    fig.update_xaxes(range=[-1, 1], zeroline=True, zerolinecolor="#d0d4da", gridcolor="#eef1f5")
-    fig.update_yaxes(range=[0, 1], tickformat=".0%", gridcolor="#eef1f5")
+    fig.update_xaxes(range=[-1, 1], zeroline=True)
+    fig.update_yaxes(range=[0, 1], tickformat=".0%", side="right")
     return fig
 
 
@@ -578,7 +839,9 @@ def chart_heatmap(cs: pd.DataFrame) -> Optional[go.Figure]:
             hovertemplate="%{y} מול %{x}: r = %{z:.2f}<extra></extra>",
         )
     )
-    fig.update_layout(height=440, margin=dict(l=10, r=10, t=10, b=10))
+    style_rtl(fig)
+    fig.update_layout(height=430, margin=dict(l=10, r=130, t=16, b=10))
+    fig.update_yaxes(side="right")
     return fig
 
 
@@ -600,15 +863,13 @@ def chart_market_bar(markets: List[Dict]) -> Optional[go.Figure]:
         df, x="probability", y="question", orientation="h",
         color="probability", color_continuous_scale="RdYlGn", range_color=[0, 1],
     )
+    style_rtl(fig, categorical_y=True)
     fig.update_layout(
-        title=dict(text="מה השווקים מעריכים כעת", font=dict(size=15)),
+        title_text="מה השווקים מעריכים כעת",
         xaxis_title="הסתברות משתמעת ל'כן'", yaxis_title="",
-        # Wide left margin + automargin so long market questions render in full.
-        coloraxis_showscale=False, height=460, margin=dict(l=400, r=10, t=50, b=10),
-        plot_bgcolor="#fbfcfe",
+        coloraxis_showscale=False, height=520,
     )
     fig.update_xaxes(range=[0, 1], tickformat=".0%")
-    fig.update_yaxes(automargin=True)
     return fig
 
 
@@ -636,9 +897,12 @@ def _display_feature_name(feature: str) -> str:
     if feature.startswith("source__"):
         parts = feature.split("__")
         if len(parts) >= 3:
-            metric = "נפח" if parts[-1] == "count" else "סנטימנט"
+            metric_part = parts[-1]              # e.g. "count_24h"
+            kind, _, window = metric_part.partition("_")
+            metric = "נפח" if kind == "count" else "סנטימנט"
             source = parts[1].replace("_", " ").title()
-            return f"{source} - {metric}"
+            window_he = f" ({window})" if window else ""
+            return f"{source} - {metric}{window_he}"
     return feature.replace("_", " ")
 
 
@@ -658,16 +922,11 @@ def chart_importance(items: List[Dict], title: str, source_labels: Optional[Dict
     df = pd.DataFrame(rows).sort_values("importance")
     fig = px.bar(df, x="importance", y="name", orientation="h", color="importance",
                  color_continuous_scale="Teal")
+    style_rtl(fig, categorical_y=True)
     fig.update_layout(
-        title=dict(text=title, font=dict(size=15)),
-        xaxis_title="חשיבות יחסית במודל",
-        yaxis_title="",
-        height=380,
-        margin=dict(l=260, r=10, t=50, b=10),
-        coloraxis_showscale=False,
-        plot_bgcolor="#fbfcfe",
+        title_text=title, xaxis_title="חשיבות יחסית במודל", yaxis_title="",
+        height=390, coloraxis_showscale=False,
     )
-    fig.update_yaxes(automargin=True)
     return fig
 
 
@@ -726,17 +985,13 @@ def chart_source_sentiment(source_df: pd.DataFrame) -> Optional[go.Figure]:
         color_continuous_scale="RdYlGn",
         range_color=[-1, 1],
     )
+    style_rtl(fig, categorical_y=True)
     fig.update_layout(
-        title=dict(text="סנטימנט ממוצע לפי כלי תקשורת", font=dict(size=15)),
-        xaxis_title="מדד מתיחות ממוצע",
-        yaxis_title="",
-        coloraxis_showscale=False,
-        height=380,
-        margin=dict(l=220, r=10, t=50, b=10),
-        plot_bgcolor="#fbfcfe",
+        title_text="סנטימנט ממוצע לפי כלי תקשורת",
+        xaxis_title="מדד מתיחות ממוצע", yaxis_title="",
+        coloraxis_showscale=False, height=380,
     )
-    fig.update_xaxes(range=[-1, 1], zeroline=True, zerolinecolor="#d0d4da")
-    fig.update_yaxes(automargin=True)
+    fig.update_xaxes(range=[-1, 1], zeroline=True)
     return fig
 
 
@@ -752,16 +1007,12 @@ def chart_source_counts(source_df: pd.DataFrame) -> Optional[go.Figure]:
         color="article_count",
         color_continuous_scale="Blues",
     )
+    style_rtl(fig, categorical_y=True)
     fig.update_layout(
-        title=dict(text="מספר כתבות לפי כלי תקשורת", font=dict(size=15)),
-        xaxis_title="מספר כתבות",
-        yaxis_title="",
-        coloraxis_showscale=False,
-        height=380,
-        margin=dict(l=220, r=10, t=50, b=10),
-        plot_bgcolor="#fbfcfe",
+        title_text="מספר כתבות לפי כלי תקשורת",
+        xaxis_title="מספר כתבות", yaxis_title="",
+        coloraxis_showscale=False, height=380,
     )
-    fig.update_yaxes(automargin=True)
     return fig
 
 
@@ -822,8 +1073,8 @@ def source_relationship_frame(ml_dataset: List[Dict], ml_forecast: Dict[str, Any
     source_labels = ml_forecast.get("source_labels") or {}
     rows: List[Dict[str, Any]] = []
     for slug, source in sorted(source_labels.items(), key=lambda item: item[1]):
-        count_col = f"source__{slug}__count"
-        sent_col = f"source__{slug}__sentiment"
+        count_col = f"source__{slug}__count_{PRIMARY_SUFFIX}"
+        sent_col = f"source__{slug}__sentiment_{PRIMARY_SUFFIX}"
         if count_col not in df.columns and sent_col not in df.columns:
             continue
         active = df
@@ -927,6 +1178,38 @@ def _direction_distribution(future_df: pd.DataFrame) -> str:
     return f"רוב השווקים בכיוון {direction} ({share:.0%})"
 
 
+def direction_uniformity_warning(future_df: pd.DataFrame) -> Optional[str]:
+    """Flag when nearly every market is predicted to move the same way.
+
+    A healthy per-market model should disagree across markets at least
+    sometimes. When ~90%+ of predictions share one direction, that usually
+    means the model has stopped distinguishing between markets and is instead
+    reproducing the *basket-wide* average drift from the training window —
+    every market gets predicted from (almost) the same collection instant, so
+    a shared, market-agnostic component can dominate individual signal. This
+    is a real, verified failure mode in this project's current run (see the
+    README/report), not a data-quality issue with any specific market.
+    """
+    col = "כיוון בעוד יום" if "כיוון בעוד יום" in future_df.columns else "כיוון בעוד שעה"
+    if future_df.empty or col not in future_df.columns:
+        return None
+    counts = future_df[col].value_counts()
+    if counts.empty:
+        return None
+    total = int(counts.sum())
+    top_direction, top_count = str(counts.index[0]), int(counts.iloc[0])
+    share = top_count / total if total else 0.0
+    if share < 0.8 or total < 5:
+        return None
+    return (
+        f"שימו לב: {top_count} מתוך {total} השווקים חזויים לנוע ל{top_direction} — "
+        "כמעט כולם לאותו כיוון. זהו סימן לכך שהמודל אינו מבחין בין שווקים ספציפיים, "
+        "אלא משקף בעיקר את המגמה הממוצעת של כל הסל בחלון הנתונים (כל השווקים נחזים "
+        "מאותה נקודת זמן כמעט, כך שרכיב משותף יכול לגבור על אות ספציפי לשוק). "
+        "אין לפרש זאת כתחזית אמינה ברמת השוק הבודד."
+    )
+
+
 def forecast_status_line(model_result: Dict[str, Any], future_df: pd.DataFrame) -> str:
     reliability = reliability_he(model_result.get("reliability"))
     if not model_result:
@@ -940,12 +1223,16 @@ def forecast_status_line(model_result: Dict[str, Any], future_df: pd.DataFrame) 
     return f"{signal}, {_direction_distribution(future_df)}, {reliability}."
 
 
-def render_kpi_card(label: str, value: str) -> None:
+def render_kpi_card(label: str, value: str, note: str = "") -> None:
+    note_html = f"<div class='kpi-note'>{note}</div>" if note else ""
     st.markdown(
         f"""
         <div class="kpi-card">
-          <div class="kpi-label">{label}</div>
-          <div class="kpi-value">{value}</div>
+          <div>
+            <div class="kpi-label">{label}</div>
+            <div class="kpi-value">{value}</div>
+          </div>
+          {note_html}
         </div>
         """,
         unsafe_allow_html=True,
@@ -986,39 +1273,30 @@ def compact_source_table(reliability_df: pd.DataFrame, limit: int = 5) -> pd.Dat
     if df.empty:
         return pd.DataFrame()
     df = df.sort_values("ציון שימושיות חזויה", ascending=False).head(limit)
-    return df.rename(
-        columns={
-            "כלי תקשורת": "Source",
-            "מספר כתבות": "Number of Articles",
-            "סנטימנט ממוצע": "Average Sentiment",
-            "ציון שימושיות חזויה": "Predictive Score",
-        }
-    )[["Source", "Number of Articles", "Average Sentiment", "Predictive Score"]]
+    return df[
+        ["כלי תקשורת", "מספר כתבות", "סנטימנט ממוצע", "ציון שימושיות חזויה"]
+    ]
 
 
 def chart_predictive_sources(reliability_df: pd.DataFrame, limit: int = 5) -> Optional[go.Figure]:
     table = compact_source_table(reliability_df, limit=limit)
     if table.empty:
         return None
-    df = table.sort_values("Predictive Score")
+    df = table.sort_values("ציון שימושיות חזויה")
     fig = px.bar(
         df,
-        x="Predictive Score",
-        y="Source",
+        x="ציון שימושיות חזויה",
+        y="כלי תקשורת",
         orientation="h",
-        color="Predictive Score",
+        color="ציון שימושיות חזויה",
         color_continuous_scale="Teal",
     )
+    style_rtl(fig, categorical_y=True)
     fig.update_layout(
-        title=dict(text="דירוג מקורות לפי תרומה לחיזוי", font=dict(size=15)),
-        xaxis_title="Predictive Score",
-        yaxis_title="",
-        height=300,
-        margin=dict(l=220, r=10, t=45, b=10),
-        coloraxis_showscale=False,
-        plot_bgcolor="#fbfcfe",
+        title_text="דירוג מקורות לפי תרומה לחיזוי",
+        xaxis_title="ציון שימושיות חזויה", yaxis_title="",
+        height=310, coloraxis_showscale=False,
     )
-    fig.update_yaxes(automargin=True)
     return fig
 
 
@@ -1203,12 +1481,12 @@ def compact_validation_frame(model_result: Dict[str, Any]) -> pd.DataFrame:
     return pd.DataFrame(
         [
             {
-                "Baseline MAE": model_result.get("baseline_mae"),
-                "Random Forest MAE": model_result.get("mae"),
-                "Improvement": model_result.get("improvement_pct"),
+                "שגיאת תחזית הבסיס": model_result.get("baseline_mae"),
+                "שגיאת המודל": model_result.get("mae"),
+                "שיפור מול הבסיס": model_result.get("improvement_pct"),
                 "R²": model_result.get("r2"),
-                "Directional accuracy": _pct_value(model_result.get("directional_accuracy")),
-                "Reliability": reliability_he(model_result.get("reliability")),
+                "דיוק כיווני": _pct_value(model_result.get("directional_accuracy")),
+                "תווית אמינות": reliability_he(model_result.get("reliability")),
             }
         ]
     )
@@ -1286,11 +1564,15 @@ def howto(text_html: str) -> None:
 
 def sidebar() -> Dict[str, Any]:
     st.sidebar.title("בקרות")
-    source = st.sidebar.radio(
-        "מקור הנתונים", options=["Auto", "Firestore", "Local snapshot"], index=0,
-        format_func=lambda x: DATA_SOURCE_OPTIONS_HE.get(x, x),
-        help="מצב אוטומטי מעדיף את Firestore וחוזר לתמונת המצב המקומית בעת הצורך.",
-    )
+    # The Firestore option is intentionally not exposed here: this deployment's
+    # Firestore project holds only a stale/partial snapshot from an earlier
+    # manual run, so an accidental click during a live demo would show empty
+    # or outdated numbers next to a freshly-generated local snapshot. The
+    # loading path itself (``load_data`` below, and ``data/firebase_client.py``)
+    # is untouched and still fully functional — flip ``source`` back to a
+    # sidebar control (see the git history of this function) to re-expose it
+    # once Firestore is kept in sync with the pipeline.
+    source = "Local snapshot"
     snapshot_dir = st.sidebar.text_input("תיקיית תמונת המצב", value=DEFAULT_SNAPSHOT_DIR)
     keywords = st.sidebar.multiselect(
         "סינון לפי נושא", options=SETTINGS.geo_keywords, default=[],
@@ -1311,10 +1593,9 @@ def main() -> None:
 
     st.title("האם החדשות תואמות את השווקים?")
     st.markdown(
-        "לוח מחוונים זה משווה בין **מדד המתיחות הביטחונית בסיקור הגאופוליטי** (המחושב "
-        "באמצעות מודל NLP לעיבוד שפה טבעית) לבין **ההסתברויות בשוקי הניבוי של Polymarket** "
-        "עבור אירועים במזרח התיכון. כל שוק ניבוי מהווה נקודת נתונים אחת: אנו מצליבים בין "
-        "*מידת ההסלמה או הרגיעה בסיקור הנושא* לבין *מה שהסוחרים מעריכים שיקרה*."
+        "לוח מחוונים מחקרי המשווה בין **מדד המתיחות בסיקור הגאופוליטי** (מודל NLP) "
+        "לבין **תנועות ההסתברות בשוקי הניבוי של Polymarket** עבור אירועים במזרח התיכון. "
+        "המערכת חוזה את תנועת ההסתברות בשוק — **לא** את התרחשות האירוע במציאות."
     )
 
     controls = sidebar()
@@ -1373,15 +1654,34 @@ def main() -> None:
     with k3:
         render_kpi_card("המקור המשפיע ביותר", top_source_name(reliability_df))
     with k4:
-        render_kpi_card("דיוק המודל (MAE)", f"{mae:.4f}" if mae is not None else "לא זמין")
+        # MAE on its own says nothing: when the market barely moves, a "predict
+        # zero" baseline also scores a low MAE. The card therefore always shows
+        # the comparison, never the raw number alone.
+        baseline_mae = model_result.get("baseline_mae")
+        if mae is not None and baseline_mae:
+            improvement = model_result.get("improvement_pct")
+            verdict = "טוב מהבסיס" if (improvement or 0) > 0 else "גרוע מהבסיס"
+            render_kpi_card(
+                "שגיאת המודל מול הבסיס",
+                f"{mae:.4f} <span class='pill mut'>בסיס {baseline_mae:.4f}</span>",
+                f"{verdict} ב-{abs(improvement or 0):.0f}%",
+            )
+        else:
+            render_kpi_card("שגיאת המודל מול הבסיס", "לא זמין")
+    tone_class = "ok" if model_result.get("beats_baseline") else "warn"
     st.markdown(
-        f"<div class='status-line'>{forecast_status_line(model_result, future_df)}</div>",
+        f"<div class='status-line {tone_class}'>"
+        f"{forecast_status_line(model_result, future_df)}</div>",
         unsafe_allow_html=True,
     )
 
     # --- Section 2: Automatic analytical summary ---------------------------- #
     st.divider()
-    st.subheader("סיכום אנליטי אוטומטי")
+    section(
+        "סיכום אנליטי אוטומטי",
+        "רכיב דטרמיניסטי מבוסס כללים (לא מודל שפה) שקורא את תוצרי הפייפליין "
+        "וקובע תווית אמינות, מדרג מקורות ומאתר שווקים למעקב.",
+    )
     if agent_report:
         callout(
             "סיכום מצב החיזוי",
@@ -1424,23 +1724,24 @@ def main() -> None:
 
     # --- Section 3: Validation summary -------------------------------------- #
     st.divider()
-    st.subheader("סיכום תיקוף המודלים")
-    st.caption(
-        "התיקוף נעשה בחלוקת זמן: המודל מתאמן על תצפיות מוקדמות ונבדק על תצפיות מאוחרות, "
-        "כדי לדמות חיזוי עתידי ולא ערבוב של עבר ועתיד."
+    section(
+        "סיכום תיקוף המודלים",
+        "התיקוף נעשה בחלוקת זמן: המודל מתאמן על תצפיות מוקדמות ונבדק על תצפיות "
+        "מאוחרות, כדי לדמות חיזוי עתידי ולא ערבוב של עבר ועתיד. ההשוואה היא מול "
+        "תחזית הבסיס הטובה ביותר מבין שלוש.",
     )
     compact_validation = compact_validation_frame(model_result)
     if not compact_validation.empty:
-        st.dataframe(
+        # st.dataframe renders on a canvas that cannot be flipped to RTL, so the
+        # headline tables use the HTML table instead.
+        render_static_table(
             compact_validation,
-            use_container_width=True,
-            hide_index=True,
-            column_config={
-                "Baseline MAE": st.column_config.NumberColumn("Baseline MAE", format="%.4f"),
-                "Random Forest MAE": st.column_config.NumberColumn("Random Forest MAE", format="%.4f"),
-                "Improvement": st.column_config.NumberColumn("Improvement", format="%+.1f%%"),
-                "R²": st.column_config.NumberColumn("R²", format="%.3f"),
-                "Directional accuracy": st.column_config.NumberColumn("Directional accuracy", format="%.1f%%"),
+            {
+                "שגיאת תחזית הבסיס": "{:.4f}",
+                "שגיאת המודל": "{:.4f}",
+                "שיפור מול הבסיס": "{:+.1f}%",
+                "R²": "{:.3f}",
+                "דיוק כיווני": "{:.1f}%",
             },
         )
         st.caption(validation_interpretation(model_result, p))
@@ -1449,32 +1750,39 @@ def main() -> None:
 
     # --- Section 4: Compact media source analysis ------------------------- #
     st.divider()
-    st.subheader("ניתוח לפי כלי תקשורת")
-    st.caption(
-        "הטבלה מדרגת מקורות לפי שימושיות חזויה: עד כמה מאפייני המקור עזרו למודל לחזות "
-        "תנועות הסתברות בפולימרקט. זה אינו דירוג אמינות עיתונאית."
+    section(
+        "ניתוח לפי כלי תקשורת",
+        "דירוג לפי שימושיות חזויה: עד כמה מאפייני המקור עזרו למודל לחזות תנועות "
+        "הסתברות בפולימרקט. <b>זה אינו דירוג אמינות עיתונאית</b> ואינו מודד את "
+        "אמיתות המידע.",
     )
-    src_table_col, src_chart_col = st.columns([1.15, 1])
-    with src_table_col:
-        if not compact_sources.empty:
-            render_static_table(
-                compact_sources,
-                {"Average Sentiment": "{:+.3f}", "Predictive Score": "{:.4f}"},
-            )
-        else:
-            st.info("אין עדיין מספיק נתוני ML לדירוג מקורות.")
-    with src_chart_col:
+    if not compact_sources.empty:
+        render_static_table(
+            compact_sources,
+            {"סנטימנט ממוצע": "{:+.3f}", "ציון שימושיות חזויה": "{:.4f}"},
+        )
         fig = chart_predictive_sources(reliability_df)
         if fig is not None:
             st.plotly_chart(fig, use_container_width=True)
+    else:
+        st.info("אין עדיין מספיק נתוני ML לדירוג מקורות.")
 
     # --- Section 5: Future forecast --------------------------------------- #
     st.divider()
-    st.subheader("שווקים בולטים למעקב")
-    st.caption(
+    section(
+        "שווקים בולטים למעקב",
         "התחזית מתייחסת לתנועת הסתברות בפולימרקט, ולא לתוצאה בעולם האמיתי. "
-        "מוצגים חמשת השווקים עם השינוי החזוי הבולט ביותר."
+        "מוצגים חמשת השווקים עם השינוי החזוי הבולט ביותר.",
     )
+    if model_result and not model_result.get("beats_baseline"):
+        st.warning(
+            "המודל אינו משפר את תחזית הבסיס בהרצה הנוכחית. הטבלה שלהלן מוצגת "
+            "לצורך מעקב מחקרי בלבד — אין להתייחס אליה כתחזית בעלת ערך חיזויי.",
+            icon="⚠️",
+        )
+    uniformity_note = direction_uniformity_warning(future_df)
+    if uniformity_note:
+        st.warning(uniformity_note, icon="🧭")
     top_forecasts_he = top_forecast_table_he(future_df, model_result, limit=5)
     if not top_forecasts_he.empty:
         render_static_table(
@@ -1500,7 +1808,7 @@ def main() -> None:
     # --- Section 6: Advanced analysis ------------------------------------- #
     st.divider()
     with st.expander("ניתוח מתקדם"):
-        st.subheader("סיכום תוצאות מלא")
+        section("סיכום תוצאות מלא")
         st.dataframe(
             automatic_summary_frame(len(articles), len(markets), r, p, reliability_df, model_result),
             use_container_width=True,
@@ -1509,7 +1817,7 @@ def main() -> None:
 
         validation_df = validation_summary_frame(ml_forecast) if ml_forecast else pd.DataFrame()
         if not validation_df.empty:
-            st.subheader("טבלת תיקוף מלאה")
+            section("טבלת תיקוף מלאה")
             st.dataframe(
                 validation_df,
                 use_container_width=True,
@@ -1523,14 +1831,14 @@ def main() -> None:
                 },
             )
 
-        st.subheader("מסקנה מרכזית")
+        section("מסקנה מרכזית")
         callout(
             "פרשנות כוללת",
             main_conclusion_text(reliability_df, future_df, r, p, model_result),
             "neutral",
         )
 
-        st.subheader("מדד המתיחות והמתאם")
+        section("מדד המתיחות והמתאם")
         left, right = st.columns([1, 1.05])
         with left:
             st.plotly_chart(chart_sentiment_gauge(avg_sent), use_container_width=True)
@@ -1542,7 +1850,7 @@ def main() -> None:
             headline, sentence, tone = describe_correlation(r, p, n_markets_used)
             callout(headline, sentence, tone)
 
-        st.subheader("גרפים סטטיסטיים")
+        section("גרפים סטטיסטיים")
         col_a, col_b = st.columns([1.25, 1])
         with col_a:
             st.plotly_chart(chart_scatter(cross, r, p), use_container_width=True)
@@ -1553,21 +1861,16 @@ def main() -> None:
             else:
                 st.info("אין עדיין מספיק שונות בין השווקים לצורך הצגת מפת חום.")
 
-        st.subheader("הסתברויות נוכחיות בשווקים")
+        section("הסתברויות נוכחיות בשווקים")
         bar = chart_market_bar(markets)
         if bar is not None:
             st.plotly_chart(bar, use_container_width=True)
         else:
             st.info("אין הסתברויות שוק זמינות עבור הסינון הנוכחי.")
 
-        st.subheader("פירוט לפי כלי תקשורת")
-        src_left, src_right = st.columns(2)
-        with src_left:
-            fig = chart_source_sentiment(source_df)
-            if fig is not None:
-                st.plotly_chart(fig, use_container_width=True)
-        with src_right:
-            fig = chart_source_counts(source_df)
+        section("פירוט לפי כלי תקשורת")
+        for builder in (chart_source_counts, chart_source_sentiment):
+            fig = builder(source_df)
             if fig is not None:
                 st.plotly_chart(fig, use_container_width=True)
 
@@ -1601,13 +1904,13 @@ def main() -> None:
                     },
                 )
 
-            st.subheader("אבחון מודל ML")
+            section("אבחון מודל ML")
             m1, m2, m3 = st.columns(3)
             m1.metric("תצפיות בדאטהסט", ml_forecast.get("n_observations", 0))
             m2.metric("שווקים בדאטהסט", ml_forecast.get("n_markets", 0))
             m3.metric("חלון כתבות", f"{ml_forecast.get('article_window_hours', 24)} שעות")
 
-            st.subheader("תיקוף מודלים מורחב")
+            section("תיקוף מודלים מורחב")
             targets = ml_forecast.get("targets") or {}
             validation_tabs = st.tabs(["תיקוף שעה", "תיקוף יום"])
             for tab, horizon in zip(validation_tabs, ("1h", "1d")):
@@ -1750,19 +2053,19 @@ def main() -> None:
                             },
                         )
 
-                    imp_col, src_col = st.columns(2)
-                    with imp_col:
-                        fig = chart_importance(result.get("feature_importance") or [], f"מאפיינים חשובים - {title}")
-                        if fig is not None:
-                            st.plotly_chart(fig, use_container_width=True)
-                    with src_col:
-                        fig = chart_importance(
-                            result.get("source_importance") or [],
-                            f"תרומת מקורות תקשורת - {title}",
-                            source_labels=source_labels,
-                        )
-                        if fig is not None:
-                            st.plotly_chart(fig, use_container_width=True)
+                    fig = chart_importance(
+                        result.get("feature_importance") or [],
+                        f"מאפיינים חשובים - {title}",
+                    )
+                    if fig is not None:
+                        st.plotly_chart(fig, use_container_width=True)
+                    fig = chart_importance(
+                        result.get("source_importance") or [],
+                        f"תרומת מקורות תקשורת - {title}",
+                        source_labels=source_labels,
+                    )
+                    if fig is not None:
+                        st.plotly_chart(fig, use_container_width=True)
 
                     pdf = ml_predictions_frame(result)
                     if not pdf.empty:
@@ -1780,7 +2083,7 @@ def main() -> None:
         else:
             st.info("תוצאות ML אינן זמינות עדיין.")
 
-        st.subheader("עיון בנתוני הגלם")
+        section("עיון בנתוני הגלם")
         tab_articles, tab_markets = st.tabs(["כתבות", "שווקים"])
 
         with tab_articles:
@@ -1841,13 +2144,20 @@ def main() -> None:
 
     # --- methodology & tech-stack footer ---------------------------------- #
     st.divider()
+    storage_he = (
+        "Firebase Firestore" if source_used.startswith("Firestore")
+        else "קבצי snapshot מקומיים בתיקיית output/"
+    )
     st.markdown(
-        """
+        f"""
         <div class="methodology">
           <h4>מתודולוגיה ומחסנית טכנולוגית</h4>
-          <p>מערכת זו פותחה במסגרת פרויקט גמר בלמידת מכונה. הנתונים נשאבים בזמן אמת
-          ממקורות חדשות ומ-Polymarket API, מאוחסנים ב-Firebase Firestore, ומנותחים
-          באמצעות מודל NLP (Hugging Face) לניתוח סנטימנט.</p>
+          <p>מערכת זו פותחה במסגרת פרויקט גמר בלמידת מכונה. כתבות נאספות מפידי RSS
+          ציבוריים ונתוני השווקים מ-Polymarket API; הסנטימנט מחושב במודל NLP של
+          Hugging Face, והחיזוי במודל Random Forest המתוקף מול שלוש תחזיות בסיס.
+          מקור הנתונים בתצוגה זו: {storage_he}.</p>
+          <p style="margin-top:8px">המערכת חוזה תנועת הסתברות בפולימרקט בלבד —
+          לא את התרחשות האירוע במציאות, לא סיבתיות, ולא המלצות מסחר.</p>
         </div>
         """,
         unsafe_allow_html=True,
