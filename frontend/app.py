@@ -804,7 +804,7 @@ def chart_scatter(cs: pd.DataFrame, r: Optional[float], p: Optional[float]) -> g
     style_rtl(fig)
     fig.update_layout(
         title_text=f"כל נקודה מייצגת שוק אחד · {subtitle}",
-        xaxis_title="מדד המתיחות בסיקור — הסלמה (משמאל) עד רגיעה (מימין)",
+        xaxis_title="מדד המתיחות בסיקור: הסלמה (משמאל) עד רגיעה (מימין)",
         yaxis_title="הסתברות השוק (כן)",
         height=430,
         showlegend=False,
@@ -1202,11 +1202,11 @@ def direction_uniformity_warning(future_df: pd.DataFrame) -> Optional[str]:
     if share < 0.8 or total < 5:
         return None
     return (
-        f"שימו לב: {top_count} מתוך {total} השווקים חזויים לנוע ל{top_direction} — "
-        "כמעט כולם לאותו כיוון. זהו סימן לכך שהמודל אינו מבחין בין שווקים ספציפיים, "
-        "אלא משקף בעיקר את המגמה הממוצעת של כל הסל בחלון הנתונים (כל השווקים נחזים "
-        "מאותה נקודת זמן כמעט, כך שרכיב משותף יכול לגבור על אות ספציפי לשוק). "
-        "אין לפרש זאת כתחזית אמינה ברמת השוק הבודד."
+        f"{top_count} מתוך {total} השווקים חזויים לנוע ל{top_direction}, כמעט כולם "
+        "לאותו כיוון. זה סימן שהמודל לא מבחין בין שווקים ספציפיים, אלא בעיקר "
+        "משקף את המגמה הממוצעת של כל הסל בחלון הנתונים, כי כל השווקים נחזים "
+        "מאותה נקודת זמן כמעט ורכיב משותף גובר על אות ספציפי לשוק. "
+        "אין לפרש את זה כתחזית אמינה ברמת שוק בודד."
     )
 
 
@@ -1247,7 +1247,7 @@ def render_static_table(df: pd.DataFrame, formats: Dict[str, str]) -> None:
     for col, fmt in formats.items():
         if col in shown.columns:
             shown[col] = pd.to_numeric(shown[col], errors="coerce").map(
-                lambda value: fmt.format(value) if pd.notna(value) else "—"
+                lambda value: fmt.format(value) if pd.notna(value) else "לא זמין"
             )
     st.table(shown.reset_index(drop=True))
 
@@ -1595,7 +1595,7 @@ def main() -> None:
     st.markdown(
         "לוח מחוונים מחקרי המשווה בין **מדד המתיחות בסיקור הגאופוליטי** (מודל NLP) "
         "לבין **תנועות ההסתברות בשוקי הניבוי של Polymarket** עבור אירועים במזרח התיכון. "
-        "המערכת חוזה את תנועת ההסתברות בשוק — **לא** את התרחשות האירוע במציאות."
+        "המערכת חוזה את תנועת ההסתברות בשוק, **לא** את התרחשות האירוע במציאות."
     )
 
     controls = sidebar()
@@ -1776,13 +1776,12 @@ def main() -> None:
     )
     if model_result and not model_result.get("beats_baseline"):
         st.warning(
-            "המודל אינו משפר את תחזית הבסיס בהרצה הנוכחית. הטבלה שלהלן מוצגת "
-            "לצורך מעקב מחקרי בלבד — אין להתייחס אליה כתחזית בעלת ערך חיזויי.",
-            icon="⚠️",
+            "המודל אינו משפר את תחזית הבסיס בהרצה הנוכחית. הטבלה הזו מיועדת "
+            "למעקב מחקרי בלבד, ואין להתייחס אליה כתחזית אמינה."
         )
     uniformity_note = direction_uniformity_warning(future_df)
     if uniformity_note:
-        st.warning(uniformity_note, icon="🧭")
+        st.warning(uniformity_note)
     top_forecasts_he = top_forecast_table_he(future_df, model_result, limit=5)
     if not top_forecasts_he.empty:
         render_static_table(
@@ -2156,8 +2155,8 @@ def main() -> None:
           ציבוריים ונתוני השווקים מ-Polymarket API; הסנטימנט מחושב במודל NLP של
           Hugging Face, והחיזוי במודל Random Forest המתוקף מול שלוש תחזיות בסיס.
           מקור הנתונים בתצוגה זו: {storage_he}.</p>
-          <p style="margin-top:8px">המערכת חוזה תנועת הסתברות בפולימרקט בלבד —
-          לא את התרחשות האירוע במציאות, לא סיבתיות, ולא המלצות מסחר.</p>
+          <p style="margin-top:8px">המערכת חוזה תנועת הסתברות בפולימרקט בלבד.
+          היא לא חוזה את התרחשות האירוע במציאות, לא קובעת סיבתיות, ולא נותנת המלצות מסחר.</p>
         </div>
         """,
         unsafe_allow_html=True,
